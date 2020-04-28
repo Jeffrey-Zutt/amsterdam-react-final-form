@@ -40,9 +40,7 @@ const NumberField:React.FC<Props> = ({ name, label, validate = noop, ...otherPro
   />
 
   return <>
-    { label !== undefined
-      ? <Label label={label} position='top' align='flex-start'>{ inputComponent }</Label>
-      : inputComponent }
+    <Label label={label}>{ inputComponent }</Label>
     { hasError && (
       <FieldError>{ meta.error }</FieldError>
     ) }

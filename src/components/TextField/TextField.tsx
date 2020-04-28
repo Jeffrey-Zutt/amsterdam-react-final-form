@@ -30,9 +30,7 @@ const TextField:React.FC<Props> = ({ name, label, validate = noop, ...otherProps
   />
 
   return <>
-    { label !== undefined
-      ? <Label label={label} position='top' align='flex-start'>{ inputComponent }</Label>
-      : inputComponent }
+    <Label label={label}>{ inputComponent }</Label>
     { hasError && (
       <FieldError>{ meta.error }</FieldError>
     ) }

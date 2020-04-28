@@ -1,7 +1,8 @@
-import { Label as AscLabel, themeSpacing } from "@datapunt/asc-ui"
+import { Label as AscLabel } from "@datapunt/asc-ui"
 import styled from "styled-components"
+import React from "react";
 
-export const Label = styled(AscLabel)`
+const StyledLabel = styled(AscLabel)`
   line-height: 25px;
   font-size: 18px;
   font-weight: 600;
@@ -11,3 +12,12 @@ export const Label = styled(AscLabel)`
     margin-bottom: 10px;    
   }
 `
+
+type Props = {
+  label?: string
+}
+
+export const Label:React.FC<Props> = ({label, children}) =>
+  label !== undefined
+    ? <StyledLabel label={label} position='top' align='flex-start'>{ children }</StyledLabel>
+    : <>{ children }</>
