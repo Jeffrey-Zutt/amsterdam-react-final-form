@@ -5,42 +5,53 @@ import { FieldValidator } from "final-form"
 import {Label} from "../Label/Label";
 import {FieldError} from "../FieldError/FieldError";
 
-export type Props = {
+export type Props<TYPE> = {
   label?: string
   name: string
-  validate?: FieldValidator<string>,
-  options: Record<string, string>
+  validate?: FieldValidator<TYPE>,
+  options: TYPE[]
+  optionLabelField: keyof TYPE
+  optionKeyField?: keyof TYPE
 } & React.HTMLAttributes<HTMLSelectElement>
 
-const SelectField:React.FC<Props> = ({
+function SelectField<TYPE>({
   label,
   name,
   validate,
   options,
+  optionLabelField,
+  optionKeyField,
   ...restProps
-}) => {
+}:PropsWithChildren<Props<TYPE>>) {
 
-  const {input, meta } = useField(name, {
+  const {
+    input: { value, onChange, ...restInput },
+    meta } = useField(name, {
     type: "select",
     validate
   })
 
   const hasError = meta.touched && meta.error
 
+  const handleChange = useCallback((e) => {
+    onChange(options[e.target.value])
+  }, [options, onChange])
+
   return <>
     <Label label={label}>
       <Select
         error={hasError}
-        {...input}
+        onChange={handleChange}
+        {...restInput}
         {...restProps}
       >
-        { Object.entries(options)
-          .map(([key, label]) => (
-            <option key={key} value={key}>
-              {label}
-            </option>
-          ))
-        }
+        { options.map((option, index) => (
+          <option
+            key={`${(optionKeyField && option[optionKeyField]) || index}`}
+            value={index}>
+            { option[optionLabelField] }
+          </option>
+        ))}
       </Select>
     </Label>
     { hasError && <FieldError>{ meta.error }</FieldError> }
