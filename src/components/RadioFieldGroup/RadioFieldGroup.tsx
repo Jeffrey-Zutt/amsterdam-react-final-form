@@ -3,6 +3,8 @@ import { FieldValidator } from "final-form"
 import { RadioGroup, Label as AscLabel } from "@datapunt/asc-ui"
 import {RadioControl} from "./RadioControl";
 import {Label} from "../Label/Label";
+import {useField} from "react-final-form";
+import {FieldError} from "../FieldError/FieldError";
 
 type Options<TYPE> = Record<string, TYPE>
 
@@ -16,6 +18,9 @@ export type Props<TYPE> = {
 } & React.HTMLAttributes<HTMLInputElement>
 
 function RadioFieldGroup<TYPE>({ label, labelField, name, horizontal, validate, options }: PropsWithChildren<Props<TYPE>>) {
+  const { meta } = useField(name)
+  const hasError = meta.dirty && meta.error
+
   return (
      <>
       { label !== undefined && <Label label={label} />}
@@ -23,11 +28,12 @@ function RadioFieldGroup<TYPE>({ label, labelField, name, horizontal, validate, 
         { Object
           .entries(options)
           .map(([key, value]) => (
-            <AscLabel key={key} htmlFor={key} label={`${labelField && value[labelField] || value}`}>
+            <AscLabel key={key} htmlFor={key} label={`${(labelField && value[labelField]) || value}`}>
               <RadioControl id={key} value={value} name={name} validate={validate} />
             </AscLabel>
           )) }
       </RadioGroup>
+       { hasError && <FieldError>{meta.error}</FieldError> }
     </>
   )
 }
