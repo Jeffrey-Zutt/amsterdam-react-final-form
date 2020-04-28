@@ -33,14 +33,14 @@ const NumberField:React.FC<Props> = ({ name, label, validate = noop, ...otherPro
 
   const hasError = meta.touched && meta.error
 
-  const inputComponent = <Input
-    error={hasError}
-    {...input}
-    {...otherProps}
-  />
-
   return <>
-    <Label label={label}>{ inputComponent }</Label>
+    <Label label={label}>
+      <Input
+        error={hasError}
+        {...input}
+        {...otherProps}
+      />
+    </Label>
     { hasError && (
       <FieldError>{ meta.error }</FieldError>
     ) }

@@ -5,16 +5,16 @@ import {FieldValidator} from "final-form";
 
 type Props<TYPE> = {
   id: string
-  value: TYPE,
+  value: TYPE | string,
   name: string,
-  validate?: FieldValidator<TYPE>
+  validate?: FieldValidator<TYPE | string>
 }
 
 export function RadioControl<TYPE>({ id, value, name, validate }:PropsWithChildren<Props<TYPE>>) {
   const {
       input: { onChange, value: inputValue, ...restInput },
       meta
-    } = useField<TYPE>(name, {
+    } = useField<TYPE | string>(name, {
       type: "radio",
       value,
       validate

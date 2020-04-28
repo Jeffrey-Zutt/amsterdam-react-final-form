@@ -14,7 +14,7 @@ export type Props<TYPE> = {
   options: Options<TYPE>
   labelField?: keyof TYPE,
   horizontal?: boolean
-  validate?: FieldValidator<TYPE>
+  validate?: FieldValidator<TYPE | string>
 } & React.HTMLAttributes<HTMLInputElement>
 
 function RadioFieldGroup<TYPE>({ label, labelField, name, horizontal, validate, options }: PropsWithChildren<Props<TYPE>>) {
@@ -29,7 +29,7 @@ function RadioFieldGroup<TYPE>({ label, labelField, name, horizontal, validate, 
           .entries(options)
           .map(([key, value]) => (
             <AscLabel key={key} htmlFor={key} label={`${(labelField && value[labelField]) || value}`}>
-              <RadioControl id={key} value={value} name={name} validate={validate} />
+              <RadioControl id={key} value={labelField ? value : key} name={name} validate={validate} />
             </AscLabel>
           )) }
       </RadioGroup>
