@@ -17,7 +17,7 @@ const UnboundCheckbox:React.FC<Props> = ({ value, onChange, ...restProps }) => {
     if (onChange) {
        onChange(e.target.checked, value)
     }
-  }, [onChange])
+  }, [onChange, value])
 
   return (<Checkbox onChange={handleChange} {...restProps} />)
 }

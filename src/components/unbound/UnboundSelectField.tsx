@@ -7,6 +7,7 @@ export type Props = {
   label?: string
   error?: string
   options: Record<string, string>,
+  value?: string
 } & React.HTMLAttributes<HTMLSelectElement>
 
 /**

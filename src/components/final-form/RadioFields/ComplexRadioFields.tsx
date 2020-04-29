@@ -1,7 +1,7 @@
-import React, {PropsWithChildren, useCallback, useEffect, useState} from "react"
-import { useField } from "react-final-form"
-import { FieldValidator } from "final-form"
-import UnboundSelectField from "../../unbound/UnboundSelectField";
+import {FieldValidator} from "final-form";
+import React, {PropsWithChildren, useCallback, useEffect, useState} from "react";
+import {useField} from "react-final-form";
+import UnboundRadioFields from "../../unbound/UnboundRadioFields";
 import {findIndex} from "../../../utils/findIndex";
 
 export type Props<TYPE> = {
@@ -10,24 +10,21 @@ export type Props<TYPE> = {
   validate?: FieldValidator<TYPE>,
   options: TYPE[]
   optionLabelField: keyof TYPE
-  optionKeyField?: keyof TYPE
-} & React.HTMLAttributes<HTMLSelectElement>
+} & React.HTMLAttributes<HTMLInputElement>
 
 /**
  * Binds SELECT field to final-form and maps options to complex data-structures.
  */
 
-function ComplexSelectField<TYPE>({
+function ComplexRadioFields<TYPE>({
   name,
   options,
   optionLabelField,
-  optionKeyField,
   validate,
   ...restProps
 }:PropsWithChildren<Props<TYPE>>) {
 
   const {input: { onChange, value }, meta } = useField(name, {
-    type: "select",
     validate
   })
 
@@ -44,8 +41,9 @@ function ComplexSelectField<TYPE>({
     [onChange, options]
   )
 
-  return <UnboundSelectField
-    error={meta.dirty && meta.error}
+  return <UnboundRadioFields
+    name={name}
+    error={meta.touched && meta.error}
     options={mappedOptions}
     onChange={handleChange}
     value={findIndex(options, value).toString()}
@@ -53,4 +51,4 @@ function ComplexSelectField<TYPE>({
   />
 }
 
-export default ComplexSelectField
+export default ComplexRadioFields

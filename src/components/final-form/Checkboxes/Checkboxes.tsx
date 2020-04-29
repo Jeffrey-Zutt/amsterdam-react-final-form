@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import React from "react"
 import { FieldValidator } from "final-form"
 import {useField} from "react-final-form";
 import {UnboundCheckboxes} from "../../unbound/UnboundCheckboxes";

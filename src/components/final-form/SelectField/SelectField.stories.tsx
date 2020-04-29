@@ -2,7 +2,7 @@ import React from 'react';
 import { SelectField } from "./SelectField";
 
 export default {
-  title: 'SelectField/Simple data structure',
+  title: 'SelectField',
 };
 
 export const WithLabel = () => <SelectField
