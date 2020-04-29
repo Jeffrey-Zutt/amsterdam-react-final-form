@@ -1,13 +1,11 @@
 import React from "react"
-import { Input } from "@datapunt/asc-ui"
 import { useField } from "react-final-form"
 import { FieldValidator } from "final-form"
-import { combineValidators } from "../../validators/combineValidators"
-import { isAbove } from "../../validators/isAbove"
-import { isBelow } from "../../validators/isBelow"
-import {Label} from "../Label/Label";
-import {FieldError} from "../FieldError/FieldError";
-import {noop} from "../../utils/noop";
+import { combineValidators } from "../../../validators/combineValidators"
+import { isAbove } from "../../../validators/isAbove"
+import { isBelow } from "../../../validators/isBelow"
+import {noop} from "../../../utils/noop";
+import UnboundTextField from "../../unbound/UnboundTextField";
 
 export type Props = {
   label?: string
@@ -31,20 +29,12 @@ const NumberField:React.FC<Props> = ({ name, label, validate = noop, ...otherPro
     validate
   })
 
-  const hasError = meta.touched && meta.error
-
-  return <>
-    <Label label={label}>
-      <Input
-        error={hasError}
-        {...input}
-        {...otherProps}
-      />
-    </Label>
-    { hasError && (
-      <FieldError>{ meta.error }</FieldError>
-    ) }
-  </>
+  return <UnboundTextField
+    label={label}
+    error={meta.touched && meta.error}
+    { ...input }
+    { ...otherProps }
+  />
 }
 
 export default NumberField

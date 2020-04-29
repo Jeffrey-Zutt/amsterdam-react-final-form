@@ -18,6 +18,7 @@ const Wrapper = styled.div`
 `
 
 const Pre = styled.pre`
+  margin: 0;
   padding: 20px;
   background-color: ${themeColor('tint', 'level3')}
 `
@@ -34,6 +35,9 @@ function withGlobalStyles(storyFn) {
           {storyFn()}
         </Wrapper>
         <Wrapper>
+          <Pre>
+            // form values:
+          </Pre>
           <Pre>
             { JSON.stringify(values, null, 2) }
           </Pre>

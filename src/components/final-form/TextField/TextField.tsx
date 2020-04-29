@@ -1,10 +1,8 @@
 import React from "react"
 import { useField } from "react-final-form"
 import { FieldValidator } from "final-form"
-import { Input } from "@datapunt/asc-ui"
-import { noop } from "../../utils/noop";
-import {Label} from "../Label/Label";
-import {FieldError} from "../FieldError/FieldError";
+import { noop } from "../../../utils/noop";
+import UnboundTextField from "../../unbound/UnboundTextField";
 
 export type Props = {
   label?: string
@@ -21,20 +19,12 @@ const TextField:React.FC<Props> = ({ name, label, validate = noop, ...otherProps
     validate
   })
 
-  const hasError = meta.touched && meta.error
-
-  return <>
-    <Label label={label}>
-      <Input
-        error={hasError}
-        {...input}
-        {...otherProps}
-      />
-    </Label>
-    { hasError && (
-      <FieldError>{ meta.error }</FieldError>
-    ) }
-  </>
+  return <UnboundTextField
+    label={label}
+    error={meta.touched && meta.error}
+    { ...input }
+    { ...otherProps }
+  />
 }
 
 export default TextField

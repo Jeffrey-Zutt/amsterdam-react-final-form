@@ -1,0 +1,54 @@
+import React, {PropsWithChildren, useCallback, useEffect, useState} from "react"
+import { useField } from "react-final-form"
+import { FieldValidator } from "final-form"
+import UnboundSelectField from "../../unbound/UnboundSelectField";
+
+export type Props<TYPE> = {
+  label?: string
+  name: string
+  validate?: FieldValidator<TYPE>,
+  options: TYPE[]
+  optionLabelField: keyof TYPE
+  optionKeyField?: keyof TYPE
+} & React.HTMLAttributes<HTMLSelectElement>
+
+/**
+ * Binds SELECT field to final-form and maps options to complex data-structures.
+ */
+
+function ComplexSelectField<TYPE>({
+  name,
+  options,
+  optionLabelField,
+  optionKeyField,
+  validate,
+  ...restProps
+}:PropsWithChildren<Props<TYPE>>) {
+
+  const {input: { onChange }, meta } = useField(name, {
+    type: "select",
+    validate
+  })
+
+  const [mappedOptions, setMappedOptions] = useState({})
+
+  useEffect(
+    () => { setMappedOptions(options.reduce((acc, option, index) => ({ ...acc, [index]: option[optionLabelField] }), {}))},
+    [ options, optionLabelField, setMappedOptions ]
+  )
+
+  // On change, map back to original object:
+  const handleChange = useCallback(
+    (e) => { onChange(options[e.target.value])},
+    [onChange, options]
+  )
+
+  return <UnboundSelectField
+    error={meta.touched && meta.error}
+    options={mappedOptions}
+    onChange={handleChange}
+    {...restProps}
+  />
+}
+
+export default ComplexSelectField

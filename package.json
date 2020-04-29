@@ -5,6 +5,7 @@
   "dependencies": {
     "@datapunt/asc-assets": "^0.19.1",
     "@datapunt/asc-ui": "^0.19.2-beta.1",
+    "@types/styled-components": "^5.1.0",
     "final-form": "^4.19.1",
     "objectFitPolyfill": "^2.3.0",
     "react": "^16.13.1",

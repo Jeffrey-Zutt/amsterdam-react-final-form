@@ -9,7 +9,7 @@ const StyledLabel = styled(AscLabel)`
   width: 100%;  
   
   span {
-    margin-bottom: 10px;    
+    margin: 10px 0;    
   }
 `
 
