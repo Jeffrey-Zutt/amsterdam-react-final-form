@@ -1,29 +1,13 @@
 {
   "name": "amsterdam-react-final-form",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@datapunt/asc-assets": "^0.19.1",
-    "@datapunt/asc-ui": "^0.19.2-beta.1",
-    "@types/styled-components": "^5.1.0",
-    "eslint": "^6.8.0",
-    "final-form": "^4.19.1",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.0",
-    "lodash.isequal": "^4.5.0",
-    "objectFitPolyfill": "^2.3.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-final-form": "^6.4.0",
-    "react-scripts": "3.4.1",
-    "styled-components": "^5.1.0"
-  },
+  "version": "0.1.1",
+  "private": false,
   "scripts": {
     "storybook": "start-storybook -p 9009 -s public",
     "storybook:build": "build-storybook -s public -o docs",
     "lint": "eslint --cache --ext .ts,.tsx src",
     "lint:fix": "npm run lint -- --fix",
-    "build": "rm -Rf ./dist && tsc ./src/index.ts --esModuleInterop --declaration --skipLibCheck --jsx react --outDir dist"
+    "build": "rm -Rf ./dist && tsc ./src/index.ts --esModuleInterop --declaration --skipLibCheck --jsx react --outDir dist && cp ./package.json ./dist/package.json"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,6 +24,9 @@
       "last 1 safari version"
     ]
   },
+  "dependencies": {
+    "lodash.isequal": "^4.5.0"
+  },
   "devDependencies": {
     "@storybook/addon-actions": "^5.3.18",
     "@storybook/addon-docs": "^5.3.18",
@@ -55,7 +42,21 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
-    "typescript": "~3.7.2"
+    "typescript": "~3.7.2",
+    "eslint": "^6.8.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.0"
+  },
+  "peerDependencies": {
+    "@datapunt/asc-assets": "^0.19.1",
+    "@datapunt/asc-ui": "^0.19.2-beta.1",
+    "@types/styled-components": "^5.1.0",
+    "final-form": "^4.19.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-final-form": "^6.4.0",
+    "react-scripts": "3.4.1",
+    "styled-components": "^5.1.0"
   },
   "husky": {
     "hooks": {
@@ -67,5 +68,5 @@
       "npm run lint:fix"
     ]
   },
-  "main": "dist/index.js"
+  "main": "index.js"
 }
