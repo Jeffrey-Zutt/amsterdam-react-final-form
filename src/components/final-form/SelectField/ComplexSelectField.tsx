@@ -1,8 +1,8 @@
-import React, {PropsWithChildren, useCallback, useEffect, useState} from "react"
+import React, { PropsWithChildren, useCallback, useEffect, useState } from "react"
 import { useField } from "react-final-form"
 import { FieldValidator } from "final-form"
-import UnboundSelectField from "../../unbound/UnboundSelectField";
-import {findIndex} from "../../../utils/findIndex";
+import UnboundSelectField from "../../unbound/UnboundSelectField"
+import { findIndex } from "../../../utils/findIndex"
 
 export type Props<TYPE> = {
   label?: string
@@ -25,8 +25,7 @@ function ComplexSelectField<TYPE>({
   validate,
   ...restProps
 }:PropsWithChildren<Props<TYPE>>) {
-
-  const {input: { onChange, value }, meta } = useField(name, {
+  const { input: { onChange, value }, meta } = useField(name, {
     type: "select",
     validate
   })
@@ -34,13 +33,13 @@ function ComplexSelectField<TYPE>({
   const [mappedOptions, setMappedOptions] = useState({})
 
   useEffect(
-    () => { setMappedOptions(options.reduce((acc, option, index) => ({ ...acc, [index]: option[optionLabelField] }), {}))},
+    () => { setMappedOptions(options.reduce((acc, option, index) => ({ ...acc, [index]: option[optionLabelField] }), {})) },
     [ options, optionLabelField, setMappedOptions ]
   )
 
   // On change, map back to original object:
   const handleChange = useCallback(
-    (e) => { onChange(options[e.target.value])},
+    (e) => { onChange(options[e.target.value]) },
     [onChange, options]
   )
 

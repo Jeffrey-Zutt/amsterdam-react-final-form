@@ -1,7 +1,7 @@
-import React from 'react'
-import {Label} from "./Label";
-import {Label as AscLabel, RadioGroup, Radio} from "@datapunt/asc-ui";
-import {FieldError} from "./FieldError";
+import React from "react"
+import { Label } from "./Label"
+import { Label as AscLabel, RadioGroup, Radio } from "@datapunt/asc-ui"
+import { FieldError } from "./FieldError"
 
 export type Props = {
   name: string

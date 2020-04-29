@@ -1,8 +1,8 @@
 import React from "react"
 import { useField } from "react-final-form"
 import { FieldValidator } from "final-form"
-import { noop } from "../../../utils/noop";
-import UnboundTextArea from "../../unbound/UnboundTextArea";
+import { noop } from "../../../utils/noop"
+import UnboundTextArea from "../../unbound/UnboundTextArea"
 
 export type Props = {
   label?: string

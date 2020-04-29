@@ -4,8 +4,8 @@ import { FieldValidator } from "final-form"
 import { combineValidators } from "../../../validators/combineValidators"
 import { isAbove } from "../../../validators/isAbove"
 import { isBelow } from "../../../validators/isBelow"
-import {noop} from "../../../utils/noop";
-import UnboundTextField from "../../unbound/UnboundTextField";
+import { noop } from "../../../utils/noop"
+import UnboundTextField from "../../unbound/UnboundTextField"
 
 export type Props = {
   label?: string

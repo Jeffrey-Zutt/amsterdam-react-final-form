@@ -1,10 +1,10 @@
-import React, {useCallback, useState} from 'react'
-import { Label as AscLabel } from "@datapunt/asc-ui";
-import {Label} from "./Label";
-import {FieldError} from "./FieldError";
-import UnboundCheckbox from "./UnboundCheckbox";
+import React, { useCallback, useState } from "react"
+import { Label as AscLabel } from "@datapunt/asc-ui"
+import { Label } from "./Label"
+import { FieldError } from "./FieldError"
+import UnboundCheckbox from "./UnboundCheckbox"
 
-export type Props = Omit<React.HTMLAttributes<HTMLInputElement>, 'onChange'> & {
+export type Props = Omit<React.HTMLAttributes<HTMLInputElement>, "onChange"> & {
   values: string[],
   label?: string
   error?: string
@@ -13,7 +13,6 @@ export type Props = Omit<React.HTMLAttributes<HTMLInputElement>, 'onChange'> & {
 }
 
 export const UnboundCheckboxes:React.FC<Props> = ({ values: initialValues, label, error, options, onChange, ...restProps }) => {
-
   const [values, setValues] = useState<string[]>(initialValues)
 
   const handleChange = useCallback((checked:boolean, value:string) => {

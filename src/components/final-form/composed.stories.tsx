@@ -1,20 +1,17 @@
-import React from 'react';
-
-import { Heading } from '@datapunt/asc-ui'
-
-import NumberField from "./NumberField/NumberField";
-import TextAreaField from "./TextAreaField/TextAreaField";
-import TextField from "./TextField/TextField";
-import SelectField from "./SelectField/SelectField";
-import CheckboxFields from "./CheckboxFields/CheckboxFields";
-import RadioFields from "./RadioFields/RadioFields";
-import ComplexSelectField from "./SelectField/ComplexSelectField";
-import ComplexCheckboxFields from "./CheckboxFields/ComplexCheckboxFields";
-import ComplexRadioFields from "./RadioFields/ComplexRadioFields";
+import React from "react"
+import NumberField from "./NumberField/NumberField"
+import TextAreaField from "./TextAreaField/TextAreaField"
+import TextField from "./TextField/TextField"
+import SelectField from "./SelectField/SelectField"
+import CheckboxFields from "./CheckboxFields/CheckboxFields"
+import RadioFields from "./RadioFields/RadioFields"
+import ComplexSelectField from "./SelectField/ComplexSelectField"
+import ComplexCheckboxFields from "./CheckboxFields/ComplexCheckboxFields"
+import ComplexRadioFields from "./RadioFields/ComplexRadioFields"
 
 export default {
-  title: 'Complete form',
-};
+  title: "Complete form"
+}
 
 export const Example = () => <>
   <TextField
@@ -24,7 +21,7 @@ export const Example = () => <>
   <TextField
     name='personal.surname'
     label='Surname'
-    validate={() => 'This is an example error'}
+    validate={() => "This is an example error"}
   />
   <NumberField
     name='personal.age'
@@ -32,23 +29,23 @@ export const Example = () => <>
   />
   <SelectField
     name='pizza.crust'
-    options={{ 'thick': 'Thick crust', 'thin': 'Thin crust' }}
+    options={{ "thick": "Thick crust", "thin": "Thin crust" }}
     label='Crust'
   />
   <CheckboxFields
     name='pizza.toppings'
-    options={{ 'tomato': 'Tomato', 'cheese': 'Cheese', 'ham': 'Ham', 'pineapple': 'Pineapple' }}
+    options={{ "tomato": "Tomato", "cheese": "Cheese", "ham": "Ham", "pineapple": "Pineapple" }}
     label='Toppings'
   />
   <RadioFields
     name='pizza.delivery'
-    options={{ 'yes': 'Yes', 'no': 'No' }}
+    options={{ "yes": "Yes", "no": "No" }}
     label='Delivery'
     horizontal={true}
   />
   <RadioFields
     name='pizza.payment'
-    options={{ 'credit': 'Credit card', 'ideal': 'iDeal' }}
+    options={{ "credit": "Credit card", "ideal": "iDeal" }}
     label='Payment method'
   />
   <TextAreaField
@@ -65,8 +62,8 @@ export const ExampleUsingComplexFields = () => <>
     label='Select'
     name='user.select'
     options={[
-      { username: 'Zutt01', id: 'xxx01'  },
-      { username: 'Vanzee02', id: 'xxx02'  },
+      { username: "Zutt01", id: "xxx01"  },
+      { username: "Vanzee02", id: "xxx02"  }
     ]}
     optionLabelField='username'
   />
@@ -74,8 +71,8 @@ export const ExampleUsingComplexFields = () => <>
     label='Complex checkboxes'
     name='user.checkbox'
     options={[
-      { username: 'Zutt01', id: 'xxx01'  },
-      { username: 'Vanzee02', id: 'xxx02'  },
+      { username: "Zutt01", id: "xxx01"  },
+      { username: "Vanzee02", id: "xxx02"  }
     ]}
     optionLabelField='username'
   />
@@ -83,8 +80,8 @@ export const ExampleUsingComplexFields = () => <>
     label='Complex checkboxes'
     name='user.radio'
     options={[
-      { username: 'Zutt01', id: 'xxx01'  },
-      { username: 'Vanzee02', id: 'xxx02'  },
+      { username: "Zutt01", id: "xxx01"  },
+      { username: "Vanzee02", id: "xxx02"  }
     ]}
     optionLabelField='username'
   />

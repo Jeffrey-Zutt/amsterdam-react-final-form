@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import {themeColor, themeSpacing} from "@datapunt/asc-ui";
+import styled from "styled-components"
+import { themeColor, themeSpacing } from "@datapunt/asc-ui"
 
 export const FieldError = styled.div`
   line-height: 25px;
@@ -7,6 +7,6 @@ export const FieldError = styled.div`
   font-weight: 600;
   width: 100%;
   
-  margin-top: ${themeSpacing(4)};
-  color: ${themeColor('support', 'invalid')}
+  margin-top: ${ themeSpacing(4) };
+  color: ${ themeColor("support", "invalid") }
 `

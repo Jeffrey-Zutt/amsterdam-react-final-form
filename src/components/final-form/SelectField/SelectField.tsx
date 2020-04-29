@@ -1,7 +1,7 @@
-import React from 'react'
-import UnboundSelectField from "../../unbound/UnboundSelectField";
-import {FieldValidator} from "final-form";
-import {useField} from "react-final-form";
+import React from "react"
+import UnboundSelectField from "../../unbound/UnboundSelectField"
+import { FieldValidator } from "final-form"
+import { useField } from "react-final-form"
 
 export type Props = {
   name: string
@@ -15,7 +15,7 @@ export type Props = {
  */
 
 export const SelectField:React.FC<Props> = ({ name, validate, ...restProps }) => {
-  const {input, meta } = useField(name, {
+  const { input, meta } = useField(name, {
     type: "select",
     validate
   })

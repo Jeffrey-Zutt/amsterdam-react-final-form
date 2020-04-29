@@ -1,7 +1,7 @@
 import React from "react"
 import { Input } from "@datapunt/asc-ui"
-import {Label} from "./Label";
-import {FieldError} from "./FieldError";
+import { Label } from "./Label"
+import { FieldError } from "./FieldError"
 
 export type Props = {
   label?: string

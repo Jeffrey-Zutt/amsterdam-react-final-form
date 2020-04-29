@@ -1,9 +1,9 @@
 import styled, { css } from "styled-components"
-import {themeColor} from "@datapunt/asc-ui"
+import { themeColor } from "@datapunt/asc-ui"
 import { focusStyleOutline } from "@datapunt/asc-ui/es/utils"
-import React from "react";
-import {Label} from "./Label";
-import {FieldError} from "./FieldError";
+import React from "react"
+import { Label } from "./Label"
+import { FieldError } from "./FieldError"
 
 type StyleProps = {
   error?: string | boolean

@@ -1,7 +1,7 @@
 import React from "react"
 import { FieldValidator } from "final-form"
-import {useField} from "react-final-form";
-import UnboundRadioFields from "../../unbound/UnboundRadioFields";
+import { useField } from "react-final-form"
+import UnboundRadioFields from "../../unbound/UnboundRadioFields"
 
 export type Props = {
   label?: string
@@ -14,7 +14,7 @@ export type Props = {
 const RadioFields:React.FC<Props> = ({ name, validate, ...restProps }) => {
   const {
     input,
-    meta,
+    meta
   } = useField(name, {
     validate
   })

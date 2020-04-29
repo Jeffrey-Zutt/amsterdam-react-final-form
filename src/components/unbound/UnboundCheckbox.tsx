@@ -1,7 +1,7 @@
-import { Checkbox } from "@datapunt/asc-ui";
-import React, {useCallback} from "react";
+import { Checkbox } from "@datapunt/asc-ui"
+import React, { useCallback } from "react"
 
-type Props = Omit<React.HTMLAttributes<HTMLInputElement>, 'onChange'> & {
+type Props = Omit<React.HTMLAttributes<HTMLInputElement>, "onChange"> & {
   error?: boolean,
   checked?: boolean
   value: string

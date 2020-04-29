@@ -1,8 +1,8 @@
-import {FieldValidator} from "final-form";
-import React, {PropsWithChildren, useCallback, useEffect, useState} from "react";
-import {useField} from "react-final-form";
-import {findIndexes} from "../../../utils/findIndex";
-import {UnboundCheckboxes} from "../../unbound/UnboundCheckboxes";
+import { FieldValidator } from "final-form"
+import React, { PropsWithChildren, useCallback, useEffect, useState } from "react"
+import { useField } from "react-final-form"
+import { findIndexes } from "../../../utils/findIndex"
+import { UnboundCheckboxes } from "../../unbound/UnboundCheckboxes"
 
 export type Props<TYPE> = {
   label?: string
@@ -10,7 +10,7 @@ export type Props<TYPE> = {
   validate?: FieldValidator<TYPE>,
   options: TYPE[]
   optionLabelField: keyof TYPE
-} & Omit<React.HTMLAttributes<HTMLInputElement>, 'onChange'>
+} & Omit<React.HTMLAttributes<HTMLInputElement>, "onChange">
 
 /**
  * Binds SELECT field to final-form and maps options to complex data-structures.
@@ -23,8 +23,7 @@ function ComplexCheckboxFields<TYPE>({
   validate,
   ...restProps
 }:PropsWithChildren<Props<TYPE>>) {
-
-  const {input: { onChange, value }, meta } = useField(name, {
+  const { input: { onChange, value }, meta } = useField(name, {
     validate
   })
 
