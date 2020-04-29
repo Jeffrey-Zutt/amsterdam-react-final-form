@@ -10,13 +10,13 @@ export type Props<TYPE> = {
   validate?: FieldValidator<TYPE>,
   options: TYPE[]
   optionLabelField: keyof TYPE
-} & React.HTMLAttributes<HTMLInputElement>
+} & Omit<React.HTMLAttributes<HTMLInputElement>, 'onChange'>
 
 /**
  * Binds SELECT field to final-form and maps options to complex data-structures.
  */
 
-function ComplexCheckboxes<TYPE>({
+function ComplexCheckboxFields<TYPE>({
   name,
   options,
   optionLabelField,
@@ -42,7 +42,6 @@ function ComplexCheckboxes<TYPE>({
   )
 
   return <UnboundCheckboxes
-    name={name}
     error={meta.touched && meta.error}
     options={mappedOptions}
     onChange={handleChange}
@@ -51,4 +50,4 @@ function ComplexCheckboxes<TYPE>({
   />
 }
 
-export default ComplexCheckboxes
+export default ComplexCheckboxFields

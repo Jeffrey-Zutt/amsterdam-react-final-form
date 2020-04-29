@@ -1,8 +1,8 @@
 import React from 'react';
-import ComplexCheckboxes from "./ComplexCheckboxes";
+import ComplexCheckboxFields from "./ComplexCheckboxFields";
 
 export default {
-  title: 'Checkboxes/Complex data structure',
+  title: 'CheckboxFields/Complex data structure',
 };
 
 type MyComplexDataStructure = {
@@ -11,7 +11,7 @@ type MyComplexDataStructure = {
   something: { nested: { foo: boolean } }
 }
 
-export const WithLabel = () => <ComplexCheckboxes<MyComplexDataStructure>
+export const WithLabel = () => <ComplexCheckboxFields<MyComplexDataStructure>
   name='myFieldName'
   label='foo'
   optionLabelField='myLabel'
@@ -21,7 +21,7 @@ export const WithLabel = () => <ComplexCheckboxes<MyComplexDataStructure>
   ]}
 />
 
-export const WithoutLabel = () => <ComplexCheckboxes<MyComplexDataStructure>
+export const WithoutLabel = () => <ComplexCheckboxFields<MyComplexDataStructure>
   name='myFieldName'
   optionLabelField='myLabel'
   options={[
@@ -30,7 +30,7 @@ export const WithoutLabel = () => <ComplexCheckboxes<MyComplexDataStructure>
   ]}
 />
 
-export const WithError = () => <ComplexCheckboxes<MyComplexDataStructure>
+export const WithError = () => <ComplexCheckboxFields<MyComplexDataStructure>
   name='myFieldName'
   validate={() => 'Some error occured'}
   optionLabelField='myLabel'

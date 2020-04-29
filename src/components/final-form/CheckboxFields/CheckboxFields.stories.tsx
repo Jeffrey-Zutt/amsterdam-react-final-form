@@ -1,22 +1,22 @@
 import React from 'react';
-import Checkboxes from "./Checkboxes";
+import CheckboxFields from "./CheckboxFields";
 
 export default {
-  title: 'Checkboxes',
+  title: 'CheckboxFields',
 };
 
-export const WithLabel = () => <Checkboxes
+export const WithLabel = () => <CheckboxFields
   name='myFieldName'
   label='foo'
   options={{ foo: 'Foo', bar: 'Bar' }}
 />
 
-export const WithoutLabel = () => <Checkboxes
+export const WithoutLabel = () => <CheckboxFields
   name='myFieldName'
   options={{ foo: 'Foo', bar: 'Bar' }}
 />
 
-export const WithError = () => <Checkboxes
+export const WithError = () => <CheckboxFields
   name='myFieldName'
   options={{ foo: 'Foo', bar: 'Bar' }}
   validate={() => 'Some error occured'}

@@ -14,7 +14,7 @@ export type Props = {
 
 const UnboundRadioFields:React.FC<Props> = ({ name, horizontal, label, error, options, value, ...restProps }) => (
   <>
-    { label !== undefined && <Label label={label} />}
+    { label !== undefined && <Label label={label} usedForCheckboxOrRadio={true} />}
     <RadioGroup name={name} horizontal={horizontal}>
       { Object
         .entries(options)

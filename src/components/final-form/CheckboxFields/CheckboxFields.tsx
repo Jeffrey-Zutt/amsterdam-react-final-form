@@ -10,7 +10,7 @@ export type Props = {
   validate?: FieldValidator<string[]>
 } & Omit<React.HTMLAttributes<HTMLInputElement>, 'onChange'>
 
-const Checkboxes:React.FC<Props> = ({ name, validate, ...restProps }) => {
+const CheckboxFields:React.FC<Props> = ({ name, validate, ...restProps }) => {
   const {
     input: { value: values, ...restInput },
     meta,
@@ -27,4 +27,4 @@ const Checkboxes:React.FC<Props> = ({ name, validate, ...restProps }) => {
   />)
 }
 
-export default Checkboxes
+export default CheckboxFields

@@ -2,6 +2,11 @@ import { Label as AscLabel } from "@datapunt/asc-ui"
 import styled from "styled-components"
 import React from "react";
 
+type Props = {
+  usedForCheckboxOrRadio?: boolean
+  label?: string
+}
+
 const StyledLabel = styled(AscLabel)`
   line-height: 25px;
   font-size: 18px;
@@ -9,15 +14,12 @@ const StyledLabel = styled(AscLabel)`
   width: 100%;  
   
   span {
-    margin: 10px 0;    
+    margin: 10px 0 ${({usedForCheckboxOrRadio}:Props) => usedForCheckboxOrRadio ? 6 : 10 }px 0;    
   }
 `
 
-type Props = {
-  label?: string
-}
 
-export const Label:React.FC<Props> = ({label, children}) =>
+export const Label:React.FC<Props> = ({label, usedForCheckboxOrRadio, children}) =>
   label !== undefined
-    ? <StyledLabel label={label} position='top' align='flex-start'>{ children }</StyledLabel>
+    ? <StyledLabel label={label} usedForCheckboxOrRadio={usedForCheckboxOrRadio} position='top' align='flex-start'>{ children }</StyledLabel>
     : <>{ children }</>

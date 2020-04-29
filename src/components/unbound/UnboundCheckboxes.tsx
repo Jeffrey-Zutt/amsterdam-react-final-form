@@ -9,7 +9,7 @@ export type Props = Omit<React.HTMLAttributes<HTMLInputElement>, 'onChange'> & {
   label?: string
   error?: string
   options: Record<string, string>
-  onChange?: (values: string[])=>void
+  onChange?: (values:string[]) => void
 }
 
 export const UnboundCheckboxes:React.FC<Props> = ({ values: initialValues, label, error, options, onChange, ...restProps }) => {
@@ -30,7 +30,7 @@ export const UnboundCheckboxes:React.FC<Props> = ({ values: initialValues, label
 
   return (
     <>
-      { label !== undefined && <Label label={label} />}
+      { label !== undefined && <Label label={label} usedForCheckboxOrRadio={true} />}
       { Object
         .entries(options)
         .map(([key, value]) => (
