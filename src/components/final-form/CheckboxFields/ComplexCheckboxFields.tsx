@@ -27,6 +27,16 @@ function ComplexCheckboxFields<TYPE>({
     validate
   })
 
+  // We map complex objects in a 'simple' structure `UnboundCheckboxes`.
+  //
+  // E.g.
+  // [ { myLabel: 'foo', nested: {...} }, { myLabel: 'bar', nested: {...} } ]
+  //
+  // Becomes:
+  // { '0': 'foo', '1': 'bar' }
+  //
+  // Whenever a change happens, we map back to the original objects and call onChange with them.
+
   const [mappedOptions, setMappedOptions] = useState({})
 
   useEffect(

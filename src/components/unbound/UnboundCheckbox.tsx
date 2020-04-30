@@ -9,7 +9,7 @@ type Props = Omit<React.HTMLAttributes<HTMLInputElement>, "onChange"> & {
 }
 
 /**
- * Unbound checkbox, calls (checked:boolean, value:string) instead of onChange(boolean)
+ * Unbound checkbox, calls onChange(checked:boolean, value:string) instead of onChange(boolean)
  */
 
 const UnboundCheckbox:React.FC<Props> = ({ value, onChange, ...restProps }) => {

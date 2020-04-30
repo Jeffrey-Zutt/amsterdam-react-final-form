@@ -29,6 +29,16 @@ function ComplexRadioFields<TYPE>({
 
   const [mappedOptions, setMappedOptions] = useState({})
 
+  // We map complex objects in a 'simple' structure `UnboundRadioFields` understands.
+  //
+  // E.g.
+  // [ { myLabel: 'foo', nested: {...} }, { myLabel: 'bar', nested: {...} } ]
+  //
+  // Becomes:
+  // { '0': 'foo', '1': 'bar' }
+  //
+  // Whenever a change happens, we map back to the original object and call onChange with it.
+
   useEffect(
     () => { setMappedOptions(options.reduce((acc, option, index) => ({ ...acc, [index]: option[optionLabelField] }), {})) },
     [ options, optionLabelField, setMappedOptions ]

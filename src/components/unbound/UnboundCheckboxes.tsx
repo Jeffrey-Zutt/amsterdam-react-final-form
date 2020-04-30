@@ -16,12 +16,15 @@ export const UnboundCheckboxes:React.FC<Props> = ({ values: initialValues, label
   const [values, setValues] = useState<string[]>(initialValues)
 
   const handleChange = useCallback((checked:boolean, value:string) => {
+    // Either add or remove `value` from array `values`
     const changedValues = checked
       ? [ ...values, value ]
       : values.filter(val => val !== value)
 
+    // Set new values in state:
     setValues(changedValues)
 
+    // Notify everyone interested in the change.
     if (onChange) {
       onChange(changedValues)
     }
