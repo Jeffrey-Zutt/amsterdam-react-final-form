@@ -24,6 +24,7 @@ StyledLabel.displayName = "StyledLabel"
 
 export const LabelDiv = styled.div`
   ${ style }
+  margin: 10px 0;
 `
 LabelDiv.displayName = "LabelDiv"
 
