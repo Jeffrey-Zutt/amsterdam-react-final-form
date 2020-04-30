@@ -10,7 +10,7 @@ export type Props<TYPE> = {
   validate?: FieldValidator<TYPE>,
   options: TYPE[]
   optionLabelField: keyof TYPE
-} & React.HTMLAttributes<HTMLInputElement>
+} & Omit<React.HTMLAttributes<HTMLInputElement>, "onChange">
 
 /**
  * Binds SELECT field to final-form and maps options to complex data-structures.
@@ -46,7 +46,7 @@ function ComplexRadioFields<TYPE>({
 
   // On change, map back to original object:
   const handleChange = useCallback(
-    (e) => { onChange(options[e.target.value]) },
+    (value:string) => { onChange(options[parseInt(value)]) },
     [onChange, options]
   )
 

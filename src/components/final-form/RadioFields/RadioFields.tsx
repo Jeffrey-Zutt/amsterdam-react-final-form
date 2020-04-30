@@ -9,14 +9,13 @@ export type Props = {
   options: Record<string, string>
   horizontal?: boolean
   validate?: FieldValidator<string>
-} & React.HTMLAttributes<HTMLInputElement>
+} & Omit<React.HTMLAttributes<HTMLInputElement>, "onChange">
 
 const RadioFields:React.FC<Props> = ({ name, validate, ...restProps }) => {
   const {
     input,
     meta
   } = useField(name, {
-    type: "radio",
     validate
   })
 
