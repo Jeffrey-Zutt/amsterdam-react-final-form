@@ -60,7 +60,7 @@
     "eslint": "^6.8.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.0",
-    "typescript": "~3.7.2"
+    "typescript": "^3.8.3"
   },
   "peerDependencies": {
     "@datapunt/asc-assets": "^0.19.1",
