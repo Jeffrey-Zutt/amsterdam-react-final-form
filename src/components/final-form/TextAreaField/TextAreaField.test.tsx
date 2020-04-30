@@ -4,7 +4,7 @@ import TextAreaField from "./TextAreaField"
 import { wrapInForm } from "../__test__/wrapInForm"
 import { FieldError } from "../../unbound/FieldError"
 
-describe("TextField", () => {
+describe("TextAreaField", () => {
   const onSubmit = jest.fn()
 
   const component = mount(wrapInForm(

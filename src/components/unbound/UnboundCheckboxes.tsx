@@ -32,7 +32,7 @@ export const UnboundCheckboxes:React.FC<Props> = ({ values: initialValues, label
 
   return (
     <>
-      { label !== undefined && <Label label={label} usedForCheckboxOrRadio={true} />}
+      { label !== undefined && <Label label={label} />}
       { Object
         .entries(options)
         .map(([key, value]) => (

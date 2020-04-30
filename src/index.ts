@@ -9,6 +9,7 @@ import SelectField from "./components/final-form/SelectField/SelectField"
 import ComplexSelectField from "./components/final-form/SelectField/ComplexSelectField"
 import TextAreaField from "./components/final-form/TextAreaField/TextAreaField"
 import TextField from "./components/final-form/TextField/TextField"
+import { Label, LabelDiv } from "./components/unbound/Label"
 
 // Validators:
 
@@ -28,6 +29,9 @@ export {
   ComplexSelectField,
   TextAreaField,
   TextField,
+
+  Label,
+  LabelDiv,
 
   combineValidators,
   isAbove,
