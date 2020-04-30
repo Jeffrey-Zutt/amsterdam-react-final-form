@@ -39,5 +39,16 @@ const MyForm:React.FC = () => (
 
 ```
 
+## Install
+
+Install dependencies:
+```
+npm i
+```
+
+Install peer-dependencies:
+```
+npm i @datapunt/asc-assets@^0.19.1 @datapunt/asc-ui@^0.19.2-beta.1  objectFitPolyfill@^2.3.0 final-form@^4.19.1 react-final-form@^6.4.0 styled-components@^5.1.0
+```
 
 
