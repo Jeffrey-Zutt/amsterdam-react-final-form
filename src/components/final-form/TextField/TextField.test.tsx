@@ -2,6 +2,7 @@ import React from "react"
 import { mount } from "enzyme"
 import TextField from "./TextField"
 import { wrapInForm } from "../__test__/wrapInForm"
+import { FieldError } from "../../unbound/FieldError"
 
 describe("TextField", () => {
   const onSubmit = jest.fn()
@@ -35,5 +36,31 @@ describe("TextField", () => {
         expect.anything(),
         expect.anything()
       )
+  })
+
+  describe("when a validation error is set", () => {
+    const component = mount(wrapInForm(
+      onSubmit,
+      { myField: "myValue" },
+      <TextField name='myField' validate={() => "always errors"} />
+    ))
+
+    it("should NOT show a FieldError", () => {
+      expect(component.find(FieldError).exists()).toEqual(false)
+    })
+
+    describe("when a user interacts with the component", () => {
+      beforeEach(() => {
+        component
+          .find("input")
+          .simulate("focus")
+          .simulate("change", { target: { value: "Changed value" } })
+          .simulate("blur")
+      })
+
+      it("should show a FieldError", () => {
+        expect(component.find(FieldError).text()).toEqual("always errors")
+      })
+    })
   })
 })

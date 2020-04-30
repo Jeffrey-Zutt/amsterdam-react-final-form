@@ -2,6 +2,7 @@ import React from "react"
 import { mount } from "enzyme"
 import ComplexCheckboxFields from "./ComplexCheckboxFields"
 import { wrapInForm } from "../__test__/wrapInForm"
+import { FieldError } from "../../unbound/FieldError"
 
 describe("ComplexCheckboxFields", () => {
   const onSubmit = jest.fn()
@@ -67,5 +68,44 @@ describe("ComplexCheckboxFields", () => {
         expect.anything(),
         expect.anything()
       )
+  })
+
+  describe("when a validation error is set", () => {
+    const component = mount(wrapInForm(
+      onSubmit,
+      { myField: [
+          { "myLabelField": "bar", nested: { value: "bar" } },
+          { "myLabelField": "zoo", nested: { value: "zoo" } }
+        ]},
+      <ComplexCheckboxFields
+        name="myField"
+        optionLabelField="myLabelField"
+        validate={() => "always errors"}
+        options={[
+          { "myLabelField": "foo", nested: { value: "foo" } },
+          { "myLabelField": "zoo", nested: { value: "zoo" } },
+          { "myLabelField": "bar", nested: { value: "bar" } }
+        ]}
+      />
+    ))
+
+    it("should NOT show a FieldError", () => {
+      expect(component.find(FieldError).exists()).toEqual(false)
+    })
+
+    describe("when a user interacts with the component", () => {
+      beforeEach(() => {
+        component
+          .find("input")
+          .at(0)
+          .simulate("focus")
+          .simulate("change", { target: { checked: true } })
+          .simulate("blur")
+      })
+
+      it("should show a FieldError", () => {
+        expect(component.find(FieldError).text()).toEqual("always errors")
+      })
+    })
   })
 })

@@ -2,6 +2,7 @@ import React from "react"
 import { mount } from "enzyme"
 import CheckboxFields from "./CheckboxFields"
 import { wrapInForm } from "../__test__/wrapInForm"
+import { FieldError } from "../../unbound/FieldError"
 
 describe("CheckboxFields", () => {
   const onSubmit = jest.fn()
@@ -45,5 +46,36 @@ describe("CheckboxFields", () => {
         expect.anything(),
         expect.anything()
       )
+  })
+
+  describe("when a validation error is set", () => {
+    const component = mount(wrapInForm(
+      onSubmit,
+      { myField: ["foo","bar"]},
+      <CheckboxFields name='myField' validate={() => "always errors"} options={{
+        "foo": "Foo",
+        "bar": "Bar",
+        "zoo": "Zoo"
+      }} />
+    ))
+
+    it("should NOT show a FieldError", () => {
+      expect(component.find(FieldError).exists()).toEqual(false)
+    })
+
+    describe("when a user interacts with the component", () => {
+      beforeEach(() => {
+        component
+          .find("input")
+          .at(0)
+          .simulate("focus")
+          .simulate("change", { target: { checked: true } })
+          .simulate("blur")
+      })
+
+      it("should show a FieldError", () => {
+        expect(component.find(FieldError).text()).toEqual("always errors")
+      })
+    })
   })
 })

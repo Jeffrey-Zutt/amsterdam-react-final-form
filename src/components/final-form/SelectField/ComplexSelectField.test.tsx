@@ -2,6 +2,7 @@ import React from "react"
 import { mount } from "enzyme"
 import ComplexSelectField from "./ComplexSelectField"
 import { wrapInForm } from "../__test__/wrapInForm"
+import { FieldError } from "../../unbound/FieldError"
 
 describe("ComplexSelectField", () => {
   const onSubmit = jest.fn()
@@ -50,5 +51,40 @@ describe("ComplexSelectField", () => {
         expect.anything(),
         expect.anything()
       )
+  })
+
+  describe("when a validation error is set", () => {
+    const component = mount(wrapInForm(
+      onSubmit,
+      { myField: "bar" },
+      <ComplexSelectField
+        name="myField"
+        optionLabelField="myLabelField"
+        validate={() => "always errors"}
+        options={[
+          { "myLabelField": "foo", nested: { value: "foo" } },
+          { "myLabelField": "zoo", nested: { value: "zoo" } },
+          { "myLabelField": "bar", nested: { value: "bar" } }
+        ]}
+      />
+    ))
+
+    it("should NOT show a FieldError", () => {
+      expect(component.find(FieldError).exists()).toEqual(false)
+    })
+
+    describe("when a user interacts with the component", () => {
+      beforeEach(() => {
+        component
+          .find("select")
+          .simulate("focus")
+          .simulate("change", { target: { value: "1" } })
+          .simulate("blur")
+      })
+
+      it("should show a FieldError", () => {
+        expect(component.find(FieldError).text()).toEqual("always errors")
+      })
+    })
   })
 })

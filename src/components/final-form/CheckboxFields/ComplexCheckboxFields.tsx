@@ -54,7 +54,7 @@ function ComplexCheckboxFields<TYPE>({
   )
 
   return <UnboundCheckboxes
-    error={meta.touched && meta.error}
+    error={meta.dirty && meta.error}
     options={mappedOptions}
     onChange={handleChange}
     values={findIndexes(options, value).map(_ => _.toString())}

@@ -52,7 +52,7 @@ function ComplexRadioFields<TYPE>({
 
   return <UnboundRadioFields
     name={name}
-    error={meta.touched && meta.error}
+    error={meta.dirty && meta.error}
     options={mappedOptions}
     onChange={handleChange}
     value={findIndex(options, value).toString()}

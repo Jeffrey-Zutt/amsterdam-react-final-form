@@ -2,6 +2,7 @@ import React from "react"
 import { mount } from "enzyme"
 import ComplexRadioFields from "./ComplexRadioFields"
 import { wrapInForm } from "../__test__/wrapInForm"
+import { FieldError } from "../../unbound/FieldError"
 
 describe("ComplexRadioFields", () => {
   const onSubmit = jest.fn()
@@ -50,5 +51,40 @@ describe("ComplexRadioFields", () => {
         expect.anything(),
         expect.anything()
       )
+  })
+
+  describe("when a validation error is set", () => {
+    const component = mount(wrapInForm(
+      onSubmit,
+      { myField: { "myLabelField": "bar", nested: { value: "bar" } } },
+      <ComplexRadioFields
+        name="myField"
+        optionLabelField="myLabelField"
+        validate={() => "always errors"}
+        options={[
+          { "myLabelField": "foo", nested: { value: "foo" } },
+          { "myLabelField": "zoo", nested: { value: "zoo" } },
+          { "myLabelField": "bar", nested: { value: "bar" } }
+        ]}
+      />
+    ))
+
+    it("should NOT show a FieldError", () => {
+      expect(component.find(FieldError).exists()).toEqual(false)
+    })
+
+    describe("when a user interacts with the component", () => {
+      beforeEach(() => {
+        component
+          .find("input[value='1']")
+          .simulate("focus")
+          .simulate("change", { target: { value: "1" } })
+          .simulate("blur")
+      })
+
+      it("should show a FieldError", () => {
+        expect(component.find(FieldError).text()).toEqual("always errors")
+      })
+    })
   })
 })
