@@ -15,7 +15,7 @@ export type Props = {
 const UnboundTextField:React.FC<Props> = ({ label, error, ...otherProps }) => <>
     <Label label={label}>
       <Input
-        error={error}
+        error={!!error}
         {...otherProps}
       />
     </Label>
