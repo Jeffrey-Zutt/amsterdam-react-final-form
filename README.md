@@ -17,6 +17,7 @@ Please have a look at our storybook!
     * Error message 
 - All fields should be as wide as their container.
 - `react-final-form` should just be a thin layer on top of the components. 
+- All fields should be fully unit-tested.
 
 ## Usage
 

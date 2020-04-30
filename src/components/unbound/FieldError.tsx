@@ -10,3 +10,4 @@ export const FieldError = styled.div`
   margin-top: ${ themeSpacing(4) };
   color: ${ themeColor("support", "invalid") }
 `
+FieldError.displayName = "FieldError"

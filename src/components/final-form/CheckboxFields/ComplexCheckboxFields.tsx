@@ -7,7 +7,7 @@ import { UnboundCheckboxes } from "../../unbound/UnboundCheckboxes"
 export type Props<TYPE> = {
   label?: string
   name: string
-  validate?: FieldValidator<TYPE>,
+  validate?: FieldValidator<TYPE[]>,
   options: TYPE[]
   optionLabelField: keyof TYPE
 } & Omit<React.HTMLAttributes<HTMLInputElement>, "onChange">
@@ -23,7 +23,7 @@ function ComplexCheckboxFields<TYPE>({
   validate,
   ...restProps
 }:PropsWithChildren<Props<TYPE>>) {
-  const { input: { onChange, value }, meta } = useField(name, {
+  const { input: { onChange, value }, meta } = useField<TYPE[]>(name, {
     validate
   })
 
@@ -36,7 +36,10 @@ function ComplexCheckboxFields<TYPE>({
 
   // On change, map back to original objects:
   const handleChange = useCallback(
-    (indexes:string[]) => { onChange(indexes.map(index => options[parseInt(index)])) },
+    (indexes:string[]) => {
+      const mappedBack = indexes.map(index => options[parseInt(index)])
+      onChange(mappedBack)
+    },
     [onChange, options]
   )
 

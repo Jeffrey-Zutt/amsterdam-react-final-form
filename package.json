@@ -5,6 +5,7 @@
   "repository": "https://github.com/Jeffrey-Zutt/amsterdam-react-final-form.git",
   "description": "Provides adapters for (form-)components defined in [amsterdam-styled-components](https://github.com/Amsterdam/amsterdam-styled-components/pull/491) to be compatible with [react-final-form](https://github.com/final-form/react-final-form).",
   "scripts": {
+    "test": "react-scripts test",
     "storybook": "start-storybook -p 9009 -s public",
     "storybook:build": "build-storybook -s public -o docs",
     "lint": "eslint --cache --ext .ts,.tsx src",
