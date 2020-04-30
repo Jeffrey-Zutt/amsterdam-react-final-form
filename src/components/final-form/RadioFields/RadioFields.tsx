@@ -16,6 +16,7 @@ const RadioFields:React.FC<Props> = ({ name, validate, ...restProps }) => {
     input,
     meta
   } = useField(name, {
+    type: "radio",
     validate
   })
 
