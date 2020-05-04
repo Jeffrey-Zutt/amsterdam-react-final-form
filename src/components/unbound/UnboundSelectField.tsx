@@ -7,7 +7,8 @@ export type Props = {
   label?: string
   error?: string
   options: Record<string, string>,
-  value?: string
+  value?: string,
+  withEmptyOption?:boolean
 } & React.HTMLAttributes<HTMLSelectElement>
 
 /**
@@ -18,6 +19,7 @@ const UnboundSelectField:React.FC<Props> = ({
   label,
   options,
   error,
+  withEmptyOption,
   ...restProps
 }) => (<>
     <Label label={label}>
@@ -25,6 +27,7 @@ const UnboundSelectField:React.FC<Props> = ({
         error={error}
         {...restProps}
       >
+        { withEmptyOption && <option>-</option> }
         { Object.entries(options)
           .map(([key, label]) => (
             <option key={key} value={key}>

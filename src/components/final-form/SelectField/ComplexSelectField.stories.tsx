@@ -39,3 +39,13 @@ export const WithError = () => <ComplexSelectField<MyComplexDataStructure>
     { myLabel: "My Label 2", myValue: 2, something: { nested: { foo: false } }  }
   ]}
 />
+
+export const WithEmptyOption = () => <ComplexSelectField<MyComplexDataStructure>
+  name='myFieldName'
+  optionLabelField='myLabel'
+  withEmptyOption={true}
+  options={[
+    { myLabel: "My Label 1", myValue: 1, something: { nested: { foo: true } }  },
+    { myLabel: "My Label 2", myValue: 2, something: { nested: { foo: false } }  }
+  ]}
+/>

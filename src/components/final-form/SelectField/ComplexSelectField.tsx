@@ -11,6 +11,7 @@ export type Props<TYPE> = {
   options: TYPE[]
   optionLabelField: keyof TYPE
   optionKeyField?: keyof TYPE
+  withEmptyOption?: boolean
 } & React.HTMLAttributes<HTMLSelectElement>
 
 /**
@@ -42,9 +43,8 @@ function ComplexSelectField<TYPE>({
   //
   // Whenever a change happens, we map back to the original object and call onChange with it.
 
-
   useEffect(
-    () => { setMappedOptions(options.reduce((acc, option, index) => ({ ...acc, [index]: option[optionLabelField] }), {})) },
+    () => { setMappedOptions(options.reduce((acc, option, index) => ({ [index]: option[optionLabelField], ...acc }), {})) },
     [ options, optionLabelField, setMappedOptions ]
   )
 
