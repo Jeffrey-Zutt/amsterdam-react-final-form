@@ -14,8 +14,8 @@ import { Label, LabelDiv } from "./components/unbound/Label"
 // Validators:
 
 import { combineValidators } from "./validators/combineValidators"
-import { isAbove } from "./validators/isAbove"
-import { isBelow } from "./validators/isBelow"
+import { isAbove, isAboveOtherField } from "./validators/isAbove"
+import { isBelow, isBelowOtherField } from "./validators/isBelow"
 import { isMatchingRegex } from "./validators/isMatchingRegex"
 import { isNotIntersectingWith } from "./validators/isNotIntersectingWith"
 import { isRequired } from "./validators/isRequired"
@@ -36,7 +36,9 @@ export {
 
   combineValidators,
   isAbove,
+  isAboveOtherField,
   isBelow,
+  isBelowOtherField,
   isMatchingRegex,
   isNotIntersectingWith,
   isRequired

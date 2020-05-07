@@ -1,4 +1,4 @@
-import { isBelow } from "./isBelow"
+import { isBelow, isBelowOtherField } from "./isBelow"
 
 describe("isBelow", () => {
   describe("when given invalid input", () => {
@@ -29,3 +29,18 @@ describe("isBelow", () => {
     })
   })
 })
+
+describe("isBelowOtherField", () => {
+  describe("when given invalid input", () => {
+    it ("should return a message", () => {
+      expect(isBelowOtherField("otherField", "Value should be higher than {max}, you gave {value}")(11, { "otherField": 10 })).toEqual("Value should be higher than 10, you gave 11")
+    })
+  })
+
+  describe("when given valid input", () => {
+    it ("should return undefined", () => {
+      expect(isBelowOtherField("otherField", "Value should be higher than {max}, you gave {value}")(9, { "otherField": 9 })).toEqual(undefined)
+    })
+  })
+})
+
