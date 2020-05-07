@@ -8,29 +8,24 @@ import { getIn } from "final-form"
  * <Checkboxes name='otherField' validate={isNotIntersectingWith('field')} />
  *
  */
-export const isNotIntersectingWith = (field:string) => (value:any, allValues:object) => {
+export const isNotIntersectingWith = (field:string, message = "{item} komt in beide lijstjes voor") => (value:any, allValues:object) => {
   let other = getIn(allValues, field)
 
   if (value === undefined || other === undefined) {
     return undefined
   }
 
-  if (typeof value === "string") {
+  if (!Array.isArray(value)) {
     value = [value]
   }
 
-  if (typeof other === "string") {
+  if (!Array.isArray(other)) {
     other = [other]
-  }
-
-  if (!Array.isArray(value) || !Array.isArray(other)) {
-    console.error("Fields should be arrays")
-    return undefined
   }
 
   for(const item of value) {
     if (other.includes(item)) {
-      return `${ item } komt in beide lijstjes voor`
+      return message.replace("{item}", item)
     }
   }
 

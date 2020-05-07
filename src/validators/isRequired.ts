@@ -1,9 +1,7 @@
 /**
  * Very simple generic isRequired validation method.
  */
-export function isRequired<T>(value:T|undefined):string|undefined {
-  const message = "Dit veld is verplicht"
-
+export const isRequired = <T>(message = "Dit veld is verplicht") => (value:T|undefined):string|undefined => {
   if (Array.isArray(value) && value.length === 0) {
     return message
   }
