@@ -7,6 +7,7 @@ export default {
 
 export const WithLabel = () => <NumberField name='myFieldName' label='foo' />
 export const WithoutLabel = () => <NumberField name='myFieldName' />
+export const WithoutNumberSpinner = () => <NumberField name='myFieldName' hideNumberSpinner={true} />
 export const WithMinMax = () => <NumberField name='myFieldName' min={0} max={20} />
 export const WithError = () => <NumberField name='myFieldName' label='foo' validate={() => "some error occured"} />
 
