@@ -5,6 +5,7 @@ import UnboundRadioFields from "../../unbound/UnboundRadioFields"
 
 export type Props = {
   label?: string
+  hint?: string|JSX.Element,
   name: string
   options: Record<string, string>
   horizontal?: boolean

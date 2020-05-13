@@ -3,16 +3,18 @@ import { Label as AscLabel } from "@datapunt/asc-ui"
 import { Label } from "./Label"
 import { FieldError } from "./FieldError"
 import UnboundCheckbox from "./UnboundCheckbox"
+import { Hint } from "./Hint"
 
 export type Props = Omit<React.HTMLAttributes<HTMLInputElement>, "onChange"> & {
   values: string[],
   label?: string
+  hint?: string
   error?: string
   options: Record<string, string>
   onChange?: (values:string[]) => void
 }
 
-export const UnboundCheckboxes:React.FC<Props> = ({ values: initialValues, label, error, options, onChange, ...restProps }) => {
+export const UnboundCheckboxes:React.FC<Props> = ({ values: initialValues, label, hint, error, options, onChange, ...restProps }) => {
   const [values, setValues] = useState<string[]>(initialValues)
 
   const handleChange = useCallback((checked:boolean, value:string) => {
@@ -33,6 +35,7 @@ export const UnboundCheckboxes:React.FC<Props> = ({ values: initialValues, label
   return (
     <>
       { label !== undefined && <Label label={label} />}
+      { hint !== undefined && <Hint>{ hint }</Hint>}
       { Object
         .entries(options)
         .map(([key, value]) => (

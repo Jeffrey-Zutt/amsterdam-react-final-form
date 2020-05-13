@@ -6,6 +6,7 @@ import UnboundTextArea from "../../unbound/UnboundTextArea"
 
 export type Props = {
   label?: string
+  hint?: string|JSX.Element,
   name: string
   validate?: FieldValidator<number>
 } & React.TextareaHTMLAttributes<HTMLTextAreaElement>

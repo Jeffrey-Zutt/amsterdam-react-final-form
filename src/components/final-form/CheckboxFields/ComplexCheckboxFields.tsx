@@ -6,6 +6,7 @@ import { UnboundCheckboxes } from "../../unbound/UnboundCheckboxes"
 
 export type Props<TYPE> = {
   label?: string
+  hint?: string|JSX.Element,
   name: string
   validate?: FieldValidator<TYPE[]>,
   options: TYPE[]

@@ -6,6 +6,7 @@ import UnboundTextField from "../../unbound/UnboundTextField"
 
 export type Props = {
   label?: string
+  hint?: string|JSX.Element,
   name: string
   validate?: FieldValidator<number>
 } & React.InputHTMLAttributes<HTMLInputElement>

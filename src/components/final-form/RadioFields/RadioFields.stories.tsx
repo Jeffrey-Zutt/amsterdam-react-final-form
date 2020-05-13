@@ -11,6 +11,13 @@ export const WithLabel = () => <RadioFields
   options={{ foo: "Foo", bar: "Bar" }}
 />
 
+export const WithHint = () => <RadioFields
+  name='myFieldName'
+  label='foo'
+  hint='Nullam quis risus eget urna mollis ornare vel eu leo.'
+  options={{ foo: "Foo", bar: "Bar" }}
+/>
+
 export const WithoutLabel = () => <RadioFields
   name='myFieldName'
   options={{ foo: "Foo", bar: "Bar" }}

@@ -51,6 +51,7 @@ export const Example = () => <>
   <TextAreaField
     name='pizza.notes'
     label='Notes'
+    hint='Leave your delivery man a note'
   />
 </>
 

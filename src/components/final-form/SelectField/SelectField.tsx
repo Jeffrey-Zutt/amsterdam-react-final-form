@@ -6,6 +6,7 @@ import { useField } from "react-final-form"
 export type Props = {
   name: string
   label?: string
+  hint?: string|JSX.Element,
   validate?: FieldValidator<string>,
   options: Record<string, string>
 } & React.HTMLAttributes<HTMLSelectElement>

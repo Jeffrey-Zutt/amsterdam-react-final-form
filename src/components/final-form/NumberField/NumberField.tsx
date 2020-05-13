@@ -10,6 +10,7 @@ import UnboundTextField, { Props as UnboundTextFieldProps } from "../../unbound/
 
 export type Props = {
   label?: string
+  hint?: string|JSX.Element,
   name: string
   validate?: FieldValidator<number>
   hideNumberSpinner?: boolean

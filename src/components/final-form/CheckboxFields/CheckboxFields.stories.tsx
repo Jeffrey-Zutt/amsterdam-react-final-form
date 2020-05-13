@@ -11,6 +11,13 @@ export const WithLabel = () => <CheckboxFields
   options={{ foo: "Foo", bar: "Bar" }}
 />
 
+export const WithHint = () => <CheckboxFields
+  name='myFieldName'
+  label='foo'
+  hint='Nullam quis risus eget urna mollis ornare vel eu leo.'
+  options={{ foo: "Foo", bar: "Bar" }}
+/>
+
 export const WithoutLabel = () => <CheckboxFields
   name='myFieldName'
   options={{ foo: "Foo", bar: "Bar" }}

@@ -1,4 +1,4 @@
-import { Label as AscLabel } from "@datapunt/asc-ui"
+import { Label as AscLabel, themeSpacing } from "@datapunt/asc-ui"
 import styled, { css } from "styled-components"
 import React from "react"
 
@@ -13,7 +13,7 @@ const style = css`
   width: 100%;  
   
   span {
-    margin: 10px 0;    
+    margin: ${ themeSpacing(2) } 0;    
   }
 `
 
