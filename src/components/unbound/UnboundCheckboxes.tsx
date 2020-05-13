@@ -8,7 +8,7 @@ import { Hint } from "./Hint"
 export type Props = Omit<React.HTMLAttributes<HTMLInputElement>, "onChange"> & {
   values: string[],
   label?: string
-  hint?: string
+  hint?: string|JSX.Element
   error?: string
   options: Record<string, string>
   onChange?: (values:string[]) => void

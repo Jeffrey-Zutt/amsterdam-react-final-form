@@ -8,6 +8,7 @@ import RadioFields from "./RadioFields/RadioFields"
 import ComplexSelectField from "./SelectField/ComplexSelectField"
 import ComplexCheckboxFields from "./CheckboxFields/ComplexCheckboxFields"
 import ComplexRadioFields from "./RadioFields/ComplexRadioFields"
+import BooleanField from "./BooleanField/BooleanField"
 
 export default {
   title: "Complete form"
@@ -52,6 +53,10 @@ export const Example = () => <>
     name='pizza.notes'
     label='Notes'
     hint='Leave your delivery man a note'
+  />
+  <BooleanField
+    name='terms'
+    label='I agree with the terms of service'
   />
 </>
 

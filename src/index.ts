@@ -1,5 +1,6 @@
 // Components:
 
+import BooleanField from "./components/final-form/BooleanField/BooleanField"
 import CheckboxFields from "./components/final-form/CheckboxFields/CheckboxFields"
 import ComplexCheckboxFields from "./components/final-form/CheckboxFields/ComplexCheckboxFields"
 import NumberField from "./components/final-form/NumberField/NumberField"
@@ -21,6 +22,7 @@ import { isNotIntersectingWith } from "./validators/isNotIntersectingWith"
 import { isRequired } from "./validators/isRequired"
 
 export {
+  BooleanField,
   CheckboxFields,
   ComplexCheckboxFields,
   NumberField,
