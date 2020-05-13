@@ -32,7 +32,7 @@ export const WithoutLabel = () => <ComplexRadioFields<MyComplexDataStructure>
 
 export const WithError = () => <ComplexRadioFields<MyComplexDataStructure>
   name='myFieldName'
-  validate={() => "Some error occured"}
+  validate={() => "Some error occurred"}
   optionLabelField='myLabel'
   options={[
     { myLabel: "My Label 1", myValue: 1, something: { nested: { foo: true } }  },

@@ -26,5 +26,5 @@ export const WithoutLabel = () => <SelectField
 export const WithError = () => <SelectField
   name='myFieldName'
   options={{ foo: "Foo", bar: "Bar" }}
-  validate={() => "Some error occured"}
+  validate={() => "Some error occurred"}
 />

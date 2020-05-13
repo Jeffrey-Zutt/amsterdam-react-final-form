@@ -26,5 +26,5 @@ export const WithoutLabel = () => <CheckboxFields
 export const WithError = () => <CheckboxFields
   name='myFieldName'
   options={{ foo: "Foo", bar: "Bar" }}
-  validate={() => "Some error occured"}
+  validate={() => "Some error occurred"}
 />

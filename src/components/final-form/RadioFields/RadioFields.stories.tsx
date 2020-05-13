@@ -33,6 +33,6 @@ export const Horizontal = () => <RadioFields
 export const WithError = () => <RadioFields
   name='myFieldName'
   options={{ foo: "Foo", bar: "Bar" }}
-  validate={() => "Some error occured"}
+  validate={() => "Some error occurred"}
 />
 
