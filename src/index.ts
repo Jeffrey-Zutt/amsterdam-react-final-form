@@ -12,6 +12,15 @@ import TextAreaField from "./components/final-form/TextAreaField/TextAreaField"
 import TextField from "./components/final-form/TextField/TextField"
 import { Label, LabelDiv } from "./components/unbound/Label"
 
+// Unbound (not bound to react-final-form)
+
+import UnboundBooleanField from "./components/unbound/UnboundBooleanField"
+import UnboundCheckboxes from "./components/unbound/UnboundCheckboxes"
+import UnboundTextField from "./components/unbound/UnboundTextField"
+import UnboundRadioFields from "./components/unbound/UnboundRadioFields"
+import UnboundSelectField from "./components/unbound/UnboundSelectField"
+import UnboundTextArea from "./components/unbound/UnboundTextArea"
+
 // Validators:
 
 import { combineValidators } from "./validators/combineValidators"
@@ -32,6 +41,13 @@ export {
   ComplexSelectField,
   TextAreaField,
   TextField,
+
+  UnboundBooleanField,
+  UnboundCheckboxes,
+  UnboundTextField,
+  UnboundRadioFields,
+  UnboundSelectField,
+  UnboundTextArea,
 
   Label,
   LabelDiv,
