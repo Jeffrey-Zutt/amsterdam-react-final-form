@@ -16,8 +16,13 @@ const fieldRenderer:FieldRenderer = (field:ScaffoldFieldProps) => <ScaffoldField
 
 const Scaffold:React.FC<Props> = ({ fields, renderEach = defaultRenderEach }) => <>
   { Object
-      .values(fields)
-      .map(fieldProps => renderEach(fieldProps, fieldRenderer)) }
+      .entries(fields)
+      .map(([key, fieldProps]) => (
+        <React.Fragment key={key}>
+          { renderEach(fieldProps, fieldRenderer) }
+        </React.Fragment>)
+      )
+  }
 </>
 
 export default Scaffold

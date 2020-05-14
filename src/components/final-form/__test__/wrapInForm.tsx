@@ -1,4 +1,5 @@
 import { Form } from "react-final-form"
+import arrayMutators from "final-form-arrays"
 import React from "react"
 
 export const wrapInForm = (
@@ -8,6 +9,7 @@ export const wrapInForm = (
 ) => (
   <Form
     onSubmit={onSubmit}
+    mutators={ { ...arrayMutators } }
     initialValues={initialValues}
     render={({ handleSubmit }) => (
       <form onSubmit={handleSubmit}>
