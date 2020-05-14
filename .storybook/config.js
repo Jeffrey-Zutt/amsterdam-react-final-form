@@ -3,6 +3,7 @@ import { addDecorator, configure } from '@storybook/react'
 import { GlobalStyle, ThemeProvider, themeColor } from '@datapunt/asc-ui'
 import { action } from '@storybook/addon-actions'
 import { Form } from 'react-final-form'
+import arrayMutators from 'final-form-arrays'
 import styled from "styled-components";
 
 // automatically import all files ending in *.stories.js
@@ -30,6 +31,9 @@ function withGlobalStyles(storyFn) {
     <GlobalStyle />
     <Form
       onSubmit={action('submit')}
+      mutators={{
+        ...arrayMutators
+      }}
       render={({ values }) => <>
         <Wrapper>
           {storyFn()}

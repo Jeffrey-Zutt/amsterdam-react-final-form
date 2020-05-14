@@ -1,5 +1,6 @@
 import React from "react"
 
+import ArrayField, { Props as ArrayFieldProps } from "../ArrayField/ArrayField"
 import BooleanField, { Props as BooleanProps } from "../BooleanField/BooleanField"
 import CheckboxFields, { Props as CheckboxProps } from "../CheckboxFields/CheckboxFields"
 import NumberField, { Props as NumberFieldProps } from "../NumberField/NumberField"
@@ -7,6 +8,11 @@ import RadioFields, { Props as RadioFieldsProps } from "../RadioFields/RadioFiel
 import SelectField, { Props as SelectFieldProps } from "../SelectField/SelectField"
 import TextAreaField, { Props as TextAreaFieldProps } from "../TextAreaField/TextAreaField"
 import TextField, { Props as TextFieldProps } from "../TextField/TextField"
+
+export type ScaffoldArrayFieldProps = {
+  type: "ArrayField"
+  props: ArrayFieldProps
+}
 
 export type ScaffoldBooleanProps = {
   type: "Boolean"
@@ -44,6 +50,7 @@ export type ScaffoldTextFieldProps = {
 }
 
 export type ScaffoldFieldProps =
+  | ScaffoldArrayFieldProps
   | ScaffoldBooleanProps
   | ScaffoldCheckboxFieldsProps
   | ScaffoldNumberFieldProps
@@ -58,6 +65,8 @@ export type Props = {
 
 const ScaffoldField:React.FC<Props> = ({ field }) => {
   switch (field.type) {
+    case "ArrayField":
+      return <ArrayField {...field.props} />
     case "Boolean":
       return <BooleanField {...field.props} />
     case "CheckboxFields":

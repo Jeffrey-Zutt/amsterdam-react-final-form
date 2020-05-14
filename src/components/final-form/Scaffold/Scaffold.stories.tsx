@@ -3,6 +3,7 @@ import React from "react"
 import Scaffold from "./Scaffold"
 
 import ScaffoldField, {
+  ScaffoldArrayFieldProps,
   ScaffoldBooleanProps,
   ScaffoldCheckboxFieldsProps,
   ScaffoldNumberFieldProps,
@@ -14,6 +15,30 @@ import ScaffoldField, {
 
 export default {
   title: "Scaffold"
+}
+
+const scaffoldArrayProps:ScaffoldArrayFieldProps = {
+ type: "ArrayField",
+ props: {
+   label: "Array Field",
+   allowAdd: true,
+   allowRemove: true,
+   name: "myArray",
+   scaffoldFields: {
+     description: {
+       type: "TextField",
+       props: { name: "description", label: "Description" }
+     },
+     amount: {
+       type: "TextField",
+       props: { name: "amount", label: "Amount" }
+     },
+     price: {
+       type: "TextField",
+       props: { name: "price", label: "Price" }
+     }
+   }
+ }
 }
 
 const scaffoldBooleanProps:ScaffoldBooleanProps = {
@@ -73,6 +98,7 @@ const fields = {
   "boolean": scaffoldBooleanProps,
   "checkbox": scaffoldCheckboxFieldsProps,
   "number": scaffoldNumberField,
+  "array": scaffoldArrayProps,
   "radio": scaffoldRadioFields,
   "select": scaffoldSelectField,
   "textarea": scaffoldTextAreaField,

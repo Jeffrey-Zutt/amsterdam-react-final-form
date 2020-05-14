@@ -1,11 +1,13 @@
 import React from "react"
 import ScaffoldField, { ScaffoldFieldProps } from "./ScaffoldField"
 
+export type ScaffoldFields = Record<string, ScaffoldFieldProps>
+
 export type RenderEach = (fieldProps:ScaffoldFieldProps, fieldRenderer:FieldRenderer) => JSX.Element
 export type FieldRenderer = (fieldProps:ScaffoldFieldProps) => JSX.Element
 
 type Props = {
-  fields: Record<string, ScaffoldFieldProps>
+  fields: ScaffoldFields
   renderEach?: RenderEach
 }
 
