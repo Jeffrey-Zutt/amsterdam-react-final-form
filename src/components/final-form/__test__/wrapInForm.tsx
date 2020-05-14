@@ -2,7 +2,7 @@ import { Form } from "react-final-form"
 import React from "react"
 
 export const wrapInForm = (
-  onSubmit:jest.Mock<any, any>,
+  onSubmit:jest.Mock,
   initialValues: any,
   components: JSX.Element
 ) => (

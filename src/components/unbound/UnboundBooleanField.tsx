@@ -12,7 +12,8 @@ type Props = Omit<React.HTMLAttributes<HTMLInputElement>, "onChange"> & {
 }
 
 const StyledCheckbox = styled(Checkbox)`  
-  padding: 0 !important;
+  padding-top: 0  !important;
+  padding-bottom: 0  !important;
   
   span {
     margin-top: 2px;
