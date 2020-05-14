@@ -10,6 +10,8 @@ import SelectField from "./components/final-form/SelectField/SelectField"
 import ComplexSelectField from "./components/final-form/SelectField/ComplexSelectField"
 import TextAreaField from "./components/final-form/TextAreaField/TextAreaField"
 import TextField from "./components/final-form/TextField/TextField"
+import Scaffold from "./components/final-form/Scaffold/Scaffold"
+import ScaffoldField from "./components/final-form/Scaffold/ScaffoldField"
 import { Label, LabelDiv } from "./components/unbound/Label"
 
 // Unbound (not bound to react-final-form)
@@ -41,6 +43,9 @@ export {
   ComplexSelectField,
   TextAreaField,
   TextField,
+
+  Scaffold,
+  ScaffoldField,
 
   UnboundBooleanField,
   UnboundCheckboxes,
