@@ -88,3 +88,25 @@ export const SingleTextAreaField = () => <ScaffoldField field={scaffoldTextAreaF
 export const SingleTextField = () => <ScaffoldField field={scaffoldTextField} />
 
 export const MultipleFields = () => <Scaffold fields={fields} />
+
+export const WithCustomRenderer = () => <Scaffold
+  fields={{
+    description: {
+      type: "TextField",
+      props: { name: "description", label: "Description" }
+    },
+    amount: {
+      type: "TextField",
+      props: { name: "amount", label: "Amount" }
+    },
+    price: {
+      type: "TextField",
+      props: { name: "price", label: "Price" }
+    }
+  }}
+  renderEach={(props, renderField) => (
+    <span style={ { display: "inline-block", width: "33.3%", paddingRight: "8px" } }>{ renderField(props) }</span>
+  )}
+/>
+
+
