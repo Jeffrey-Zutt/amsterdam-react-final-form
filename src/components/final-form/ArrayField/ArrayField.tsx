@@ -5,9 +5,11 @@ import Scaffold, { RenderEach, ScaffoldFields } from "../Scaffold/Scaffold"
 import { useForm } from "react-final-form"
 import { prefixNames } from "./utils/prefixNames"
 import { AddButtonWrap, Column, Row, RowButtonWrap, StyledButton, StyledLabel } from "./layout"
+import { Hint } from "../../unbound/Hint"
 
 export type Props = {
   label?: string,
+  hint?: string|JSX.Element,
   name: string,
   allowAdd?: boolean,
   allowRemove?: boolean,
@@ -17,11 +19,12 @@ export type Props = {
 
 const defaultRenderEach:RenderEach = (props, renderer) => <Column>{ renderer(props) }</Column>
 
-const ArrayField:React.FC<Props> = ({ label, name, scaffoldFields, renderEach, allowAdd, allowRemove }) => {
+const ArrayField:React.FC<Props> = ({ label, hint, name, scaffoldFields, renderEach, allowAdd, allowRemove }) => {
   const { mutators: { push } } =  useForm()
 
   return <>
     { label && <StyledLabel>{ label }</StyledLabel> }
+    { hint && <Hint>{ hint }</Hint> }
     <FieldArray name={name}>
       { ({ fields }) => fields.map((name, index) => (
         <Row key={name}>

@@ -9,12 +9,15 @@ export const Row = styled.div`
 
 export const Column = styled.div` 
   padding: ${ themeSpacing(1) };  
-  flex: 1;
+  flex: 1;  
 `
 
 export const RowButtonWrap = styled.div`
-  margin-top: ${ themeSpacing(9) };
   padding: ${ themeSpacing(1) };
+  
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
 `
 
 export const AddButtonWrap = styled.div`
@@ -22,7 +25,7 @@ export const AddButtonWrap = styled.div`
 `
 
 export const StyledButton = styled(Button)`
-  min-width: 48px;
+  min-width: 48px;  
 `
 
 export const StyledLabel = styled(LabelDiv)`

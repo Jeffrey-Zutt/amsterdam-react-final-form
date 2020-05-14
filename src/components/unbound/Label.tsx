@@ -11,7 +11,7 @@ const style = css`
   font-size: 18px;
   font-weight: 600;
   width: 100%;  
-  
+   
   span {
     margin: ${ themeSpacing(2) } 0;    
   }
