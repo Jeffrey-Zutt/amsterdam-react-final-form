@@ -28,7 +28,11 @@ const ArrayField:React.FC<Props> = ({ label, name, scaffoldFields, renderEach, a
           <Scaffold  fields={prefixNames(name, scaffoldFields)} renderEach={renderEach ?? defaultRenderEach} />
           { allowRemove && (
             <RowButtonWrap>
-              <StyledButton onClick={(e) => { e.preventDefault(); fields.remove(index) }} variant='tertiary' icon={<TrashBin />} />
+              <StyledButton
+                variant='tertiary'
+                icon={<TrashBin />}
+                onClick={(e:React.MouseEvent) => { e.preventDefault(); fields.remove(index) }}
+              />
             </RowButtonWrap>
           ) }
         </Row>
@@ -36,7 +40,11 @@ const ArrayField:React.FC<Props> = ({ label, name, scaffoldFields, renderEach, a
     </FieldArray>
     <AddButtonWrap>
       { allowAdd && (
-        <StyledButton onClick={(e) => { e.preventDefault(); push(name, undefined) } } variant='tertiary' icon={<Enlarge />} />
+        <StyledButton
+          variant='tertiary'
+          icon={<Enlarge />}
+          onClick={(e:React.MouseEvent) => { e.preventDefault(); push(name, undefined) } }
+        />
       ) }
     </AddButtonWrap>
   </>
