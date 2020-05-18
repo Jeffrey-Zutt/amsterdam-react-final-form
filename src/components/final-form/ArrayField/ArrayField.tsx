@@ -4,10 +4,14 @@ import { TrashBin, Enlarge } from "@datapunt/asc-assets"
 import Scaffold, { RenderEach, ScaffoldFields } from "../Scaffold/Scaffold"
 import { useForm } from "react-final-form"
 import { prefixNames } from "./utils/prefixNames"
-import { AddButtonWrap, Column, Row, RowButtonWrap, StyledButton, StyledLabel } from "./layout"
+import { AddButtonWrap, RowButtonWrap, StyledButton, StyledLabel } from "./layout"
 import { Hint } from "../../unbound/Hint"
+import { Responsive } from "../../layout/responsiveProps"
+import { Dimensions } from "../../layout/FormGridCell"
 
 export type Props = {
+  position?: Responsive<Dimensions>
+  columns?: string,
   label?: string,
   hint?: string|JSX.Element,
   name: string,
@@ -17,9 +21,9 @@ export type Props = {
   renderEach?: RenderEach
 }
 
-const defaultRenderEach:RenderEach = (props, renderer) => <Column>{ renderer(props) }</Column>
+const defaultRenderEach:RenderEach = (props, renderer) => renderer(props)
 
-const ArrayField:React.FC<Props> = ({ label, hint, name, scaffoldFields, renderEach, allowAdd, allowRemove }) => {
+const ArrayField:React.FC<Props> = ({ label, columns, hint, name, scaffoldFields, renderEach, allowAdd, allowRemove }) => {
   const { mutators: { push } } =  useForm()
 
   return <>
@@ -27,18 +31,22 @@ const ArrayField:React.FC<Props> = ({ label, hint, name, scaffoldFields, renderE
     { hint && <Hint>{ hint }</Hint> }
     <FieldArray name={name}>
       { ({ fields }) => fields.map((name, index) => (
-        <Row key={name}>
-          <Scaffold  fields={prefixNames(name, scaffoldFields)} renderEach={renderEach ?? defaultRenderEach} />
-          { allowRemove && (
-            <RowButtonWrap>
-              <StyledButton
-                variant='tertiary'
-                icon={<TrashBin />}
-                onClick={(e:React.MouseEvent) => { e.preventDefault(); fields.remove(index) }}
-              />
-            </RowButtonWrap>
-          ) }
-        </Row>
+          <Scaffold
+            columns={columns}
+            key={name}
+            fields={prefixNames(name, scaffoldFields)}
+            renderEach={renderEach ?? defaultRenderEach}
+          >
+            { allowRemove && (
+              <RowButtonWrap>
+                <StyledButton
+                  variant='tertiary'
+                  icon={<TrashBin />}
+                  onClick={(e:React.MouseEvent) => { e.preventDefault(); fields.remove(index) }}
+                />
+              </RowButtonWrap>
+            ) }
+          </Scaffold>
       ))}
     </FieldArray>
     <AddButtonWrap>

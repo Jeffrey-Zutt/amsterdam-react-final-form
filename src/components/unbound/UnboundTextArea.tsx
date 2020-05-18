@@ -8,8 +8,8 @@ export type Props = ComposedFieldProps & React.TextareaHTMLAttributes<HTMLTextAr
  * Renders a TEXTAREA field that is not bound to final-form.
  */
 
-const UnboundTextArea:React.FC<Props> = ({ label, hint, error, ...otherProps }) =>
-  <ComposedField label={label} hint={hint} error={error}>
+const UnboundTextArea:React.FC<Props> = ({ label, hint, error, position, ...otherProps }) =>
+  <ComposedField label={label} hint={hint} error={error} position={position}>
       <TextArea
         error={!!error}
         {...otherProps}

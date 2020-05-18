@@ -9,20 +9,34 @@ export default {
 const fields:ScaffoldFields = {
   description: {
     type: "TextField",
-    props: { name: "description", label: "Description", validate: () => "error" }
+    props: {
+      name: "description",
+      label: "Description",
+      validate: () => "error",
+      position: { row: 0, column: 0 }
+    }
   },
   amount: {
     type: "NumberField",
-    props: { name: "amount", label: "Amount", hint: "" }
+    props: {
+      name: "amount",
+      label: "Amount",
+      position: { row: 0, column: 1 }
+    }
   },
   price: {
     type: "NumberField",
-    props: { name: "price", label: "Price", hint: "" }
+    props: {
+      name: "price",
+      label: "Price",
+      hint: "",
+      position: { row: 0, column: 2 }
+    }
   }
 }
 
-
 export const Array = () => <ArrayField
+  columns='1fr 1fr 1fr auto'
   name='myArray'
   allowAdd={true}
   allowRemove={true}
@@ -30,6 +44,7 @@ export const Array = () => <ArrayField
 />
 
 export const WithLabel = () => <ArrayField
+  columns='1fr 1fr 1fr auto'
   label='My label'
   name='myArray'
   allowAdd={true}
@@ -38,6 +53,7 @@ export const WithLabel = () => <ArrayField
 />
 
 export const WithHint = () => <ArrayField
+  columns='1fr 1fr 1fr auto'
   label='My label'
   hint='Maecenas faucibus mollis interdum.'
   name='myArray'

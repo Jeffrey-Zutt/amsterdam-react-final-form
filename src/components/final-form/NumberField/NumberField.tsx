@@ -7,8 +7,11 @@ import { isAbove } from "../../../validators/isAbove"
 import { isBelow } from "../../../validators/isBelow"
 import { noop } from "../../../utils/noop"
 import UnboundTextField, { Props as UnboundTextFieldProps } from "../../unbound/UnboundTextField"
+import { Responsive } from "../../layout/responsiveProps"
+import { Dimensions } from "../../layout/FormGridCell"
 
 export type Props = {
+  position?: Responsive<Dimensions>
   label?: string
   hint?: string|JSX.Element,
   name: string

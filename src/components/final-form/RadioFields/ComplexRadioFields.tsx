@@ -3,8 +3,11 @@ import React, { PropsWithChildren, useCallback, useEffect, useState } from "reac
 import { useField } from "react-final-form"
 import UnboundRadioFields from "../../unbound/UnboundRadioFields"
 import { findIndex } from "../../../utils/findIndex"
+import { Responsive } from "../../layout/responsiveProps"
+import { Dimensions } from "../../layout/FormGridCell"
 
 export type Props<TYPE> = {
+  position?: Responsive<Dimensions>
   label?: string
   hint?: string|JSX.Element,
   name: string

@@ -3,8 +3,11 @@ import { useField } from "react-final-form"
 import { FieldValidator } from "final-form"
 import UnboundSelectField from "../../unbound/UnboundSelectField"
 import { findIndex } from "../../../utils/findIndex"
+import { Responsive } from "../../layout/responsiveProps"
+import { Dimensions } from "../../layout/FormGridCell"
 
 export type Props<TYPE> = {
+  position?: Responsive<Dimensions>
   label?: string
   hint?: string|JSX.Element,
   name: string

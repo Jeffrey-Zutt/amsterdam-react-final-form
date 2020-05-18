@@ -2,22 +2,13 @@ import styled from "styled-components"
 import { Button, themeSpacing } from "@datapunt/asc-ui"
 import { LabelDiv } from "../../unbound/Label"
 
-export const Row = styled.div`
-  margin: 0 -${ themeSpacing(1) };
-  display: flex;
-`
-
-export const Column = styled.div` 
-  padding: ${ themeSpacing(1) };  
-  flex: 1;  
-`
-
 export const RowButtonWrap = styled.div`
-  padding: ${ themeSpacing(1) };
+  position: relative;
+  top: -5px;
   
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
+  margin: ${ themeSpacing(1) };
+  grid-row-start: 2;
+  -ms-grid-row: 1;  
 `
 
 export const AddButtonWrap = styled.div`

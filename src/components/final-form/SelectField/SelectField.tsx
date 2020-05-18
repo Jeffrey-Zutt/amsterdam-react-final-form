@@ -2,8 +2,11 @@ import React from "react"
 import UnboundSelectField from "../../unbound/UnboundSelectField"
 import { FieldValidator } from "final-form"
 import { useField } from "react-final-form"
+import { Responsive } from "../../layout/responsiveProps"
+import { Dimensions } from "../../layout/FormGridCell"
 
 export type Props = {
+  position?: Responsive<Dimensions>
   name: string
   label?: string
   hint?: string|JSX.Element,

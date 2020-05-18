@@ -14,8 +14,8 @@ const StyledCheckbox = styled(Checkbox)`
   }
 `
 
-const UnboundBooleanField:React.FC<Props> = ({ label, hint, error, ...otherProps }) => (
-  <ComposedField label={label} hint={hint} error={error}>
+const UnboundBooleanField:React.FC<Props> = ({ label, hint, error, position, ...otherProps }) => (
+  <ComposedField label={label} hint={hint} error={error} position={position}>
     <StyledCheckbox
       error={!!error}
       {...otherProps}
