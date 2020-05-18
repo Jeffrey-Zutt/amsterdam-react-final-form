@@ -23,8 +23,8 @@ const generateDimensionsCss = (position:Dimensions, rowOffset:number) => {
 
   if (position.row !== undefined) {
     parts.push(css`
-      grid-row-start: ${ position.row + 1 + rowOffset };
-      -ms-grid-row: ${ position.row + 1 + rowOffset };
+      grid-row-start: ${ (position.row * 2) + 1 + rowOffset };
+      -ms-grid-row: ${ (position.row * 2) + 1 + rowOffset };
     `)
   }
 

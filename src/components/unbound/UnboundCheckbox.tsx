@@ -1,4 +1,5 @@
 import { Checkbox } from "@datapunt/asc-ui"
+import styled from "styled-components"
 import React, { useCallback } from "react"
 
 type Props = Omit<React.HTMLAttributes<HTMLInputElement>, "onChange"> & {
@@ -12,6 +13,10 @@ type Props = Omit<React.HTMLAttributes<HTMLInputElement>, "onChange"> & {
  * Unbound checkbox, calls onChange(checked:boolean, value:string) instead of onChange(boolean)
  */
 
+const StyledCheckbox = styled(Checkbox)`
+  padding: 0;
+`
+
 const UnboundCheckbox:React.FC<Props> = ({ value, onChange, ...restProps }) => {
   const handleChange = useCallback((e) => {
     if (onChange) {
@@ -19,7 +24,7 @@ const UnboundCheckbox:React.FC<Props> = ({ value, onChange, ...restProps }) => {
     }
   }, [onChange, value])
 
-  return (<Checkbox onChange={handleChange} {...restProps} />)
+  return (<StyledCheckbox onChange={handleChange} {...restProps} />)
 }
 
 export default UnboundCheckbox

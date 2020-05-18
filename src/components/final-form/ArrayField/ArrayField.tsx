@@ -8,6 +8,7 @@ import { AddButtonWrap, RowButtonWrap, StyledButton, StyledLabel } from "./layou
 import { Hint } from "../../unbound/Hint"
 import { Responsive } from "../../layout/responsiveProps"
 import { Dimensions } from "../../layout/FormGridCell"
+import ComposedField from "../../unbound/ComposedField"
 
 export type Props = {
   position?: Responsive<Dimensions>
@@ -23,12 +24,10 @@ export type Props = {
 
 const defaultRenderEach:RenderEach = (props, renderer) => renderer(props)
 
-const ArrayField:React.FC<Props> = ({ label, columns, hint, name, scaffoldFields, renderEach, allowAdd, allowRemove }) => {
+const ArrayField:React.FC<Props> = ({ label, columns, hint, position, name, scaffoldFields, renderEach, allowAdd, allowRemove }) => {
   const { mutators: { push } } =  useForm()
 
-  return <>
-    { label && <StyledLabel>{ label }</StyledLabel> }
-    { hint && <Hint>{ hint }</Hint> }
+  return <ComposedField label={label} hint={hint} position={position}>
     <FieldArray name={name}>
       { ({ fields }) => fields.map((name, index) => (
           <Scaffold
@@ -49,16 +48,14 @@ const ArrayField:React.FC<Props> = ({ label, columns, hint, name, scaffoldFields
           </Scaffold>
       ))}
     </FieldArray>
-    <AddButtonWrap>
-      { allowAdd && (
-        <StyledButton
-          variant='tertiary'
-          icon={<Enlarge />}
-          onClick={(e:React.MouseEvent) => { e.preventDefault(); push(name, undefined) } }
-        />
-      ) }
-    </AddButtonWrap>
-  </>
+    { allowAdd && (
+      <StyledButton
+        variant='tertiary'
+        icon={<Enlarge />}
+        onClick={(e:React.MouseEvent) => { e.preventDefault(); push(name, undefined) } }
+      />
+    ) }
+  </ComposedField>
 }
 
 export default ArrayField

@@ -22,7 +22,7 @@ describe("ComposedField", () => {
   })
 
   it("should render children when given", () => {
-    const component = mount(<ComposedField><div>Foo</div></ComposedField>)
-    expect(component.find("div").text()).toEqual("Foo")
+    const component = mount(<ComposedField><section>Foo</section></ComposedField>)
+    expect(component.find("section").text()).toEqual("Foo")
   })
 })

@@ -12,7 +12,7 @@ const fields:ScaffoldFields = {
     props: {
       name: "description",
       label: "Description",
-      validate: () => "error",
+      validate: () => "Error",
       position: { row: 0, column: 0 }
     }
   },

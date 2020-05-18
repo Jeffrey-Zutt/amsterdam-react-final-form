@@ -20,22 +20,24 @@ export default {
 const scaffoldArrayProps:ScaffoldArrayFieldProps = {
  type: "ArrayField",
  props: {
+   columns: "1fr 1fr 1fr auto",
    label: "Array Field",
    allowAdd: true,
    allowRemove: true,
    name: "myArray",
+   position: { column: 0, row: 0 },
    scaffoldFields: {
      description: {
        type: "TextField",
-       props: { name: "description", label: "Description" }
+       props: { name: "description", label: "Description", position: { row: 0, column: 0 } }
      },
      amount: {
        type: "TextField",
-       props: { name: "amount", label: "Amount" }
+       props: { name: "amount", label: "Amount", position: { row: 0, column: 1 } }
      },
      price: {
        type: "TextField",
-       props: { name: "price", label: "Price" }
+       props: { name: "price", label: "Price", position: { row: 0, column: 2 } }
      }
    }
  }
@@ -45,7 +47,8 @@ const scaffoldBooleanProps:ScaffoldBooleanProps = {
   type: "Boolean",
   props: {
     name: "myBoolean",
-    label: "Boolean"
+    label: "Boolean",
+    position: { column: 0, row: 1 }
   }
 }
 
@@ -54,7 +57,8 @@ const scaffoldCheckboxFieldsProps:ScaffoldCheckboxFieldsProps = {
   props: {
     name: "myCheckboxFields",
     label: "Checkbox Fields",
-    options: { foo: "foo", bar: "bar" }
+    options: { foo: "foo", bar: "bar" },
+    position: { column: 0, row: 2 }
   }
 }
 
@@ -62,7 +66,8 @@ const scaffoldNumberField:ScaffoldNumberFieldProps = {
   type: "NumberField",
   props: {
     name: "myNumberField",
-    label: "Number Field"
+    label: "Number Field",
+    position: { column: 0, row: 3 }
   }
 }
 
@@ -71,7 +76,8 @@ const scaffoldRadioFields:ScaffoldRadioFieldsProps = {
   props: {
     name: "myRadioFields",
     label: "Radio Fields",
-    options: { foo: "foo", bar: "bar" }
+    options: { foo: "foo", bar: "bar" },
+    position: { column: 0, row: 4 }
   }
 }
 
@@ -80,18 +86,19 @@ const scaffoldSelectField:ScaffoldSelectFieldProps = {
   props: {
     name: "mySelectField",
     label: "Select Field",
-    options: { foo: "foo", bar: "bar" }
+    options: { foo: "foo", bar: "bar" },
+    position: { column: 0, row: 5 }
   }
 }
 
 const scaffoldTextAreaField:ScaffoldTextAreaFieldProps = {
   type: "TextAreaField",
-  props: { name: "myTextAreaField", label: "TextArea Field" }
+  props: { name: "myTextAreaField", label: "TextArea Field", position: { column: 0, row: 6 } }
 }
 
 const scaffoldTextField:ScaffoldTextFieldProps = {
   type: "TextField",
-  props: { name: "myTextField", label: "Text Field" }
+  props: { name: "myTextField", label: "Text Field", position: { column: 0, row: 7 } }
 }
 
 const fields = {
@@ -114,25 +121,4 @@ export const SingleTextAreaField = () => <ScaffoldField field={scaffoldTextAreaF
 export const SingleTextField = () => <ScaffoldField field={scaffoldTextField} />
 
 export const MultipleFields = () => <Scaffold fields={fields} />
-
-export const WithCustomRenderer = () => <Scaffold
-  fields={{
-    description: {
-      type: "TextField",
-      props: { name: "description", label: "Description" }
-    },
-    amount: {
-      type: "TextField",
-      props: { name: "amount", label: "Amount" }
-    },
-    price: {
-      type: "TextField",
-      props: { name: "price", label: "Price" }
-    }
-  }}
-  renderEach={(props, renderField) => (
-    <span style={ { display: "inline-block", width: "33.3%", paddingRight: "8px" } }>{ renderField(props) }</span>
-  )}
-/>
-
 

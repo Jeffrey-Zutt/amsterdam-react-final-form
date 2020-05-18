@@ -40,7 +40,7 @@ describe("ScaffoldField", () => {
     expect(sections.at(0).find("TextField").exists()).toEqual(true)
 
     expect(renderEach).toHaveBeenCalledTimes(2)
-    expect(renderEach).toHaveBeenNthCalledWith(1, { type: "TextField", props: { name: "foo" } }, expect.anything())
-    expect(renderEach).toHaveBeenNthCalledWith(2, { type: "TextField", props: { name: "bar" } }, expect.anything())
+    expect(renderEach).toHaveBeenNthCalledWith(1, { type: "TextField", props: { name: "foo" } }, expect.anything(), 0)
+    expect(renderEach).toHaveBeenNthCalledWith(2, { type: "TextField", props: { name: "bar" } }, expect.anything(), 1)
   })
 })

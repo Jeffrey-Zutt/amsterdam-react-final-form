@@ -1,6 +1,11 @@
 import React, { useCallback } from "react"
+import styled from "styled-components"
 import { Label as AscLabel, RadioGroup, Radio } from "@datapunt/asc-ui"
 import ComposedField, { ComposedFieldProps } from "./ComposedField"
+
+const StyledRadio = styled(Radio)`
+  padding: 0;
+`
 
 export type Props = Omit<React.HTMLAttributes<HTMLInputElement>, "onChange"> & ComposedFieldProps & {
   name: string
@@ -24,7 +29,7 @@ const UnboundRadioFields:React.FC<Props> = ({ name, horizontal, label, hint, err
           .entries(options)
           .map(([key, label]) => (
             <AscLabel key={key} htmlFor={key} label={label}>
-              <Radio {...restProps} onChange={handleChange} error={!!error} id={key} name={name} value={key} checked={ value === key } />
+              <StyledRadio {...restProps} onChange={handleChange} error={!!error} id={key} name={name} value={key} checked={ value === key } />
             </AscLabel>
           )) }
       </RadioGroup>

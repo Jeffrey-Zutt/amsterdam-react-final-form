@@ -7,7 +7,7 @@ export const FieldError = styled.div`
   font-weight: 600;
   width: 100%;
   
-  margin-top: ${ themeSpacing(4) };
+  margin-top: ${ themeSpacing(2) };
   color: ${ themeColor("support", "invalid") }
 `
 FieldError.displayName = "FieldError"

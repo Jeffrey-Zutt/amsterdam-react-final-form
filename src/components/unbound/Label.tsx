@@ -8,13 +8,13 @@ type Props = {
 }
 
 const style = css`
-  line-height: 25px;
+  line-height: 18px;
   font-size: 18px;
   font-weight: 600;
   width: 100%;  
    
   span {
-    margin: ${ themeSpacing(2) } 0;    
+    margin: ${ themeSpacing(1) } 0;    
   }
 `
 

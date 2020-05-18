@@ -6,9 +6,8 @@ import ComposedField, { ComposedFieldProps } from "./ComposedField"
 type Props = Omit<React.HTMLAttributes<HTMLInputElement>, "onChange"> & ComposedFieldProps
 
 const StyledCheckbox = styled(Checkbox)`  
-  padding-top: 0  !important;
-  padding-bottom: 0  !important;
-  
+  padding: 0;
+     
   span {
     margin-top: 2px;
   }

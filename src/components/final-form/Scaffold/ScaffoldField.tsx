@@ -9,44 +9,45 @@ import SelectField, { Props as SelectFieldProps } from "../SelectField/SelectFie
 import TextAreaField, { Props as TextAreaFieldProps } from "../TextAreaField/TextAreaField"
 import TextField, { Props as TextFieldProps } from "../TextField/TextField"
 
+
 export type ScaffoldArrayFieldProps = {
   type: "ArrayField"
-  props: ArrayFieldProps
+  props: ArrayFieldProps & Required<Pick<ArrayFieldProps, "position">>
 }
 
 export type ScaffoldBooleanProps = {
   type: "Boolean"
-  props: BooleanProps
+  props: BooleanProps & Required<Pick<BooleanProps, "position">>
 }
 
 export type ScaffoldCheckboxFieldsProps = {
   type: "CheckboxFields"
-  props: CheckboxProps
+  props: CheckboxProps & Required<Pick<CheckboxProps, "position">>
 }
 
 export type ScaffoldNumberFieldProps = {
   type: "NumberField"
-  props: NumberFieldProps
+  props: NumberFieldProps & Required<Pick<NumberFieldProps, "position">>
 }
 
 export type ScaffoldRadioFieldsProps = {
   type: "RadioFields"
-  props: RadioFieldsProps
+  props: RadioFieldsProps & Required<Pick<RadioFieldsProps, "position">>
 }
 
 export type ScaffoldSelectFieldProps = {
   type: "SelectField"
-  props: SelectFieldProps
+  props: SelectFieldProps & Required<Pick<SelectFieldProps, "position">>
 }
 
 export type ScaffoldTextAreaFieldProps = {
   type: "TextAreaField"
-  props: TextAreaFieldProps
+  props: TextAreaFieldProps & Required<Pick<TextAreaFieldProps, "position">>
 }
 
 export type ScaffoldTextFieldProps = {
   type: "TextField"
-  props: TextFieldProps
+  props: TextFieldProps & Required<Pick<TextFieldProps, "position">>
 }
 
 export type ScaffoldFieldProps =
