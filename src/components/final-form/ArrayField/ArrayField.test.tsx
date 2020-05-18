@@ -52,8 +52,7 @@ describe("ArrayField", () => {
       mounted.find(Button).last().simulate("click")
       mounted.find(Button).last().simulate("click")
 
-      mounted.find(TextField).forEach((textField, index) => textField.simulate("change", { target: { value: "change_" + index } }))
-
+      mounted.find("input").forEach((textField, index) => textField.simulate("change", { target: { value: "change_" + index } }))
       mounted.find("form").simulate("submit")
 
       expect(onSubmit).toHaveBeenCalledWith(

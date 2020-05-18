@@ -1,15 +1,10 @@
 import React, { useCallback } from "react"
-import { Label } from "./Label"
 import { Label as AscLabel, RadioGroup, Radio } from "@datapunt/asc-ui"
-import { FieldError } from "./FieldError"
-import { Hint } from "./Hint"
+import ComposedField, { ComposedFieldProps } from "./ComposedField"
 
-export type Props = Omit<React.HTMLAttributes<HTMLInputElement>, "onChange"> & {
+export type Props = Omit<React.HTMLAttributes<HTMLInputElement>, "onChange"> & ComposedFieldProps & {
   name: string
   horizontal?: boolean,
-  label?: string
-  hint?: string|JSX.Element,
-  error?: string
   options: Record<string, string>,
   value: string,
   onChange?: (string:string) => void
@@ -23,9 +18,7 @@ const UnboundRadioFields:React.FC<Props> = ({ name, horizontal, label, hint, err
   }, [onChange])
 
   return (
-    <>
-      { label !== undefined && <Label label={label} />}
-      { hint !== undefined && <Hint>{hint}</Hint> }
+    <ComposedField label={label} hint={hint} error={error}>
       <RadioGroup name={name} horizontal={horizontal}>
         { Object
           .entries(options)
@@ -35,8 +28,7 @@ const UnboundRadioFields:React.FC<Props> = ({ name, horizontal, label, hint, err
             </AscLabel>
           )) }
       </RadioGroup>
-      { error && <FieldError>{ error }</FieldError> }
-    </>
+    </ComposedField>
   )
 }
 

@@ -4,6 +4,7 @@ import React from "react"
 
 type Props = {
   label?: string
+  htmlFor?:string
 }
 
 const style = css`
@@ -28,7 +29,7 @@ export const LabelDiv = styled.div`
 `
 LabelDiv.displayName = "LabelDiv"
 
-export const Label:React.FC<Props> = ({ label, children }) =>
+export const Label:React.FC<Props> = ({ label, htmlFor, children }) =>
   label !== undefined
-    ? <StyledLabel label={label} position='top' align='flex-start'>{ children }</StyledLabel>
+    ? <StyledLabel label={label} htmlFor={htmlFor} position='top' align='flex-start'>{ children }</StyledLabel>
     : <>{ children }</>

@@ -1,15 +1,10 @@
 import React, { useCallback, useState } from "react"
 import { Label as AscLabel } from "@datapunt/asc-ui"
-import { Label } from "./Label"
-import { FieldError } from "./FieldError"
 import UnboundCheckbox from "./UnboundCheckbox"
-import { Hint } from "./Hint"
+import ComposedField, { ComposedFieldProps } from "./ComposedField"
 
-export type Props = Omit<React.HTMLAttributes<HTMLInputElement>, "onChange"> & {
+export type Props = Omit<React.HTMLAttributes<HTMLInputElement>, "onChange"> & ComposedFieldProps & {
   values: string[],
-  label?: string
-  hint?: string|JSX.Element
-  error?: string
   options: Record<string, string>
   onChange?: (values:string[]) => void
 }
@@ -33,9 +28,7 @@ export const UnboundCheckboxes:React.FC<Props> = ({ values: initialValues, label
   }, [values, setValues, onChange])
 
   return (
-    <>
-      { label !== undefined && <Label label={label} />}
-      { hint !== undefined && <Hint>{ hint }</Hint>}
+    <ComposedField label={label} hint={hint} error={error}>
       { Object
         .entries(options)
         .map(([key, value]) => (
@@ -51,8 +44,7 @@ export const UnboundCheckboxes:React.FC<Props> = ({ values: initialValues, label
             </AscLabel>
           </div>
         )) }
-      { error && <FieldError>{ error }</FieldError> }
-    </>
+    </ComposedField>
   )
 }
 

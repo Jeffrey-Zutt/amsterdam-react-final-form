@@ -1,15 +1,9 @@
 import { Checkbox } from "@datapunt/asc-ui"
 import React from "react"
 import styled from "styled-components"
-import { Label } from "./Label"
-import { Hint } from "./Hint"
-import { FieldError } from "./FieldError"
+import ComposedField, { ComposedFieldProps } from "./ComposedField"
 
-type Props = Omit<React.HTMLAttributes<HTMLInputElement>, "onChange"> & {
-  label?: string
-  hint?: string | JSX.Element
-  error?: string
-}
+type Props = Omit<React.HTMLAttributes<HTMLInputElement>, "onChange"> & ComposedFieldProps
 
 const StyledCheckbox = styled(Checkbox)`  
   padding-top: 0  !important;
@@ -21,18 +15,12 @@ const StyledCheckbox = styled(Checkbox)`
 `
 
 const UnboundBooleanField:React.FC<Props> = ({ label, hint, error, ...otherProps }) => (
-  <>
-    <Label label={label}>
-      <>
-        { hint && <Hint>{ hint }</Hint>}
-        <StyledCheckbox
-          error={!!error}
-          {...otherProps}
-        />
-      </>
-    </Label>
-    { error && (<FieldError>{ error }</FieldError>) }
-  </>
+  <ComposedField label={label} hint={hint} error={error}>
+    <StyledCheckbox
+      error={!!error}
+      {...otherProps}
+    />
+  </ComposedField>
 )
 
 
