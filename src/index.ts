@@ -1,3 +1,7 @@
+// Types:
+
+import { ScaffoldFields as ScaffoldFieldsType } from "./components/final-form/Scaffold/Scaffold"
+
 // Components:
 
 import BooleanField from "./components/final-form/BooleanField/BooleanField"
@@ -33,6 +37,8 @@ import { isNotIntersectingWith } from "./validators/isNotIntersectingWith"
 import { isRequired } from "./validators/isRequired"
 
 export {
+  ScaffoldFieldsType,
+
   BooleanField,
   CheckboxFields,
   ComplexCheckboxFields,
