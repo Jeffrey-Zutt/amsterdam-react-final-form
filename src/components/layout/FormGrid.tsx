@@ -11,6 +11,8 @@ const FormGrid = styled.div<FormGridProps>`
 
   display: -ms-grid;
   display: grid;
+
+  -ms-grid-columns: 1fr;   
   
   ${ (props:FormGridProps) => responsiveProps(props, {
       columns: (string) => css`

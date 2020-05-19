@@ -11,7 +11,8 @@
     "storybook:build": "build-storybook -s public -o docs",
     "lint": "eslint --cache --ext .ts,.tsx src",
     "lint:fix": "npm run lint -- --fix",
-    "build": "rm -Rf ./dist && tsc ./src/index.ts --esModuleInterop --declaration --skipLibCheck --jsx react --outDir dist && cp ./package.json ./dist/package.json"
+    "build": "rm -Rf ./dist && tsc ./src/index.ts --esModuleInterop --declaration --skipLibCheck --jsx react --outDir dist && cp ./package.json ./dist/package.json",
+    "postinstall": "rm -Rf ./node_modules/@datapunt/asc-assets/es; rm -Rf ./node_modules/@datapunt/asc-ui/es; rm -Rf node_modules/@datapunt/asc-ui/node_modules/@datapunt/asc-assets/es;"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -20,12 +21,14 @@
     "production": [
       ">0.2%",
       "not dead",
-      "not op_mini all"
+      "not op_mini all",
+      "IE 11"
     ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 safari version",
+      "IE 11"
     ]
   },
   "dependencies": {
@@ -35,6 +38,7 @@
     "final-form-arrays": "^3.0.2",
     "lodash.isequal": "^4.5.0",
     "objectFitPolyfill": "^2.3.0",
+    "react-app-polyfill": "^1.0.6",
     "react-final-form": "^6.4.0",
     "react-final-form-arrays": "^3.1.1",
     "react-scripts": "3.4.1",

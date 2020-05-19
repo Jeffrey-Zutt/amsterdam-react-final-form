@@ -1,3 +1,6 @@
+import "react-app-polyfill/ie11"
+import "react-app-polyfill/stable"
+
 import React from 'react'
 import { addDecorator, configure } from '@storybook/react'
 import { GlobalStyle, ThemeProvider, themeColor } from '@datapunt/asc-ui'
@@ -10,8 +13,7 @@ import styled from "styled-components";
 const req = require.context('../src', true, /\.stories\.(tsx)$/)
 
 const extendedTheme = {
-  globalStyle: `
-  `,
+  globalStyle: ''
 }
 
 const Wrapper = styled.div`
