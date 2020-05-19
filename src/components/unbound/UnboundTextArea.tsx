@@ -1,8 +1,13 @@
 import React from "react"
 import { TextArea } from "@datapunt/asc-ui"
+import styled from "styled-components"
 import ComposedField, { ComposedFieldProps } from "./ComposedField"
 
 export type Props = ComposedFieldProps & React.TextareaHTMLAttributes<HTMLTextAreaElement>
+
+const StyledTextArea = styled(TextArea)`
+  height: 100%;
+`
 
 /**
  * Renders a TEXTAREA field that is not bound to final-form.
@@ -10,7 +15,7 @@ export type Props = ComposedFieldProps & React.TextareaHTMLAttributes<HTMLTextAr
 
 const UnboundTextArea:React.FC<Props> = ({ label, hint, error, position, ...otherProps }) =>
   <ComposedField label={label} hint={hint} error={error} position={position}>
-      <TextArea
+      <StyledTextArea
         error={!!error}
         {...otherProps}
       />

@@ -122,3 +122,11 @@ export const SingleTextField = () => <ScaffoldField field={scaffoldTextField} />
 
 export const MultipleFields = () => <Scaffold fields={fields} />
 
+export const ComplexGrid = () => <Scaffold columns="1fr 3fr" fields={{
+  title: { type: "TextField", props: { label: "Title", name: "title", position: { column: 0, row: 0, columnSpan: 2 } } },
+  field1: { type: "TextField", props: { label: "Field 1", name: "field1", hint: "some hint", position: { column: 0, row: 1 } } },
+  field2: { type: "TextField", props: { label: "Field 1", name: "field2", position: { column: 0, row: 2 } } },
+  field3: { type: "TextField", props: { label: "Field 1", name: "field3", position: { column: 0, row: 3 } } },
+  textarea: { type: "TextAreaField", props: { label: "TextArea", name: "textarea", position: { column: 1, row: 1, rowSpan: 3 } } },
+  field4: { type: "TextField", props: { label: "Field 4", name: "field4", position: { column: 0, row: 4, columnSpan: 2 } } }
+}} />
