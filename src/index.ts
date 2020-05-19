@@ -1,6 +1,6 @@
 // Types:
 
-import { ScaffoldFields as ScaffoldFieldsType } from "./components/final-form/Scaffold/Scaffold"
+import { ScaffoldFields } from "./components/final-form/Scaffold/Scaffold"
 
 // Components:
 
@@ -36,9 +36,9 @@ import { isMatchingRegex } from "./validators/isMatchingRegex"
 import { isNotIntersectingWith } from "./validators/isNotIntersectingWith"
 import { isRequired } from "./validators/isRequired"
 
-export {
-  ScaffoldFieldsType,
+export type ScaffoldFieldsType = ScaffoldFields
 
+export {
   BooleanField,
   CheckboxFields,
   ComplexCheckboxFields,
