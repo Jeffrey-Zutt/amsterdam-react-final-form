@@ -1,11 +1,7 @@
 import styled from "styled-components"
 import { Button, themeSpacing } from "@datapunt/asc-ui"
 
-export type Props = {
-  column: number
-}
-
-export const RowButtonWrap = styled.div<Props>`
+export const RowButtonWrap = styled.div`
   position: relative;
   top: -5px;
   
