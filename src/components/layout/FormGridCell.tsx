@@ -64,7 +64,7 @@ const FormGridCell = styled.div<FormGridCellProps>`
   margin: ${ themeSpacing(1) } ${ themeSpacing(2) };
   
   align-self: ${ props => props.rowOffset === undefined ? "end" : "initial" };
-  -ms-grid-column-align: ${ props => props.rowOffset === undefined ? "end" : "initial" };
+  -ms-grid-row-align: ${ props => props.rowOffset === undefined ? "end" : "initial" };
   
   ${ (props:FormGridCellProps) => responsiveProps(props, { 
     "position": unit => generateDimensionsCss(unit, props.rowOffset ?? 0) 
