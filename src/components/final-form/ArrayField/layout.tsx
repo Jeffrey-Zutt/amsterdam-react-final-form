@@ -13,6 +13,10 @@ export const RowButtonWrap = styled.div`
   -ms-grid-row: 2;  
 `
 
+export const AddButtonWrap = styled.div`
+  margin-top: ${ themeSpacing(1) };
+`
+
 export const StyledButton = styled(Button)`
   min-width: 48px;  
 `

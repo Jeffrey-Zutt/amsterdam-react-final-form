@@ -4,7 +4,7 @@ import { TrashBin, Enlarge } from "@datapunt/asc-assets"
 import Scaffold, { RenderEach, ScaffoldFields } from "../Scaffold/Scaffold"
 import { useForm } from "react-final-form"
 import { prefixNames } from "./utils/prefixNames"
-import { RowButtonWrap, StyledButton } from "./layout"
+import { AddButtonWrap, RowButtonWrap, StyledButton } from "./layout"
 import { Responsive } from "../../layout/responsiveProps"
 import { Dimensions } from "../../layout/FormGridCell"
 import ComposedField from "../../unbound/ComposedField"
@@ -48,11 +48,13 @@ const ArrayField:React.FC<Props> = ({ label, columns, hint, position, name, scaf
       ))}
     </FieldArray>
     { allowAdd && (
-      <StyledButton
-        variant='tertiary'
-        icon={<Enlarge />}
-        onClick={(e:React.MouseEvent) => { e.preventDefault(); push(name, undefined) } }
-      />
+      <AddButtonWrap>
+        <StyledButton
+          variant='tertiary'
+          icon={<Enlarge />}
+          onClick={(e:React.MouseEvent) => { e.preventDefault(); push(name, undefined) } }
+        />
+      </AddButtonWrap>
     ) }
   </ComposedField>
 }
