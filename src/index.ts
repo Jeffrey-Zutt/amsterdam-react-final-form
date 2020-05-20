@@ -1,6 +1,7 @@
 // Types:
 
 import { ScaffoldFields } from "./components/final-form/Scaffold/Scaffold"
+import { Dimensions } from "./components/layout/FormGridCell"
 
 // Components:
 
@@ -37,6 +38,7 @@ import { isNotIntersectingWith } from "./validators/isNotIntersectingWith"
 import { isRequired } from "./validators/isRequired"
 
 export type ScaffoldFieldsType = ScaffoldFields
+export type FormGridCellDimensions = Dimensions
 
 export {
   BooleanField,
