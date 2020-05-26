@@ -8,8 +8,8 @@ export type Props = ComposedFieldProps & React.InputHTMLAttributes<HTMLInputElem
  * Renders a INPUT field that is not bound to final-form.
  */
 
-const UnboundTextField:React.FC<Props> = ({ label, hint, error, position, ...otherProps }) =>
-  <ComposedField label={label} hint={hint} error={error} position={position}>
+const UnboundTextField:React.FC<Props> = ({ label, hint, error, position, align, ...otherProps }) =>
+  <ComposedField label={label} hint={hint} error={error} position={position} align={align}>
     <Input
       error={!!error}
       {...otherProps}

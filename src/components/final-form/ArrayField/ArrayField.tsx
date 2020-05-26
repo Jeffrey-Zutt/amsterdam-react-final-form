@@ -5,28 +5,23 @@ import Scaffold, { RenderEach, ScaffoldFields } from "../Scaffold/Scaffold"
 import { useForm } from "react-final-form"
 import { prefixNames } from "./utils/prefixNames"
 import { AddButtonWrap, RowButtonWrap, StyledButton } from "./layout"
-import { Responsive } from "../../layout/responsiveProps"
-import { Dimensions } from "../../layout/FormGridCell"
-import ComposedField from "../../unbound/ComposedField"
+import ComposedField, { ComposedFieldProps } from "../../unbound/ComposedField"
 
 export type Props = {
-  position?: Responsive<Dimensions>
   columns?: string,
-  label?: string,
-  hint?: string|JSX.Element,
   name: string,
   allowAdd?: boolean,
   allowRemove?: boolean,
   scaffoldFields: ScaffoldFields,
   renderEach?: RenderEach
-}
+} & ComposedFieldProps
 
 const defaultRenderEach:RenderEach = (props, renderer) => renderer(props)
 
-const ArrayField:React.FC<Props> = ({ label, columns, hint, position, name, scaffoldFields, renderEach, allowAdd, allowRemove }) => {
+const ArrayField:React.FC<Props> = ({ label, columns, hint, position, align, name, scaffoldFields, renderEach, allowAdd, allowRemove }) => {
   const { mutators: { push } } =  useForm()
 
-  return <ComposedField label={label} hint={hint} position={position}>
+  return <ComposedField label={label} hint={hint} position={position} align={align}>
     <FieldArray name={name}>
       { ({ fields }) => fields.map((name, index) => (
           <Scaffold

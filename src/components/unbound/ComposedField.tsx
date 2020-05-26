@@ -11,21 +11,24 @@ export type ComposedFieldProps = {
   error?: string
 } & Omit<FormGridCellProps, "rowOffset">
 
-const ComposedField:React.FC<ComposedFieldProps> = ({ children, id, label, hint, error, position }) => (
+const ComposedField:React.FC<ComposedFieldProps> = ({ children, id, label, hint, error, position, align }) => (
   <>
     {/*
       We position labels and hints in the same cell.
       All labels in a row should be aligned neatly.
     */}
-    <FormGridCell position={position} >
-      <Label label={label} htmlFor={id} />
-      { hint && <Hint>{ hint }</Hint> }
-    </FormGridCell>
+    { (hint || label) && (
+      <FormGridCell position={position} align={align}>
+        <Label label={label} htmlFor={id} />
+        { hint && <Hint>{ hint }</Hint> }
+      </FormGridCell>
+    ) }
+
     {/*
       We position field and errors in the same cell.
       All fields in a row should be aligned neatly.
     */}
-    <FormGridCell position={position} rowOffset={1}>
+    <FormGridCell position={position} align={align} rowOffset={1}>
       { children }
       { error && <FieldError>{ error }</FieldError> }
     </FormGridCell>

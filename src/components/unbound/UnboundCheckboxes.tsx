@@ -9,7 +9,7 @@ export type Props = Omit<React.HTMLAttributes<HTMLInputElement>, "onChange"> & C
   onChange?: (values:string[]) => void
 }
 
-export const UnboundCheckboxes:React.FC<Props> = ({ values: initialValues, label, hint, error, position, options, onChange, ...restProps }) => {
+export const UnboundCheckboxes:React.FC<Props> = ({ values: initialValues, label, hint, align, error, position, options, onChange, ...restProps }) => {
   const [values, setValues] = useState<string[]>(initialValues)
 
   const handleChange = useCallback((checked:boolean, value:string) => {
@@ -28,7 +28,7 @@ export const UnboundCheckboxes:React.FC<Props> = ({ values: initialValues, label
   }, [values, setValues, onChange])
 
   return (
-    <ComposedField label={label} hint={hint} error={error} position={position}>
+    <ComposedField label={label} hint={hint} error={error} position={position} align={align}>
       { Object
         .entries(options)
         .map(([key, value]) => (

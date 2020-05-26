@@ -4,7 +4,7 @@ import ComposedField, { ComposedFieldProps } from "./ComposedField"
 
 export type Props = React.ComponentProps<typeof Button> & ComposedFieldProps
 
-const UnboundButton:React.FC<Props> = ({ position, ...restProps }) => (<ComposedField position={position}>
+const UnboundButton:React.FC<Props> = ({ position, align, ...restProps }) => (<ComposedField position={position} align={align}>
   <Button {...restProps} />
 </ComposedField>)
 

@@ -18,10 +18,11 @@ const UnboundSelectField:React.FC<Props> = ({
   options,
   error,
   position,
+  align,
   withEmptyOption,
   ...restProps
 }) => (
-    <ComposedField label={label} hint={hint} error={error} position={position}>
+    <ComposedField label={label} hint={hint} error={error} position={position} align={align}>
       <Select
         error={error}
         {...restProps}

@@ -11,6 +11,7 @@ export type Dimensions = {
 
 export type FormGridCellProps = {
   position?: Responsive<Dimensions>
+  align?: Responsive<"left" | "right" | "center">
   rowOffset?: number
 }
 
@@ -64,13 +65,12 @@ const generateDimensionsCss = (position:Dimensions, rowOffset:number) => {
 
 const FormGridCell = styled.div<FormGridCellProps>`
   margin: ${ themeSpacing(1) } ${ themeSpacing(2) };
-  
-  
-  
+     
   align-self: ${ props => props.rowOffset === undefined ? "end" : "initial" };
   -ms-grid-row-align: ${ props => props.rowOffset === undefined ? "end" : "initial" };
   
   ${ (props:FormGridCellProps) => responsiveProps(props, { 
+    "align": unit => css`text-align: ${ unit };`,
     "position": unit => generateDimensionsCss(unit, props.rowOffset ?? 0) 
   } ) } 
 `
