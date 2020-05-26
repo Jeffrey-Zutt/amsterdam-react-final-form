@@ -1,4 +1,5 @@
 import React from "react"
+import { Search, Close } from "@datapunt/asc-assets"
 
 import Scaffold from "./Scaffold"
 
@@ -125,8 +126,17 @@ export const MultipleFields = () => <Scaffold fields={fields} />
 export const ComplexGrid = () => <Scaffold columns="1fr 3fr" fields={{
   title: { type: "TextField", props: { label: "Title", name: "title", position: { column: 0, row: 0, columnSpan: 2 } } },
   field1: { type: "TextField", props: { label: "Field 1", name: "field1", hint: "some hint", position: { column: 0, row: 1 } } },
-  field2: { type: "TextField", props: { label: "Field 1", name: "field2", position: { column: 0, row: 2 } } },
-  field3: { type: "TextField", props: { label: "Field 1", name: "field3", position: { column: 0, row: 3 } } },
+  field2: { type: "TextField", props: { label: "Field 2", name: "field2", position: { column: 0, row: 2 } } },
+  field3: { type: "TextField", props: { label: "Field 3", name: "field3", position: { column: 0, row: 3 }, validate: () => "Some error" } },
   textarea: { type: "TextAreaField", props: { label: "TextArea", name: "textarea", position: { column: 1, row: 1, rowSpan: 3 } } },
   field4: { type: "TextField", props: { label: "Field 4", name: "field4", position: { column: 0, row: 4, columnSpan: 2 } } }
+}} />
+
+
+export const ExampleUsingButtons = () => <Scaffold columns="3fr 1fr 1fr auto auto" fields={{
+  postcode: { type: "TextField", props: { label: "Postcode", name: "postal_code", validate: () => "error",  position: { column: 0, row: 0 } } },
+  houseNo: { type: "TextField", props: { label: "Huisnr.", name: "house_no", position: { column: 1, row: 0 } } },
+  extra: { type: "TextField", props: { label: "Hslt. / etage", name: "extra", position: { column: 2, row: 0 } } },
+  cancel: { type: "Button", props: { variant: "tertiary", type: "reset", icon: <Close />, position: { column: 3, row: 0 } } },
+  submit: { type: "Button", props: { variant: "secondary", type: "submit", icon: <Search />, position: { column: 4, row: 0 } } }
 }} />

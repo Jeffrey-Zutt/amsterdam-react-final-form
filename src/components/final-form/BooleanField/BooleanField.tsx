@@ -23,7 +23,6 @@ const BooleanField:React.FC<Props> = ({ name, validate, ...restProps }) => {
   })
 
   return (<UnboundBooleanField
-    name={name}
     error={meta.dirty && meta.error}
     { ...input }
     { ...restProps }

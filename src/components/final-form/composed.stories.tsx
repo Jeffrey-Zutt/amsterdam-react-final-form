@@ -92,4 +92,3 @@ export const ExampleUsingComplexFields = () => <>
     optionLabelField='username'
   />
 </>
-

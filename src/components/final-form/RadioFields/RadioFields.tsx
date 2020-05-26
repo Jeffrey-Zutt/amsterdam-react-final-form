@@ -24,7 +24,6 @@ const RadioFields:React.FC<Props> = ({ name, validate, ...restProps }) => {
   })
 
   return (<UnboundRadioFields
-    name={name}
     error={meta.dirty && meta.error}
     { ...input }
     { ...restProps }

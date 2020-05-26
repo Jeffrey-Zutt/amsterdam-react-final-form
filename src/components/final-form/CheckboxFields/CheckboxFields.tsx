@@ -23,7 +23,6 @@ const CheckboxFields:React.FC<Props> = ({ name, validate, ...restProps }) => {
   })
 
   return (<UnboundCheckboxes
-    name={name}
     error={meta.dirty && meta.error}
     values={values}
     { ...restInput }

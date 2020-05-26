@@ -14,6 +14,8 @@ export type FormGridCellProps = {
   rowOffset?: number
 }
 
+const NUM_ROWS_PER_FIELD = 2
+
 // NOTE:
 //
 // We have to implement our own version of -ms-grid.
@@ -31,15 +33,15 @@ const generateDimensionsCss = (position:Dimensions, rowOffset:number) => {
 
   if (position.row !== undefined) {
     parts.push(css`
-      grid-row-start: ${ (position.row * 2) + 1 + rowOffset };
-      -ms-grid-row: ${ (position.row * 2) + 1 + rowOffset };
+      grid-row-start: ${ (position.row * NUM_ROWS_PER_FIELD) + 1 + rowOffset };
+      -ms-grid-row: ${ (position.row * NUM_ROWS_PER_FIELD) + 1 + rowOffset };
     `)
   }
 
   if (position.rowSpan && rowOffset) {
     parts.push(css`
-      grid-row-end: span ${ (position.rowSpan * 2) - 1 };
-      -ms-grid-row-span: ${ (position.rowSpan * 2) - 1 };
+      grid-row-end: span ${ (position.rowSpan * NUM_ROWS_PER_FIELD) - 1 };
+      -ms-grid-row-span: ${ (position.rowSpan * NUM_ROWS_PER_FIELD) - 1 };
     `)
   }
 
@@ -62,6 +64,8 @@ const generateDimensionsCss = (position:Dimensions, rowOffset:number) => {
 
 const FormGridCell = styled.div<FormGridCellProps>`
   margin: ${ themeSpacing(1) } ${ themeSpacing(2) };
+  
+  
   
   align-self: ${ props => props.rowOffset === undefined ? "end" : "initial" };
   -ms-grid-row-align: ${ props => props.rowOffset === undefined ? "end" : "initial" };

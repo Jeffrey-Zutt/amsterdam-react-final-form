@@ -8,7 +8,7 @@ import RadioFields, { Props as RadioFieldsProps } from "../RadioFields/RadioFiel
 import SelectField, { Props as SelectFieldProps } from "../SelectField/SelectField"
 import TextAreaField, { Props as TextAreaFieldProps } from "../TextAreaField/TextAreaField"
 import TextField, { Props as TextFieldProps } from "../TextField/TextField"
-
+import UnboundButton , { Props as ButtonProps } from "../../unbound/UnboundButton"
 
 export type ScaffoldArrayFieldProps = {
   type: "ArrayField"
@@ -50,6 +50,11 @@ export type ScaffoldTextFieldProps = {
   props: TextFieldProps & Required<Pick<TextFieldProps, "position">>
 }
 
+export type ScaffoldButtonProps = {
+  type: "Button"
+  props: ButtonProps & Required<Pick<ButtonProps, "position">>
+}
+
 export type ScaffoldFieldProps =
   | ScaffoldArrayFieldProps
   | ScaffoldBooleanProps
@@ -59,6 +64,7 @@ export type ScaffoldFieldProps =
   | ScaffoldSelectFieldProps
   | ScaffoldTextAreaFieldProps
   | ScaffoldTextFieldProps
+  | ScaffoldButtonProps
 
 export type Props = {
   field: ScaffoldFieldProps
@@ -80,6 +86,8 @@ const ScaffoldField:React.FC<Props> = ({ field }) => {
       return <SelectField {...field.props} />
     case "TextAreaField":
       return <TextAreaField {...field.props} />
+    case "Button":
+      return <UnboundButton {...field.props} />
     case "TextField":
     default:
       return <TextField {...field.props} />
