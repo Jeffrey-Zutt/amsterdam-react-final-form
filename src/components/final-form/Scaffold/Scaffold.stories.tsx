@@ -1,24 +1,14 @@
 import React from "react"
 import { Search, Close } from "@datapunt/asc-assets"
 
-import Scaffold from "./Scaffold"
-
-import ScaffoldField, {
-  ScaffoldArrayFieldProps,
-  ScaffoldBooleanProps,
-  ScaffoldCheckboxFieldsProps,
-  ScaffoldNumberFieldProps,
-  ScaffoldRadioFieldsProps,
-  ScaffoldSelectFieldProps,
-  ScaffoldTextAreaFieldProps,
-  ScaffoldTextFieldProps
-} from "./ScaffoldField"
+import Scaffold, { ScaffoldFields } from "./Scaffold"
+import ScaffoldField, { ScaffoldFieldProps } from "./ScaffoldField"
 
 export default {
   title: "Scaffold"
 }
 
-const scaffoldArrayProps:ScaffoldArrayFieldProps = {
+const scaffoldArrayProps:ScaffoldFieldProps = {
  type: "ArrayField",
  props: {
    columns: "1fr 1fr 1fr auto",
@@ -44,7 +34,7 @@ const scaffoldArrayProps:ScaffoldArrayFieldProps = {
  }
 }
 
-const scaffoldBooleanProps:ScaffoldBooleanProps = {
+const scaffoldBooleanProps:ScaffoldFieldProps = {
   type: "Boolean",
   props: {
     name: "myBoolean",
@@ -53,7 +43,7 @@ const scaffoldBooleanProps:ScaffoldBooleanProps = {
   }
 }
 
-const scaffoldCheckboxFieldsProps:ScaffoldCheckboxFieldsProps = {
+const scaffoldCheckboxFieldsProps:ScaffoldFieldProps = {
   type: "CheckboxFields",
   props: {
     name: "myCheckboxFields",
@@ -63,7 +53,7 @@ const scaffoldCheckboxFieldsProps:ScaffoldCheckboxFieldsProps = {
   }
 }
 
-const scaffoldNumberField:ScaffoldNumberFieldProps = {
+const scaffoldNumberField:ScaffoldFieldProps = {
   type: "NumberField",
   props: {
     name: "myNumberField",
@@ -72,7 +62,7 @@ const scaffoldNumberField:ScaffoldNumberFieldProps = {
   }
 }
 
-const scaffoldRadioFields:ScaffoldRadioFieldsProps = {
+const scaffoldRadioFields:ScaffoldFieldProps = {
   type: "RadioFields",
   props: {
     name: "myRadioFields",
@@ -82,7 +72,7 @@ const scaffoldRadioFields:ScaffoldRadioFieldsProps = {
   }
 }
 
-const scaffoldSelectField:ScaffoldSelectFieldProps = {
+const scaffoldSelectField:ScaffoldFieldProps = {
   type: "SelectField",
   props: {
     name: "mySelectField",
@@ -92,17 +82,17 @@ const scaffoldSelectField:ScaffoldSelectFieldProps = {
   }
 }
 
-const scaffoldTextAreaField:ScaffoldTextAreaFieldProps = {
+const scaffoldTextAreaField:ScaffoldFieldProps = {
   type: "TextAreaField",
   props: { name: "myTextAreaField", label: "TextArea Field", position: { column: 0, row: 6 } }
 }
 
-const scaffoldTextField:ScaffoldTextFieldProps = {
+const scaffoldTextField:ScaffoldFieldProps = {
   type: "TextField",
   props: { name: "myTextField", label: "Text Field", position: { column: 0, row: 7 } }
 }
 
-const fields = {
+const fields:ScaffoldFields = {
   "boolean": scaffoldBooleanProps,
   "checkbox": scaffoldCheckboxFieldsProps,
   "number": scaffoldNumberField,

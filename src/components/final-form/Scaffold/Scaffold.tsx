@@ -1,6 +1,7 @@
 import React from "react"
 import FormGrid, { FormGridProps } from "../../layout/FormGrid"
 import ScaffoldField, { ScaffoldFieldProps } from "./ScaffoldField"
+
 export type ScaffoldFields = Record<string, ScaffoldFieldProps>
 
 export type RenderEach = (fieldProps:ScaffoldFieldProps, fieldRenderer:FieldRenderer, index:number) => JSX.Element

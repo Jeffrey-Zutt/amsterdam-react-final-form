@@ -12,50 +12,50 @@ import UnboundButton , { Props as ButtonProps } from "../../unbound/UnboundButto
 
 export type ScaffoldArrayFieldProps = {
   type: "ArrayField"
-  props: ArrayFieldProps & Required<Pick<ArrayFieldProps, "position">>
+  props: ArrayFieldProps
 }
 
 export type ScaffoldBooleanProps = {
   type: "Boolean"
-  props: BooleanProps & Required<Pick<BooleanProps, "position">>
+  props: BooleanProps
 }
 
 export type ScaffoldCheckboxFieldsProps = {
   type: "CheckboxFields"
-  props: CheckboxProps & Required<Pick<CheckboxProps, "position">>
+  props: CheckboxProps
 }
 
 export type ScaffoldNumberFieldProps = {
   type: "NumberField"
-  props: NumberFieldProps & Required<Pick<NumberFieldProps, "position">>
+  props: NumberFieldProps
 }
 
 export type ScaffoldRadioFieldsProps = {
   type: "RadioFields"
-  props: RadioFieldsProps & Required<Pick<RadioFieldsProps, "position">>
+  props: RadioFieldsProps
 }
 
 export type ScaffoldSelectFieldProps = {
   type: "SelectField"
-  props: SelectFieldProps & Required<Pick<SelectFieldProps, "position">>
+  props: SelectFieldProps
 }
 
 export type ScaffoldTextAreaFieldProps = {
   type: "TextAreaField"
-  props: TextAreaFieldProps & Required<Pick<TextAreaFieldProps, "position">>
+  props: TextAreaFieldProps
 }
 
 export type ScaffoldTextFieldProps = {
   type: "TextField"
-  props: TextFieldProps & Required<Pick<TextFieldProps, "position">>
+  props: TextFieldProps
 }
 
 export type ScaffoldButtonProps = {
   type: "Button"
-  props: ButtonProps & Required<Pick<ButtonProps, "position">>
+  props: ButtonProps
 }
 
-export type ScaffoldFieldProps =
+export type ScaffoldAvailableFields =
   | ScaffoldArrayFieldProps
   | ScaffoldBooleanProps
   | ScaffoldCheckboxFieldsProps
@@ -65,6 +65,10 @@ export type ScaffoldFieldProps =
   | ScaffoldTextAreaFieldProps
   | ScaffoldTextFieldProps
   | ScaffoldButtonProps
+
+// Make position required:
+export type ScaffoldFieldProps =
+  ScaffoldAvailableFields & { props: ScaffoldAvailableFields["props"] & Required<Pick<ScaffoldAvailableFields["props"], "position">> }
 
 export type Props = {
   field: ScaffoldFieldProps

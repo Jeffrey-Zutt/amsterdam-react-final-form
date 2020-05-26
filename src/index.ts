@@ -1,8 +1,3 @@
-// Types:
-
-import { ScaffoldFields } from "./components/final-form/Scaffold/Scaffold"
-import { Dimensions } from "./components/layout/FormGridCell"
-
 // Components:
 
 import BooleanField from "./components/final-form/BooleanField/BooleanField"
@@ -37,8 +32,11 @@ import { isMatchingRegex } from "./validators/isMatchingRegex"
 import { isNotIntersectingWith } from "./validators/isNotIntersectingWith"
 import { isRequired } from "./validators/isRequired"
 
-export type ScaffoldFieldsType = ScaffoldFields
-export type FormGridCellDimensions = Dimensions
+// Types:
+
+export type { ScaffoldFields } from "./components/final-form/Scaffold/Scaffold"
+export type { ScaffoldAvailableFields } from "./components/final-form/Scaffold/ScaffoldField"
+export type { Dimensions } from "./components/layout/FormGridCell"
 
 export {
   BooleanField,
