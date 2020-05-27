@@ -7,7 +7,7 @@ export type FormGridProps = {
 }
 
 const FormGrid = styled.div<FormGridProps>`
-  margin: -${ themeSpacing(2) };
+  margin: 0 -${ themeSpacing(2) };
 
   display: -ms-grid;
   display: grid;
