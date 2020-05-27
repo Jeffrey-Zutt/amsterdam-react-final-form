@@ -9,6 +9,7 @@ import SelectField, { Props as SelectFieldProps } from "../SelectField/SelectFie
 import TextAreaField, { Props as TextAreaFieldProps } from "../TextAreaField/TextAreaField"
 import TextField, { Props as TextFieldProps } from "../TextField/TextField"
 import UnboundButton , { Props as ButtonProps } from "../../unbound/UnboundButton"
+import ResetButton from "../ResetButton/ResetButton"
 
 export type ScaffoldArrayFieldProps = {
   type: "ArrayField"
@@ -55,6 +56,11 @@ export type ScaffoldButtonProps = {
   props: ButtonProps
 }
 
+export type ScaffoldResetButtonProps = {
+  type: "ResetButton"
+  props: ButtonProps
+}
+
 export type ScaffoldAvailableFields =
   | ScaffoldArrayFieldProps
   | ScaffoldBooleanProps
@@ -65,6 +71,7 @@ export type ScaffoldAvailableFields =
   | ScaffoldTextAreaFieldProps
   | ScaffoldTextFieldProps
   | ScaffoldButtonProps
+  | ScaffoldResetButtonProps
 
 // Make position required:
 export type ScaffoldFieldProps =
@@ -92,6 +99,8 @@ const ScaffoldField:React.FC<Props> = ({ field }) => {
       return <TextAreaField {...field.props} />
     case "Button":
       return <UnboundButton {...field.props} />
+    case "ResetButton":
+      return <ResetButton {...field.props} />
     case "TextField":
     default:
       return <TextField {...field.props} />

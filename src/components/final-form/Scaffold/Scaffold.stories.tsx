@@ -127,6 +127,6 @@ export const ExampleUsingButtons = () => <Scaffold columns="3fr 1fr 1fr auto aut
   postcode: { type: "TextField", props: { label: "Postcode", name: "postal_code", validate: () => "error",  position: { column: 0, row: 0 } } },
   houseNo: { type: "TextField", props: { label: "Huisnr.", name: "house_no", position: { column: 1, row: 0 } } },
   extra: { type: "TextField", props: { label: "Hslt. / etage", name: "extra", position: { column: 2, row: 0 } } },
-  cancel: { type: "Button", props: { align: "right", variant: "tertiary", type: "reset", icon: <Close />, position: { column: 3, row: 0 } } },
+  cancel: { type: "ResetButton", props: { align: "right", variant: "tertiary", type: "reset", icon: <Close />, position: { column: 3, row: 0 } } },
   submit: { type: "Button", props: { variant: "secondary", type: "submit", icon: <Search />, position: { column: 4, row: 0 } } }
 }} />

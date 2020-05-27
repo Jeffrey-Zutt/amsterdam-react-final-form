@@ -7,7 +7,7 @@
   "scripts": {
     "test": "react-scripts test --watchAll=false",
     "test:coverage": "react-scripts test --coverage --watchAll=false",
-    "storybook": "start-storybook -p 9009 -s public --debug-webpack",
+    "storybook": "start-storybook -p 9009 -s public",
     "storybook:build": "build-storybook -s public -o docs",
     "lint": "eslint --cache --ext .ts,.tsx src",
     "lint:fix": "npm run lint -- --fix",
