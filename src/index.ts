@@ -12,6 +12,7 @@ import TextAreaField from "./components/final-form/TextAreaField/TextAreaField"
 import TextField from "./components/final-form/TextField/TextField"
 import Scaffold from "./components/final-form/Scaffold/Scaffold"
 import ScaffoldField from "./components/final-form/Scaffold/ScaffoldField"
+import ScaffoldForm from "./components/final-form/Scaffold/ScaffoldForm"
 import { Label, LabelDiv } from "./components/unbound/Label"
 
 // Unbound (not bound to react-final-form)
@@ -52,6 +53,7 @@ export {
 
   Scaffold,
   ScaffoldField,
+  ScaffoldForm,
 
   UnboundBooleanField,
   UnboundCheckboxes,
