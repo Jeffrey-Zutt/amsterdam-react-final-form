@@ -1,18 +1,13 @@
 import React from "react"
 import { FieldValidator } from "final-form"
 import { useField } from "react-final-form"
-import { UnboundCheckboxes } from "../../unbound/UnboundCheckboxes"
-import { Responsive } from "../../layout/responsiveProps"
-import { Dimensions } from "../../layout/FormGridCell"
+import { UnboundCheckboxes, Props as UnboundCheckboxesProps } from "../../unbound/UnboundCheckboxes"
 
 export type Props = {
-  position?: Responsive<Dimensions>
-  label?: string
-  hint?: string|JSX.Element,
   name: string
   options: Record<string, string>
   validate?: FieldValidator<string[]>
-} & Omit<React.HTMLAttributes<HTMLInputElement>, "onChange">
+} & UnboundCheckboxesProps
 
 const CheckboxFields:React.FC<Props> = ({ name, validate, ...restProps }) => {
   const {

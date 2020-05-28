@@ -28,3 +28,20 @@ export const WithError = () => <CheckboxFields
   options={{ foo: "Foo", bar: "Bar" }}
   validate={() => "Some error occurred"}
 />
+
+export const WithColumnCount = () => {
+  // Make 50 options:
+  const num = 50
+  const options = [...Array(num)]
+    .map((_, index) => `item ${ index }`)
+    .reduce(
+      (acc, item) => ({ ...acc, [item]: item }),
+      {}
+    )
+
+  return <CheckboxFields
+    name='myFieldName'
+    options={options}
+    columnCount={{ mobileS: 1, laptop: Math.ceil(num / 10) }}
+  />
+}
