@@ -10,6 +10,8 @@ import TextAreaField, { Props as TextAreaFieldProps } from "../TextAreaField/Tex
 import TextField, { Props as TextFieldProps } from "../TextField/TextField"
 import UnboundButton , { Props as ButtonProps } from "../../unbound/UnboundButton"
 import ResetButton from "../ResetButton/ResetButton"
+import SubmitButton from "../SubmitButton/SubmitButton"
+
 
 export type ScaffoldArrayFieldProps = {
   type: "ArrayField"
@@ -61,6 +63,11 @@ export type ScaffoldResetButtonProps = {
   props: ButtonProps
 }
 
+export type ScaffoldSubmitButtonProps = {
+  type: "SubmitButton"
+  props: ButtonProps
+}
+
 export type ScaffoldAvailableFields =
   | ScaffoldArrayFieldProps
   | ScaffoldBooleanProps
@@ -72,6 +79,7 @@ export type ScaffoldAvailableFields =
   | ScaffoldTextFieldProps
   | ScaffoldButtonProps
   | ScaffoldResetButtonProps
+  | ScaffoldSubmitButtonProps
 
 // Make position required:
 export type ScaffoldFieldProps =
@@ -101,6 +109,8 @@ const ScaffoldField:React.FC<Props> = ({ field }) => {
       return <UnboundButton {...field.props} />
     case "ResetButton":
       return <ResetButton {...field.props} />
+    case "SubmitButton":
+      return <SubmitButton {...field.props} />
     case "TextField":
     default:
       return <TextField {...field.props} />
