@@ -16,6 +16,7 @@ const ResetButton:React.FC<UnboundButtonProps> = ({ onClick, label, ...otherProp
 
   return <UnboundButton
     type="reset"
+    variant="tertiary"
     onClick={handleClick}
     { ...otherProps }
   >
