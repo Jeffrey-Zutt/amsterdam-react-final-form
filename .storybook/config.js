@@ -1,7 +1,7 @@
 import "react-app-polyfill/ie11"
 import "react-app-polyfill/stable"
 
-import React from 'react'
+import React, { useCallback } from 'react'
 import { addDecorator, configure } from '@storybook/react'
 import { GlobalStyle, ThemeProvider, themeColor } from '@datapunt/asc-ui'
 import { action } from '@storybook/addon-actions'
@@ -27,18 +27,31 @@ const Pre = styled.pre`
 `
 
 function withGlobalStyles(storyFn) {
+
+  // Mock a submit:
+  const handleSubmit = useCallback((...args) => new Promise((resolve) => {
+    action('submit')
+    console.log("Mock submit...", args)
+    setTimeout(() => {
+      console.log("...submitted!")
+      resolve()
+    }, 1000)
+  }), [])
+
   return (
     <ThemeProvider overrides={extendedTheme}>
     <>
     <GlobalStyle />
     <Form
-      onSubmit={action('submit')}
+      onSubmit={handleSubmit}
       mutators={{
         ...arrayMutators
       }}
-      render={({ values }) => <>
+      render={({ values, handleSubmit }) => <>
         <Wrapper>
-          {storyFn()}
+          <form onSubmit={handleSubmit}>
+            {storyFn()}
+          </form>
         </Wrapper>
         <Wrapper>
           <Pre>

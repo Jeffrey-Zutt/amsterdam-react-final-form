@@ -13,3 +13,10 @@ export const WithIcon = () => (
     <ResetButton icon={<Close />} variant="tertiary" />
   </>
 )
+
+export const WithText = () => (
+  <>
+    <TextField name="foo" label="Some field" />
+    <ResetButton label="Reset" variant="tertiary" />
+  </>
+)
