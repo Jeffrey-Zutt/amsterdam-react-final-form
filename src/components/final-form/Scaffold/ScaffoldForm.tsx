@@ -1,22 +1,23 @@
-import React from "react"
-import { Form } from "react-final-form"
+import React, { PropsWithChildren } from "react"
+import { Form, FormProps } from "react-final-form"
 
 import Scaffold from "./Scaffold"
 
-type Props = React.ComponentProps<typeof Form> & {
+type Props<FormValues> = FormProps<FormValues> & {
   onReset?: () => void
   scaffoldProps: React.ComponentProps<typeof Scaffold>
 }
 
-const ScaffoldForm: React.FC<Props> = ({ onReset, scaffoldProps, ...restProps }) => (
-  <Form
-    {...restProps}
-    render={({ handleSubmit }) => (
-      <form onSubmit={handleSubmit} onReset={onReset}>
-        <Scaffold {...scaffoldProps} />
-      </form>
-    )}
-  />
-)
+function ScaffoldForm<T>({ onReset, scaffoldProps, ...restProps }:PropsWithChildren<Props<T>>) {
+  return (<Form
+      {...restProps}
+      render={({ handleSubmit }) => (
+        <form onSubmit={handleSubmit} onReset={onReset}>
+          <Scaffold {...scaffoldProps} />
+        </form>
+      )}
+    />
+  )
+}
 
 export default ScaffoldForm

@@ -13,7 +13,8 @@ type BreakPoint =
   | "desktop"
   | "desktopL"
 
-export type Responsive<T> = T | { [key in BreakPoint]?: T }
+export type OnlyResponsive<T> = { [key in BreakPoint]?: T }
+export type Responsive<T> = T | OnlyResponsive<T>
 
 type UnitFunction = (unit: any) => any
 
@@ -56,7 +57,6 @@ const isResponsiveObject = (obj:any): obj is Responsive<any> => {
 
 /**
  * Wraps 'responsive-props' in media-queries if necessary.
- * See `Box` for a example
  */
 export const responsiveProps = <T extends Record<string, any>>(props: T, map: { [key in keyof T]: UnitFunction }) => {
   const nonResponsiveRules = Object
