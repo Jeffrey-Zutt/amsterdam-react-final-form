@@ -40,7 +40,7 @@ export const mq = (bk: BreakPoint, cssRules: any) => css`
   }        
 `
 
-const isResponsiveObject = (obj:any): obj is Responsive<any> => {
+export const isResponsiveObject = (obj:any): obj is Responsive<any> => {
   if (typeof obj !== "object") {
     return false
   }
