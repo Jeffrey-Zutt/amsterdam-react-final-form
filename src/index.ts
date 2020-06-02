@@ -38,6 +38,7 @@ import { isRequired } from "./validators/isRequired"
 export type { ScaffoldFields } from "./components/final-form/Scaffold/Scaffold"
 export type { ScaffoldAvailableFields } from "./components/final-form/Scaffold/ScaffoldField"
 export type { Dimensions } from "./components/layout/FormGridCell"
+export type { Responsive, BreakPoint } from "./components/layout/responsiveProps"
 
 export {
   BooleanField,

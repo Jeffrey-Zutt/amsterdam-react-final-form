@@ -1,7 +1,7 @@
 import { breakpoint } from "@datapunt/asc-ui"
 import { css } from "styled-components"
 
-type BreakPoint =
+export type BreakPoint =
   | "mobileS"
   | "mobileM"
   | "mobileL"
@@ -40,7 +40,7 @@ export const mq = (bk: BreakPoint, cssRules: any) => css`
   }        
 `
 
-export const isResponsiveObject = (obj:any): obj is Responsive<any> => {
+const isResponsiveObject = (obj:any): obj is Responsive<any> => {
   if (typeof obj !== "object") {
     return false
   }
