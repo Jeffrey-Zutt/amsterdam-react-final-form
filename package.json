@@ -32,8 +32,8 @@
     ]
   },
   "dependencies": {
-    "@datapunt/asc-assets": "^0.19.1",
-    "@datapunt/asc-ui": "^0.19.2-beta.2",
+    "@datapunt/asc-assets": "^0.20.0",
+    "@datapunt/asc-ui": "^0.20.0",
     "final-form": "^4.19.1",
     "final-form-arrays": "^3.0.2",
     "lodash.isequal": "^4.5.0",
@@ -70,8 +70,8 @@
     "typescript": "^3.8.3"
   },
   "peerDependencies": {
-    "@datapunt/asc-assets": "^0.19.1",
-    "@datapunt/asc-ui": "^0.19.2-beta.2",
+    "@datapunt/asc-assets": "^0.20.0",
+    "@datapunt/asc-ui": "^0.20.0",
     "final-form": "^4.19.1",
     "final-form-arrays": "^3.0.2",
     "react": "^16.13.1",
