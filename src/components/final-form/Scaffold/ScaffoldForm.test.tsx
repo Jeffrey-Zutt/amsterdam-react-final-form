@@ -1,13 +1,12 @@
 import React from "react"
 import { mount } from "enzyme"
 import ScaffoldForm from "./ScaffoldForm"
-import Scaffold from "./Scaffold"
+import Scaffold, { ScaffoldFields } from "./Scaffold"
 
 describe("ScaffoldForm", () => {
   const onSubmit = jest.fn()
 
-  const scaffoldProps:React.ComponentProps<typeof Scaffold> = {
-    fields: {
+  const fields:ScaffoldFields = {
       field: {
         type: "TextField",
         props: {
@@ -16,10 +15,13 @@ describe("ScaffoldForm", () => {
           position: { row: 0, column: 0 }
         }
       }
-    }
   }
 
-  const component = mount(<ScaffoldForm onSubmit={onSubmit} scaffoldProps={scaffoldProps} />)
+  const component = mount(
+    <ScaffoldForm onSubmit={onSubmit}>
+      <Scaffold fields={fields} />
+    </ScaffoldForm>
+  )
 
   beforeEach(() => {
     onSubmit.mockReset()
