@@ -12,7 +12,6 @@ import UnboundButton , { Props as ButtonProps } from "../../unbound/UnboundButto
 import ResetButton from "../ResetButton/ResetButton"
 import SubmitButton from "../SubmitButton/SubmitButton"
 
-
 export type ScaffoldArrayFieldProps = {
   type: "ArrayField"
   props: ArrayFieldProps
@@ -81,12 +80,8 @@ export type ScaffoldAvailableFields =
   | ScaffoldResetButtonProps
   | ScaffoldSubmitButtonProps
 
-// Make position required:
-export type ScaffoldFieldProps =
-  ScaffoldAvailableFields & { props: ScaffoldAvailableFields["props"] & Required<Pick<ScaffoldAvailableFields["props"], "position">> }
-
 export type Props = {
-  field: ScaffoldFieldProps
+  field: ScaffoldAvailableFields
 }
 
 const ScaffoldField:React.FC<Props> = ({ field }) => {
