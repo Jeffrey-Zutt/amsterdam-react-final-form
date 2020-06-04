@@ -19,6 +19,7 @@ import ComposedField from "./components/unbound/ComposedField"
 // Unbound (not bound to react-final-form)
 
 import UnboundBooleanField from "./components/unbound/UnboundBooleanField"
+import UnboundCheckbox from "./components/unbound/UnboundCheckbox"
 import UnboundCheckboxes from "./components/unbound/UnboundCheckboxes"
 import UnboundTextField from "./components/unbound/UnboundTextField"
 import UnboundRadioFields from "./components/unbound/UnboundRadioFields"
@@ -61,6 +62,7 @@ export {
   ScaffoldForm,
 
   UnboundBooleanField,
+  UnboundCheckbox,
   UnboundCheckboxes,
   UnboundTextField,
   UnboundRadioFields,
