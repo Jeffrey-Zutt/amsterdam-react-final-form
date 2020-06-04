@@ -14,6 +14,7 @@ import Scaffold from "./components/final-form/Scaffold/Scaffold"
 import ScaffoldField from "./components/final-form/Scaffold/ScaffoldField"
 import ScaffoldForm from "./components/final-form/Scaffold/ScaffoldForm"
 import { Label, LabelDiv } from "./components/unbound/Label"
+import ComposedField from "./components/unbound/ComposedField"
 
 // Unbound (not bound to react-final-form)
 
@@ -23,6 +24,9 @@ import UnboundTextField from "./components/unbound/UnboundTextField"
 import UnboundRadioFields from "./components/unbound/UnboundRadioFields"
 import UnboundSelectField from "./components/unbound/UnboundSelectField"
 import UnboundTextArea from "./components/unbound/UnboundTextArea"
+
+// Hooks
+import { useManageCheckboxes } from "./hooks/useManageCheckboxes"
 
 // Validators:
 
@@ -63,6 +67,9 @@ export {
   UnboundSelectField,
   UnboundTextArea,
 
+  useManageCheckboxes,
+
+  ComposedField,
   Label,
   LabelDiv,
 

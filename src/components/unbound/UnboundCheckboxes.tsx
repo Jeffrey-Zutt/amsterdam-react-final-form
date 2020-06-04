@@ -1,9 +1,10 @@
-import React, { useCallback, useState } from "react"
+import React from "react"
 import { Label as AscLabel } from "@datapunt/asc-ui"
 import styled, { css } from "styled-components"
 import UnboundCheckbox from "./UnboundCheckbox"
 import ComposedField, { ComposedFieldProps } from "./ComposedField"
 import { Responsive, responsiveProps } from "../layout/responsiveProps"
+import { useManageCheckboxes } from "../../hooks/useManageCheckboxes"
 
 export type Props = Omit<React.HTMLAttributes<HTMLInputElement>, "onChange"> & ComposedFieldProps & {
   values?: string[],
@@ -20,22 +21,7 @@ const Wrapper = styled.div<WrapperProps>`
 `
 
 export const UnboundCheckboxes:React.FC<Props> = ({ values: initialValues, label, hint, align, columnCount, error, position, options, onChange, ...restProps }) => {
-  const [values, setValues] = useState<string[]>(initialValues ?? [] as string[])
-
-  const handleChange = useCallback((checked:boolean, value:string) => {
-    // Either add or remove `value` from array `values`
-    const changedValues = checked
-      ? [ ...values, value ]
-      : values.filter(val => val !== value)
-
-    // Set new values in state:
-    setValues(changedValues)
-
-    // Notify everyone interested in the change.
-    if (onChange) {
-      onChange(changedValues)
-    }
-  }, [values, setValues, onChange])
+  const { values, handleChange } = useManageCheckboxes(initialValues, onChange)
 
   return (
     <ComposedField label={label} hint={hint} error={error} position={position} align={align}>
