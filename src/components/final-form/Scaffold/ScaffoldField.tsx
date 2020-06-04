@@ -12,6 +12,8 @@ import UnboundButton , { Props as ButtonProps } from "../../unbound/UnboundButto
 import ResetButton from "../ResetButton/ResetButton"
 import SubmitButton from "../SubmitButton/SubmitButton"
 
+import ScaffoldGroup, { Props as GroupProps } from "./ScaffoldGroup"
+
 export type ScaffoldArrayFieldProps = {
   type: "ArrayField"
   props: ArrayFieldProps
@@ -67,6 +69,11 @@ export type ScaffoldSubmitButtonProps = {
   props: ButtonProps
 }
 
+export type ScaffoldGroupProps = {
+  type: "Group"
+  props: GroupProps
+}
+
 export type ScaffoldAvailableFields =
   | ScaffoldArrayFieldProps
   | ScaffoldBooleanProps
@@ -79,6 +86,7 @@ export type ScaffoldAvailableFields =
   | ScaffoldButtonProps
   | ScaffoldResetButtonProps
   | ScaffoldSubmitButtonProps
+  | ScaffoldGroupProps
 
 export type Props = {
   field: ScaffoldAvailableFields

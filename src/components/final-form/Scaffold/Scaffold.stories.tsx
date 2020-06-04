@@ -3,6 +3,7 @@ import { Search, Close } from "@datapunt/asc-assets"
 
 import Scaffold, { ScaffoldFields } from "./Scaffold"
 import ScaffoldField, { ScaffoldAvailableFields } from "./ScaffoldField"
+import ScaffoldGroup from "./ScaffoldGroup"
 
 export default {
   title: "Scaffold"
@@ -132,3 +133,8 @@ export const ExampleUsingButtons = () => <Scaffold columns="3fr 1fr 1fr auto aut
   cancel: { type: "ResetButton", props: { align: "right", variant: "tertiary", type: "reset", alignedHorizontally: true, icon: <Close />, position: { column: 3, row: 0 } } },
   submit: { type: "Button", props: { variant: "secondary", type: "submit", icon: <Search />, alignedHorizontally: true, position: { column: 4, row: 0 } } }
 }} />
+
+export const ExampleUsingGroups = () => <>
+  <ScaffoldGroup name='days.monday' fields={fields} />
+  <ScaffoldGroup name='days.tuesday' fields={fields} />
+</>
