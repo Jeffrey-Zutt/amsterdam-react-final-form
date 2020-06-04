@@ -2,13 +2,13 @@ import React from "react"
 import { Search, Close } from "@datapunt/asc-assets"
 
 import Scaffold, { ScaffoldFields } from "./Scaffold"
-import ScaffoldField, { ScaffoldFieldProps } from "./ScaffoldField"
+import ScaffoldField, { ScaffoldAvailableFields } from "./ScaffoldField"
 
 export default {
   title: "Scaffold"
 }
 
-const scaffoldArrayProps:ScaffoldFieldProps = {
+const scaffoldArrayProps:ScaffoldAvailableFields = {
  type: "ArrayField",
  props: {
    columns: "1fr 1fr 1fr auto",
@@ -34,7 +34,7 @@ const scaffoldArrayProps:ScaffoldFieldProps = {
  }
 }
 
-const scaffoldBooleanProps:ScaffoldFieldProps = {
+const scaffoldBooleanProps:ScaffoldAvailableFields = {
   type: "Boolean",
   props: {
     name: "myBoolean",
@@ -43,7 +43,7 @@ const scaffoldBooleanProps:ScaffoldFieldProps = {
   }
 }
 
-const scaffoldCheckboxFieldsProps:ScaffoldFieldProps = {
+const scaffoldCheckboxFieldsProps:ScaffoldAvailableFields = {
   type: "CheckboxFields",
   props: {
     name: "myCheckboxFields",
@@ -53,7 +53,7 @@ const scaffoldCheckboxFieldsProps:ScaffoldFieldProps = {
   }
 }
 
-const scaffoldNumberField:ScaffoldFieldProps = {
+const scaffoldNumberField:ScaffoldAvailableFields = {
   type: "NumberField",
   props: {
     name: "myNumberField",
@@ -62,7 +62,7 @@ const scaffoldNumberField:ScaffoldFieldProps = {
   }
 }
 
-const scaffoldRadioFields:ScaffoldFieldProps = {
+const scaffoldRadioFields:ScaffoldAvailableFields = {
   type: "RadioFields",
   props: {
     name: "myRadioFields",
@@ -72,7 +72,7 @@ const scaffoldRadioFields:ScaffoldFieldProps = {
   }
 }
 
-const scaffoldSelectField:ScaffoldFieldProps = {
+const scaffoldSelectField:ScaffoldAvailableFields = {
   type: "SelectField",
   props: {
     name: "mySelectField",
@@ -82,12 +82,12 @@ const scaffoldSelectField:ScaffoldFieldProps = {
   }
 }
 
-const scaffoldTextAreaField:ScaffoldFieldProps = {
+const scaffoldTextAreaField:ScaffoldAvailableFields = {
   type: "TextAreaField",
   props: { name: "myTextAreaField", label: "TextArea Field", position: { column: 0, row: 6 } }
 }
 
-const scaffoldTextField:ScaffoldFieldProps = {
+const scaffoldTextField:ScaffoldAvailableFields = {
   type: "TextField",
   props: { name: "myTextField", label: "Text Field", position: { column: 0, row: 7 } }
 }
