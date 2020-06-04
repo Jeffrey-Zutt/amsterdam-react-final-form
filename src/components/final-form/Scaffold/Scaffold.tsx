@@ -10,13 +10,14 @@ export type FieldRenderer = (fieldProps:ScaffoldAvailableFields) => JSX.Element
 type Props = {
   fields: ScaffoldFields
   renderEach?: RenderEach
+  fieldRenderer?: FieldRenderer
 } & FormGridProps
 
 const defaultRenderEach = (fieldProps:ScaffoldAvailableFields, renderField:FieldRenderer) => renderField(fieldProps)
 
-const fieldRenderer:FieldRenderer = (field:ScaffoldAvailableFields) => <ScaffoldField field={field} />
+const defaultFieldRenderer:FieldRenderer = (field:ScaffoldAvailableFields) => <ScaffoldField field={field} />
 
-const Scaffold:React.FC<Props> = ({ children, columns, fields, renderEach = defaultRenderEach }) => (
+const Scaffold:React.FC<Props> = ({ children, columns, fields, renderEach = defaultRenderEach, fieldRenderer = defaultFieldRenderer }) => (
   <FormGrid columns={columns}>
     {
       Object
