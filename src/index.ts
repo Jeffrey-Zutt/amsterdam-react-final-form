@@ -13,6 +13,7 @@ import TextField from "./components/final-form/TextField/TextField"
 import Scaffold from "./components/final-form/Scaffold/Scaffold"
 import ScaffoldField from "./components/final-form/Scaffold/ScaffoldField"
 import ScaffoldForm from "./components/final-form/Scaffold/ScaffoldForm"
+import ScaffoldGroup from "./components/final-form/Scaffold/ScaffoldGroup"
 import { Label, LabelDiv } from "./components/unbound/Label"
 import ComposedField from "./components/unbound/ComposedField"
 
@@ -60,6 +61,7 @@ export {
   Scaffold,
   ScaffoldField,
   ScaffoldForm,
+  ScaffoldGroup,
 
   UnboundBooleanField,
   UnboundCheckbox,
