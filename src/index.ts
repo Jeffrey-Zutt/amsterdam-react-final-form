@@ -16,6 +16,8 @@ import ScaffoldForm from "./components/final-form/Scaffold/ScaffoldForm"
 import ScaffoldGroup from "./components/final-form/Scaffold/ScaffoldGroup"
 import { Label, LabelDiv } from "./components/unbound/Label"
 import ComposedField from "./components/unbound/ComposedField"
+import DebugFormState from "./components/final-form/DebugForm/DebugFormState"
+import DebugFormValues from "./components/final-form/DebugForm/DebugFormValues"
 
 // Unbound (not bound to react-final-form)
 
@@ -62,6 +64,9 @@ export {
   ScaffoldField,
   ScaffoldForm,
   ScaffoldGroup,
+
+  DebugFormState,
+  DebugFormValues,
 
   UnboundBooleanField,
   UnboundCheckbox,
