@@ -14,6 +14,8 @@ import Scaffold from "./components/final-form/Scaffold/Scaffold"
 import ScaffoldField from "./components/final-form/Scaffold/ScaffoldField"
 import ScaffoldForm from "./components/final-form/Scaffold/ScaffoldForm"
 import ScaffoldGroup from "./components/final-form/Scaffold/ScaffoldGroup"
+import SubmitButton from "./components/final-form/SubmitButton/SubmitButton"
+import ResetButton from "./components/final-form/ResetButton/ResetButton"
 import { Label, LabelDiv } from "./components/unbound/Label"
 import ComposedField from "./components/unbound/ComposedField"
 import DebugFormState from "./components/final-form/DebugForm/DebugFormState"
@@ -67,6 +69,9 @@ export {
 
   DebugFormState,
   DebugFormValues,
+
+  SubmitButton,
+  ResetButton,
 
   UnboundBooleanField,
   UnboundCheckbox,
