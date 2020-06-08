@@ -132,3 +132,9 @@ export const ExampleUsingButtons = () => <Scaffold columns="3fr 1fr 1fr auto aut
   cancel: { type: "ResetButton", props: { align: "right", variant: "tertiary", type: "reset", alignedHorizontally: true, icon: <Close />, position: { column: 3, row: 0 } } },
   submit: { type: "Button", props: { variant: "secondary", type: "submit", icon: <Search />, alignedHorizontally: true, position: { column: 4, row: 0 } } }
 }} />
+
+export const ExampleUsingComplexDataStructures = () => <Scaffold columns="1fr" fields={{
+  select: { type: "ComplexSelectField", props: { label: "select", name: "select", optionLabelField: "label", options: [ { label: "foo", value: "foo" }, { label: "bar", value: "bar" } ]} },
+  checkbox: { type: "ComplexCheckboxFields", props: { label: "checkbox", name: "checkbox", optionLabelField: "label", options: [ { label: "foo", value: "foo" }, { label: "bar", value: "bar" } ]} },
+  radio: { type: "ComplexRadioFields", props: { label: "radio", name: "radio", optionLabelField: "label", options: [ { label: "foo", value: "foo" }, { label: "bar", value: "bar" } ]} }
+}} />

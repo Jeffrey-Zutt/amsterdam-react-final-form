@@ -3,9 +3,12 @@ import React from "react"
 import ArrayField, { Props as ArrayFieldProps } from "../ArrayField/ArrayField"
 import BooleanField, { Props as BooleanProps } from "../BooleanField/BooleanField"
 import CheckboxFields, { Props as CheckboxProps } from "../CheckboxFields/CheckboxFields"
+import ComplexCheckboxFields, { Props as ComplexCheckboxProps } from "../CheckboxFields/ComplexCheckboxFields"
 import NumberField, { Props as NumberFieldProps } from "../NumberField/NumberField"
 import RadioFields, { Props as RadioFieldsProps } from "../RadioFields/RadioFields"
+import ComplexRadioFields, { Props as ComplexRadioFieldsProps } from "../RadioFields/ComplexRadioFields"
 import SelectField, { Props as SelectFieldProps } from "../SelectField/SelectField"
+import ComplexSelectField, { Props as ComplexSelectFieldProps } from "../SelectField/ComplexSelectField"
 import TextAreaField, { Props as TextAreaFieldProps } from "../TextAreaField/TextAreaField"
 import TextField, { Props as TextFieldProps } from "../TextField/TextField"
 import UnboundButton , { Props as ButtonProps } from "../../unbound/UnboundButton"
@@ -27,6 +30,11 @@ export type ScaffoldCheckboxFieldsProps = {
   props: CheckboxProps
 }
 
+export type ScaffoldComplexCheckboxFieldsProps = {
+  type: "ComplexCheckboxFields"
+  props: ComplexCheckboxProps<any>
+}
+
 export type ScaffoldNumberFieldProps = {
   type: "NumberField"
   props: NumberFieldProps
@@ -37,9 +45,19 @@ export type ScaffoldRadioFieldsProps = {
   props: RadioFieldsProps
 }
 
+export type ScaffoldComplexRadioFieldsProps = {
+  type: "ComplexRadioFields"
+  props: ComplexRadioFieldsProps<any>
+}
+
 export type ScaffoldSelectFieldProps = {
   type: "SelectField"
   props: SelectFieldProps
+}
+
+export type ScaffoldComplexSelectFieldProps = {
+  type: "ComplexSelectField"
+  props: ComplexSelectFieldProps<any>
 }
 
 export type ScaffoldTextAreaFieldProps = {
@@ -71,9 +89,12 @@ export type ScaffoldAvailableFields =
   | ScaffoldArrayFieldProps
   | ScaffoldBooleanProps
   | ScaffoldCheckboxFieldsProps
+  | ScaffoldComplexCheckboxFieldsProps
   | ScaffoldNumberFieldProps
   | ScaffoldRadioFieldsProps
+  | ScaffoldComplexRadioFieldsProps
   | ScaffoldSelectFieldProps
+  | ScaffoldComplexSelectFieldProps
   | ScaffoldTextAreaFieldProps
   | ScaffoldTextFieldProps
   | ScaffoldButtonProps
@@ -92,12 +113,18 @@ const ScaffoldField:React.FC<Props> = ({ field }) => {
       return <BooleanField {...field.props} />
     case "CheckboxFields":
       return <CheckboxFields {...field.props} />
+    case "ComplexCheckboxFields":
+      return <ComplexCheckboxFields {...field.props} />
     case "NumberField":
       return <NumberField {...field.props} />
     case "RadioFields":
       return <RadioFields {...field.props} />
+    case "ComplexRadioFields":
+      return <ComplexRadioFields {...field.props} />
     case "SelectField":
       return <SelectField {...field.props} />
+    case "ComplexSelectField":
+      return <ComplexSelectField {...field.props} />
     case "TextAreaField":
       return <TextAreaField {...field.props} />
     case "Button":
