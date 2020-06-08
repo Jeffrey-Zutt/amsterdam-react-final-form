@@ -31,8 +31,8 @@ describe("NumberField", () => {
       .simulate("submit")
 
     expect(onSubmit)
-      .toHaveBeenCalledWith({
-          "myField": "6" },
+      .toHaveBeenCalledWith(
+        { "myField": 6 },
         expect.anything(),
         expect.anything()
       )

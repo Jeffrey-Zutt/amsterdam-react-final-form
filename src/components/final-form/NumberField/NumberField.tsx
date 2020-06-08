@@ -15,7 +15,7 @@ export type Props = {
   label?: string
   hint?: string|JSX.Element,
   name: string
-  validate?: FieldValidator<number>
+  validate?: FieldValidator<number | null>
   hideNumberSpinner?: boolean
 } & UnboundTextFieldProps
 
@@ -42,9 +42,14 @@ const NumberField:React.FC<Props> = ({ name, label, validate = noop, ...otherPro
     input
   } = useField(name, {
     type: "number",
+    parse: (val:string) => {
+      const parsed = parseFloat(val)
+      return isNaN(parsed) ? null : parsed
+    },
     validate
   })
 
+  // @ts-ignore
   return <StyledUnboundTextField
     label={label}
     error={meta.touched && meta.error}
