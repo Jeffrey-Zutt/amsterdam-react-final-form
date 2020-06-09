@@ -3,7 +3,7 @@ import { getIn } from "final-form"
 /**
  * Very simple validation method. Given value should be below `max`.
  */
-export const isBelow = (max:number|string, message = "De waarde moet lager dan {max} zijn") => (value:string|number|null|undefined):string|undefined  => {
+export const isBelow = (max:number|string, message = "De waarde moet lager dan {max} zijn") => (value?:string|number):string|undefined  => {
   if (value === null || value === undefined) {
     return undefined
   }
@@ -25,7 +25,7 @@ export const isBelow = (max:number|string, message = "De waarde moet lager dan {
   return undefined
 }
 
-export const isBelowOtherField = (otherField:string, message = "De waarde moet lager dan {max} zijn") => (value:string|number|null|undefined, allValues:object):string|undefined  => {
+export const isBelowOtherField = (otherField:string, message = "De waarde moet lager dan {max} zijn") => (value?:string|number, allValues:object = {}):string|undefined  => {
   const max = getIn(allValues, otherField)
   return isBelow(max, message)(value)
 }
