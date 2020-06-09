@@ -15,7 +15,7 @@ export type Props = {
   label?: string
   hint?: string|JSX.Element,
   name: string
-  validate?: FieldValidator<number | null>
+  validate?: FieldValidator<number | null | undefined>
   hideNumberSpinner?: boolean
 } & UnboundTextFieldProps
 
