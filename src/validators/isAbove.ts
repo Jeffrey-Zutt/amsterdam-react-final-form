@@ -1,9 +1,11 @@
 import { getIn } from "final-form"
 
+type Value = undefined|null|string|number
+
 /**
  * Very simple validation method. Given value should be above `min`.
  */
-export const isAbove = (min:number|string, message = "De waarde moet hoger dan {min} zijn") => (value?:string|number):string|undefined  => {
+export const isAbove = (min:number|string, message = "De waarde moet hoger dan {min} zijn") => (value:Value):string|undefined  => {
   if (value === null || value === undefined) {
     return undefined
   }
@@ -25,7 +27,7 @@ export const isAbove = (min:number|string, message = "De waarde moet hoger dan {
   return undefined
 }
 
-export const isAboveOtherField = (otherField:string, message = "De waarde moet hoger dan {min} zijn") => (value?:string|number, allValues:object = {}):string|undefined  => {
+export const isAboveOtherField = (otherField:string, message = "De waarde moet hoger dan {min} zijn") => (value:Value, allValues:object = {}):string|undefined  => {
   const min = getIn(allValues, otherField)
   return isAbove(min, message)(value)
 }
