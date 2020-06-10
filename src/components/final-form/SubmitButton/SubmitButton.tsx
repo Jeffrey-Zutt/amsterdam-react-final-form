@@ -2,12 +2,12 @@ import React from "react"
 import { useFormState } from "react-final-form"
 import { Spinner } from "@datapunt/asc-ui"
 
-import SubmitButton, { Props as UnboundButtonProps } from "../../unbound/UnboundButton"
+import UnboundButton, { Props as UnboundButtonProps } from "../../unbound/UnboundButton"
 
-const ResetButton:React.FC<UnboundButtonProps> = ({ onClick, label, ...otherProps }) => {
+const SubmitButton:React.FC<UnboundButtonProps> = ({ onClick, label, ...otherProps }) => {
   const { submitting, dirty, hasValidationErrors } = useFormState()
 
-  return <SubmitButton
+  return <UnboundButton
     type="submit"
     icon={ submitting ? <Spinner /> : undefined }
     variant="secondary"
@@ -15,7 +15,7 @@ const ResetButton:React.FC<UnboundButtonProps> = ({ onClick, label, ...otherProp
     { ...otherProps }
   >
     { label }
-  </SubmitButton>
+  </UnboundButton>
 }
 
-export default ResetButton
+export default SubmitButton

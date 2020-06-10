@@ -3,7 +3,7 @@ import SubmitButton from "./SubmitButton"
 import TextField from "../TextField/TextField"
 
 export default {
-  title: "Submit button"
+  title: "Button/Submit button"
 }
 
 export const Example = () => (

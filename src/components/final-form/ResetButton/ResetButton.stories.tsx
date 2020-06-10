@@ -4,7 +4,7 @@ import ResetButton from "./ResetButton"
 import TextField from "../TextField/TextField"
 
 export default {
-  title: "Reset button"
+  title: "Button/Reset button"
 }
 
 export const WithIcon = () => (
