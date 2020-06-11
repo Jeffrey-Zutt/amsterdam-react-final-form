@@ -64,10 +64,15 @@ const generateDimensionsCss = (position:Dimensions, rowOffset:number) => {
 }
 
 const FormGridCell = styled.div<FormGridCellProps>`
+  
 
   margin: ${ themeSpacing(1) } ${ themeSpacing(2) };
-  ${ props => props.rowOffset !== undefined && css`margin-bottom: ${ themeSpacing(3) };`  }
-     
+  ${ props => props.rowOffset !== undefined && css`
+    display: flex;
+    flex-direction: column;
+    margin-bottom: ${ themeSpacing(3) };`  
+  }
+       
   align-self: ${ props => props.rowOffset === undefined ? "end" : "initial" };
   -ms-grid-row-align: ${ props => props.rowOffset === undefined ? "end" : "initial" };
   

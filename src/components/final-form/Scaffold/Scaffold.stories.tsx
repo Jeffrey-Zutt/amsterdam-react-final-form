@@ -119,7 +119,7 @@ export const ComplexGrid = () => <Scaffold columns="1fr 3fr" fields={{
   field1: { type: "TextField", props: { label: "Field 1", name: "field1", hint: "some hint", position: { column: 0, row: 1 } } },
   field2: { type: "TextField", props: { label: "Field 2", name: "field2", position: { column: 0, row: 2 } } },
   field3: { type: "TextField", props: { label: "Field 3", name: "field3", position: { column: 0, row: 3 }, validate: () => "Some error" } },
-  textarea: { type: "TextAreaField", props: { label: "TextArea", name: "textarea", position: { column: 1, row: 1, rowSpan: 3 } } },
+  textarea: { type: "TextAreaField", props: { label: "TextArea", name: "textarea", position: { column: 1, row: 1, rowSpan: 3 }, validate: () => "Some error" } },
   field4: { type: "TextField", props: { label: "Field 4", name: "field4", position: { column: 0, row: 4, columnSpan: 2 } } },
   submit: { type: "SubmitButton", props: { label: "Submit", position: { column: 0, row: 5 } } }
 }} />

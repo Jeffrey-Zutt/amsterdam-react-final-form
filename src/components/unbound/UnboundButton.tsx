@@ -20,7 +20,7 @@ const StyledButton = styled(Button)<StyledButtonProps>`
 `
 
 const UnboundButton:React.FC<Props> = ({ position, align, ...restProps }) => (<ComposedField position={position} align={align}>
-  <StyledButton {...restProps} />
+  <div><StyledButton {...restProps} /></div>
 </ComposedField>)
 
 export default UnboundButton

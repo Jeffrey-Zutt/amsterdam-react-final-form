@@ -6,7 +6,7 @@ import ComposedField, { ComposedFieldProps } from "./ComposedField"
 export type Props = ComposedFieldProps & React.TextareaHTMLAttributes<HTMLTextAreaElement>
 
 const StyledTextArea = styled(TextArea)`
-  height: 100%;
+  flex: 1;
 `
 
 /**
