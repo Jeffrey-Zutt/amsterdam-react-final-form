@@ -5,6 +5,8 @@ import UnboundSelectField from "../../unbound/UnboundSelectField"
 import { findIndex } from "../../../utils/findIndex"
 import { Responsive } from "../../layout/responsiveProps"
 import { Dimensions } from "../../layout/FormGridCell"
+import { composeValidation } from "../../../validators/composeValidation"
+import { isRequired as isRequiredValidator } from "../../../validators/isRequired"
 
 export type Props<TYPE> = {
   position?: Responsive<Dimensions>
@@ -16,6 +18,7 @@ export type Props<TYPE> = {
   optionLabelField: keyof TYPE
   optionKeyField?: keyof TYPE
   withEmptyOption?: boolean
+  isRequired?: boolean
 } & React.HTMLAttributes<HTMLSelectElement>
 
 /**
@@ -28,11 +31,15 @@ function ComplexSelectField<TYPE>({
   optionLabelField,
   optionKeyField,
   validate,
+  isRequired,
   ...restProps
 }:PropsWithChildren<Props<TYPE>>) {
   const { input: { onChange, value }, meta } = useField(name, {
     type: "select",
-    validate
+    validate: composeValidation([
+      isRequired && isRequiredValidator(),
+      validate
+    ])
   })
 
   const [mappedOptions, setMappedOptions] = useState({})
@@ -59,7 +66,7 @@ function ComplexSelectField<TYPE>({
   )
 
   return <UnboundSelectField
-    error={meta.dirty && meta.error}
+    error={meta.modified && meta.error}
     options={mappedOptions}
     onChange={handleChange}
     value={findIndex(options, value).toString()}

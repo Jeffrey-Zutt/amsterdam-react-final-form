@@ -4,6 +4,8 @@ import { FieldValidator } from "final-form"
 import { useField } from "react-final-form"
 import { Responsive } from "../../layout/responsiveProps"
 import { Dimensions } from "../../layout/FormGridCell"
+import { composeValidation } from "../../../validators/composeValidation"
+import { isRequired as isRequiredValidator } from "../../../validators/isRequired"
 
 export type Props = {
   position?: Responsive<Dimensions>
@@ -11,17 +13,21 @@ export type Props = {
   label?: string
   hint?: string|JSX.Element,
   validate?: FieldValidator<string>,
-  options: Record<string, string>
+  options: Record<string, string>,
+  isRequired?: boolean
 } & React.HTMLAttributes<HTMLSelectElement>
 
 /**
  * Binds SELECT field to final-form.
  */
 
-export const SelectField:React.FC<Props> = ({ name, validate, ...restProps }) => {
+export const SelectField:React.FC<Props> = ({ name, validate, isRequired, ...restProps }) => {
   const { input, meta } = useField(name, {
     type: "select",
-    validate
+    validate: composeValidation([
+      isRequired && isRequiredValidator(),
+      validate
+    ])
   })
 
   return (<UnboundSelectField

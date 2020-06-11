@@ -28,3 +28,9 @@ export const WithError = () => <SelectField
   options={{ foo: "Foo", bar: "Bar" }}
   validate={() => "Some error occurred"}
 />
+
+export const WithRequired = () => <SelectField
+  name='myFieldName'
+  options={{ "": "-", foo: "Foo", bar: "Bar" }}
+  isRequired={true}
+/>

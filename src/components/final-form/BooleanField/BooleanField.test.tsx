@@ -63,4 +63,32 @@ describe("BooleanField", () => {
       })
     })
   })
+
+  describe("when isRequired is set", () => {
+    const component = mount(wrapInForm(
+      onSubmit,
+      { myField: true },
+      <BooleanField name='myField' isRequired={true} />
+    ))
+
+    it("should NOT show a FieldError", () => {
+      expect(component.find(FieldError).exists()).toEqual(false)
+    })
+
+    describe("when a user interacts with the component", () => {
+      beforeEach(() => {
+        component
+          .find("input")
+          .simulate("focus")
+          .simulate("change", { target: { checked: true } })
+          .simulate("blur")
+          .simulate("change", { target: { checked: false } })
+          .simulate("blur")
+      })
+
+      it("should show a FieldError", () => {
+        expect(component.find(FieldError).text()).toEqual("Dit veld is verplicht")
+      })
+    })
+  })
 })

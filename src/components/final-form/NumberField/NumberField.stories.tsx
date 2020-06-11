@@ -11,4 +11,5 @@ export const WithoutLabel = () => <NumberField name='myFieldName' />
 export const WithoutNumberSpinner = () => <NumberField name='myFieldName' hideNumberSpinner={true} />
 export const WithMinMax = () => <NumberField name='myFieldName' min={0} max={20} />
 export const WithError = () => <NumberField name='myFieldName' label='foo' validate={() => "some error occurred"} />
+export const WithRequired = () => <NumberField name='myFieldName' label='foo' isRequired={true} />
 

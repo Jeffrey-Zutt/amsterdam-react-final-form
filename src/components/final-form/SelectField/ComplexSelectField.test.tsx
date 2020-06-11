@@ -87,4 +87,40 @@ describe("ComplexSelectField", () => {
       })
     })
   })
+
+  describe("when isRequired is set", () => {
+    const component = mount(wrapInForm(
+      onSubmit,
+      { myField: "bar" },
+      <ComplexSelectField
+        name="myField"
+        optionLabelField="myLabelField"
+        isRequired={true}
+        withEmptyOption={true}
+        options={[
+          { "myLabelField": "foo", nested: { value: "foo" } },
+          { "myLabelField": "zoo", nested: { value: "zoo" } },
+          { "myLabelField": "bar", nested: { value: "bar" } }
+        ]}
+      />
+    ))
+
+    it("should NOT show a FieldError", () => {
+      expect(component.find(FieldError).exists()).toEqual(false)
+    })
+
+    describe("when a user interacts with the component", () => {
+      beforeEach(() => {
+        component
+          .find("select")
+          .simulate("focus")
+          .simulate("change", { target: { value: "" } })
+          .simulate("blur")
+      })
+
+      it("should show a FieldError", () => {
+        expect(component.find(FieldError).text()).toEqual("Dit veld is verplicht")
+      })
+    })
+  })
 })

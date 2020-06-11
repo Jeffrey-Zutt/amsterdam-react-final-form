@@ -63,4 +63,30 @@ describe("SelectField", () => {
       })
     })
   })
+
+  describe("when isRequired error is set", () => {
+    const component = mount(wrapInForm(
+      onSubmit,
+      { myField: "bar" },
+      <SelectField name='myField' options={{ "": "-", "foo": "Foo", "bar": "Bar" }} isRequired={true} />
+    ))
+
+    it("should NOT show a FieldError", () => {
+      expect(component.find(FieldError).exists()).toEqual(false)
+    })
+
+    describe("when a user interacts with the component", () => {
+      beforeEach(() => {
+        component
+          .find("select")
+          .simulate("focus")
+          .simulate("change", { target: { value: "" } })
+          .simulate("blur")
+      })
+
+      it("should show a FieldError", () => {
+        expect(component.find(FieldError).text()).toEqual("Dit veld is verplicht")
+      })
+    })
+  })
 })

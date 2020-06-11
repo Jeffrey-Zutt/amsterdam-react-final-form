@@ -63,4 +63,30 @@ describe("TextField", () => {
       })
     })
   })
+
+  describe("when isRequired is set", () => {
+    const component = mount(wrapInForm(
+      onSubmit,
+      { myField: "myValue" },
+      <TextField name='myField' isRequired={true} />
+    ))
+
+    it("should NOT show a FieldError", () => {
+      expect(component.find(FieldError).exists()).toEqual(false)
+    })
+
+    describe("when a user interacts with the component", () => {
+      beforeEach(() => {
+        component
+          .find("input")
+          .simulate("focus")
+          .simulate("change", { target: { value: "" } })
+          .simulate("blur")
+      })
+
+      it("should show a FieldError", () => {
+        expect(component.find(FieldError).text()).toEqual("Dit veld is verplicht")
+      })
+    })
+  })
 })

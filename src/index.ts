@@ -37,11 +37,14 @@ import { useManageCheckboxes } from "./hooks/useManageCheckboxes"
 // Validators:
 
 import { combineValidators } from "./validators/combineValidators"
+import { composeValidation } from "./validators/composeValidation"
 import { isAbove, isAboveOtherField } from "./validators/isAbove"
 import { isBelow, isBelowOtherField } from "./validators/isBelow"
 import { isMatchingRegex } from "./validators/isMatchingRegex"
 import { isNotIntersectingWith } from "./validators/isNotIntersectingWith"
 import { isRequired } from "./validators/isRequired"
+import { isNotFalsy } from "./validators/isNotFalsy"
+
 
 // Types:
 
@@ -88,11 +91,13 @@ export {
   LabelDiv,
 
   combineValidators,
+  composeValidation,
   isAbove,
   isAboveOtherField,
   isBelow,
   isBelowOtherField,
   isMatchingRegex,
   isNotIntersectingWith,
-  isRequired
+  isRequired,
+  isNotFalsy
 }

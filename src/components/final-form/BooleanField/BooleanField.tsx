@@ -5,21 +5,28 @@ import UnboundBooleanField from "../../unbound/UnboundBooleanField"
 import { Responsive } from "../../layout/responsiveProps"
 import { Dimensions } from "../../layout/FormGridCell"
 
+import { composeValidation } from "../../../validators/composeValidation"
+import { isNotFalsy } from "../../../validators/isNotFalsy"
+
 export type Props = {
   position?: Responsive<Dimensions>
   label?: string
   hint?: string|JSX.Element,
-  name: string
   validate?: FieldValidator<boolean>
+  isRequired?: boolean
+  name: string
 } & Omit<React.HTMLAttributes<HTMLInputElement>, "onChange">
 
-const BooleanField:React.FC<Props> = ({ name, validate, ...restProps }) => {
+const BooleanField:React.FC<Props> = ({ name, validate, isRequired, ...restProps }) => {
   const {
     input,
     meta
   } = useField(name, {
     type: "checkbox",
-    validate
+    validate: composeValidation([
+      isRequired && isNotFalsy(),
+      validate
+    ])
   })
 
   return (<UnboundBooleanField

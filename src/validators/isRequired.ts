@@ -6,7 +6,7 @@ export const isRequired = <T>(message = "Dit veld is verplicht") => (value:T|und
     return message
   }
 
-  if (value === undefined) {
+  if (value === undefined || value === null) {
     return message
   }
 

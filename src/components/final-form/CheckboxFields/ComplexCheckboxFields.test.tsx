@@ -108,4 +108,40 @@ describe("ComplexCheckboxFields", () => {
       })
     })
   })
+
+  describe("when isRequired is set", () => {
+    const component = mount(wrapInForm(
+      onSubmit,
+      { myField: [{ "myLabelField": "foo", nested: { value: "foo" } }]},
+      <ComplexCheckboxFields
+        name="myField"
+        optionLabelField="myLabelField"
+        isRequired={true}
+        options={[
+          { "myLabelField": "foo", nested: { value: "foo" } },
+          { "myLabelField": "zoo", nested: { value: "zoo" } },
+          { "myLabelField": "bar", nested: { value: "bar" } }
+        ]}
+      />
+    ))
+
+    it("should NOT show a FieldError", () => {
+      expect(component.find(FieldError).exists()).toEqual(false)
+    })
+
+    describe("when a user interacts with the component", () => {
+      beforeEach(() => {
+        component
+          .find("input")
+          .at(0)
+          .simulate("focus")
+          .simulate("change", { target: { checked: false } })
+          .simulate("blur")
+      })
+
+      it("should show a FieldError", () => {
+        expect(component.find(FieldError).text()).toEqual("Dit veld is verplicht")
+      })
+    })
+  })
 })

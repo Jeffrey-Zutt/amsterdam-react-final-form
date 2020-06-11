@@ -45,3 +45,9 @@ export const WithColumnCount = () => {
     columnCount={{ mobileS: 1, laptop: Math.ceil(num / 10) }}
   />
 }
+
+export const WithRequired = () => <CheckboxFields
+  name='myFieldName'
+  options={{ foo: "Foo", bar: "Bar" }}
+  isRequired={true}
+/>

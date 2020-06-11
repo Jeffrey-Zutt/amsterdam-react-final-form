@@ -6,6 +6,9 @@ import { UnboundCheckboxes } from "../../unbound/UnboundCheckboxes"
 import { Responsive } from "../../layout/responsiveProps"
 import { Dimensions } from "../../layout/FormGridCell"
 
+import { composeValidation } from "../../../validators/composeValidation"
+import { isRequired as isRequiredValidator } from "../../../validators/isRequired"
+
 export type Props<TYPE> = {
   position?: Responsive<Dimensions>
   label?: string
@@ -14,6 +17,7 @@ export type Props<TYPE> = {
   validate?: FieldValidator<TYPE[]>,
   options: TYPE[]
   optionLabelField: keyof TYPE
+  isRequired?: boolean
 } & Omit<React.HTMLAttributes<HTMLInputElement>, "onChange">
 
 /**
@@ -25,10 +29,14 @@ function ComplexCheckboxFields<TYPE>({
   options,
   optionLabelField,
   validate,
+  isRequired,
   ...restProps
 }:PropsWithChildren<Props<TYPE>>) {
   const { input: { onChange, value }, meta } = useField<TYPE[]>(name, {
-    validate
+    validate: composeValidation([
+      isRequired && isRequiredValidator(),
+      validate
+    ])
   })
 
   // We map complex objects in a 'simple' structure `UnboundCheckboxes`.

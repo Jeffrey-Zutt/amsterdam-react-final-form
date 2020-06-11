@@ -24,3 +24,8 @@ export const WithError = () => <BooleanField
   name='myFieldName'
   validate={() => "Some error occurred"}
 />
+
+export const WithRequired = () => <BooleanField
+  name="myFieldName"
+  isRequired={true}
+/>
