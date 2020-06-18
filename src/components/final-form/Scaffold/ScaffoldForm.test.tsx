@@ -31,6 +31,6 @@ describe("ScaffoldForm", () => {
     component.find("input").simulate("change", { target: { value: "foo bar" } })
     component.find("form").simulate("submit")
 
-    expect(onSubmit).toHaveBeenCalledWith({ field: "foo bar" }, expect.anything(), expect.anything())
+    expect(onSubmit).toHaveBeenCalledWith({ field: "foo bar" })
   })
 })
