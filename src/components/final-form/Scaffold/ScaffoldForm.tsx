@@ -2,7 +2,7 @@ import React, { PropsWithChildren, useCallback } from "react"
 import { Form, FormProps } from "react-final-form"
 import { FormApi, SubmissionErrors } from "final-form"
 
-type Props<FormValues> = FormProps<FormValues> & {
+type Props<FormValues> = Omit<FormProps<FormValues>, "onSubmit"> & {
   onSubmit?: (values:FormValues) => ReturnType<FormProps<FormValues>["onSubmit"]>
   onOriginalSubmit?: FormProps<FormValues>["onSubmit"]
   onReset?: () => void
