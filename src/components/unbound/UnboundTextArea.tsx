@@ -15,8 +15,9 @@ const StyledTextArea = styled(TextArea)`
  */
 
 const UnboundTextArea:React.FC<Props> = ({ label, hint, error, position, align, ...otherProps }) =>
-  <ComposedField label={label} hint={hint} error={error} position={position} align={align}>
+  <ComposedField id={otherProps.id ?? otherProps.name} label={label} hint={hint} error={error} position={position} align={align}>
       <StyledTextArea
+        id={otherProps.id ?? otherProps.name}
         error={!!error}
         {...otherProps}
       />

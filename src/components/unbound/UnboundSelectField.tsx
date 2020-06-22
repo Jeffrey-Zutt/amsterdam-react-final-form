@@ -6,7 +6,7 @@ export type Props = {
   options: Record<string, string>,
   value?: string,
   withEmptyOption?:boolean
-} & ComposedFieldProps & React.HTMLAttributes<HTMLSelectElement>
+} & ComposedFieldProps & React.InputHTMLAttributes<HTMLSelectElement>
 
 /**
  * Renders a SELECT field that is not bound to final form
@@ -22,9 +22,17 @@ const UnboundSelectField:React.FC<Props> = ({
   withEmptyOption,
   ...restProps
 }) => (
-    <ComposedField label={label} hint={hint} error={error} position={position} align={align}>
+    <ComposedField
+      id={restProps.id ?? restProps.name}
+      label={label}
+      hint={hint}
+      error={error}
+      position={position}
+      align={align}
+    >
       <Select
         error={error}
+        id={restProps.id ?? restProps.name}
         {...restProps}
       >
         { withEmptyOption && <option>-</option> }

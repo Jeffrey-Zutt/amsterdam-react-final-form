@@ -3,7 +3,7 @@ import React from "react"
 import styled from "styled-components"
 import ComposedField, { ComposedFieldProps } from "./ComposedField"
 
-type Props = Omit<React.HTMLAttributes<HTMLInputElement>, "onChange"> & ComposedFieldProps
+type Props = Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange"> & ComposedFieldProps
 
 const StyledCheckbox = styled(Checkbox)`  
   padding: 0;
@@ -14,8 +14,10 @@ const StyledCheckbox = styled(Checkbox)`
 `
 
 const UnboundBooleanField:React.FC<Props> = ({ label, hint, error, position, align, ...otherProps }) => (
-  <ComposedField label={label} hint={hint} error={error} position={position} align={align}>
+  <ComposedField
+    id={otherProps.id ?? otherProps.name} label={label} hint={hint} error={error} position={position} align={align}>
     <StyledCheckbox
+      id={otherProps.id ?? otherProps.name}
       error={!!error}
       {...otherProps}
     />

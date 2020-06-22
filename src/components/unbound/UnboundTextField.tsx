@@ -9,9 +9,10 @@ export type Props = ComposedFieldProps & React.InputHTMLAttributes<HTMLInputElem
  */
 
 const UnboundTextField:React.FC<Props> = ({ label, hint, error, position, align, ...otherProps }) =>
-  <ComposedField label={label} hint={hint} error={error} position={position} align={align}>
+  <ComposedField id={otherProps.id ?? otherProps.name} label={label} hint={hint} error={error} position={position} align={align}>
     <Input
       error={!!error}
+      id={otherProps.id ?? otherProps.name}
       {...otherProps}
     />
   </ComposedField>
