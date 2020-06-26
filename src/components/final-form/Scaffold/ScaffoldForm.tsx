@@ -5,12 +5,13 @@ import { FormApi, SubmissionErrors } from "final-form"
 type Props<FormValues> = Omit<FormProps<FormValues>, "onSubmit"> & {
   successComponent?: JSX.Element
   errorComponent?: JSX.Element
+  hasError?: boolean
   onSubmit?: (values:FormValues) => ReturnType<FormProps<FormValues>["onSubmit"]>
   onOriginalSubmit?: FormProps<FormValues>["onSubmit"]
   onReset?: () => void
 }
 
-function ScaffoldForm<T>({ onReset, onSubmit, onOriginalSubmit, children, successComponent, errorComponent, ...restProps }:PropsWithChildren<Props<T>>) {
+function ScaffoldForm<T>({ onReset, onSubmit, onOriginalSubmit, children, successComponent, errorComponent, hasError, ...restProps }:PropsWithChildren<Props<T>>) {
   const handleSubmit = useCallback(
     (values:T, form: FormApi<T>, callback?: (errors?: SubmissionErrors) => void) => {
       if (onOriginalSubmit !== undefined) {
@@ -29,8 +30,8 @@ function ScaffoldForm<T>({ onReset, onSubmit, onOriginalSubmit, children, succes
       onSubmit={handleSubmit}
       render={({ handleSubmit, submitSucceeded, submitFailed }) => (
         <form onSubmit={handleSubmit} onReset={onReset}>
-          { submitFailed && errorComponent }
-          { submitSucceeded && successComponent
+          { hasError && errorComponent }
+          { !hasError && submitSucceeded && successComponent
               ? successComponent
               : children
           }
