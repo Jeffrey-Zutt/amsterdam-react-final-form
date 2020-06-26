@@ -16,13 +16,13 @@ import ScaffoldForm from "./components/final-form/Scaffold/ScaffoldForm"
 import Button from "./components/final-form/Button/Button"
 import SubmitButton from "./components/final-form/SubmitButton/SubmitButton"
 import ResetButton from "./components/final-form/ResetButton/ResetButton"
-import { Label, LabelDiv } from "./components/unbound/Label"
+import { Label } from "./components/unbound/Label"
 import ComposedField from "./components/unbound/ComposedField"
 import DebugFormState from "./components/final-form/DebugForm/DebugFormState"
 import DebugFormValues from "./components/final-form/DebugForm/DebugFormValues"
 
 // Unbound (not bound to react-final-form)
-
+import Alert from "./components/unbound/Alert"
 import UnboundBooleanField from "./components/unbound/UnboundBooleanField"
 import UnboundCheckbox from "./components/unbound/UnboundCheckbox"
 import UnboundCheckboxes from "./components/unbound/UnboundCheckboxes"
@@ -30,9 +30,6 @@ import UnboundTextField from "./components/unbound/UnboundTextField"
 import UnboundRadioFields from "./components/unbound/UnboundRadioFields"
 import UnboundSelectField from "./components/unbound/UnboundSelectField"
 import UnboundTextArea from "./components/unbound/UnboundTextArea"
-
-// Hooks
-import { useManageCheckboxes } from "./hooks/useManageCheckboxes"
 
 // Validators:
 
@@ -84,11 +81,9 @@ export {
   UnboundSelectField,
   UnboundTextArea,
 
-  useManageCheckboxes,
-
+  Alert,
   ComposedField,
   Label,
-  LabelDiv,
 
   combineValidators,
   composeValidation,

@@ -1,18 +1,16 @@
-import React, { ComponentProps, PropsWithChildren, useCallback } from "react"
+import React, { PropsWithChildren, useCallback } from "react"
 import { Form, FormProps } from "react-final-form"
 import { FormApi, SubmissionErrors } from "final-form"
 
-import Alert from "../../unbound/Alert"
-
 type Props<FormValues> = Omit<FormProps<FormValues>, "onSubmit"> & {
-  successMessage?: ComponentProps<typeof Alert>
-  errorMessage?: ComponentProps<typeof Alert>
+  successComponent?: JSX.Element
+  errorComponent?: JSX.Element
   onSubmit?: (values:FormValues) => ReturnType<FormProps<FormValues>["onSubmit"]>
   onOriginalSubmit?: FormProps<FormValues>["onSubmit"]
   onReset?: () => void
 }
 
-function ScaffoldForm<T>({ onReset, onSubmit, onOriginalSubmit, children, successMessage, errorMessage, ...restProps }:PropsWithChildren<Props<T>>) {
+function ScaffoldForm<T>({ onReset, onSubmit, onOriginalSubmit, children, successComponent, errorComponent, ...restProps }:PropsWithChildren<Props<T>>) {
   const handleSubmit = useCallback(
     (values:T, form: FormApi<T>, callback?: (errors?: SubmissionErrors) => void) => {
       if (onOriginalSubmit !== undefined) {
@@ -31,10 +29,9 @@ function ScaffoldForm<T>({ onReset, onSubmit, onOriginalSubmit, children, succes
       onSubmit={handleSubmit}
       render={({ handleSubmit, submitSucceeded, submitFailed }) => (
         <form onSubmit={handleSubmit} onReset={onReset}>
-          { submitFailed && errorMessage && (<Alert variant="error" {...errorMessage} />) }
-          {
-            submitSucceeded && successMessage
-              ? <Alert variant="success" {...successMessage} />
+          { submitFailed && errorComponent }
+          { submitSucceeded && successComponent
+              ? successComponent
               : children
           }
         </form>

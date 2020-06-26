@@ -23,12 +23,6 @@ const StyledLabel = styled(AscLabel)`
 `
 StyledLabel.displayName = "StyledLabel"
 
-export const LabelDiv = styled.div`
-  ${ style }
-  margin: 10px 0;
-`
-LabelDiv.displayName = "LabelDiv"
-
 export const Label:React.FC<Props> = ({ label, htmlFor, children }) =>
   label !== undefined
     ? <StyledLabel label={label} htmlFor={htmlFor} position='top' align='flex-start'>{ children }</StyledLabel>
