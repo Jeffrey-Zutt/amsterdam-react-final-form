@@ -25,8 +25,8 @@ const Overlay = styled.div`
   right: 0;
   bottom: 0;
   
-  background-color: ${ themeColor("tint", "level0") };
-  opacity: .5;
+  background-color: ${ themeColor("tint", "level2") };
+  opacity: .8;
 `
 
 const CenteredSpinner = styled(Spinner)`
@@ -55,7 +55,7 @@ function ScaffoldForm<T>({ onReset, onSubmit, onOriginalSubmit, children, succes
       onSubmit={handleSubmit}
       render={({ handleSubmit, submitSucceeded }) => (
         <Wrap>
-          { showSpinner && (<Overlay><CenteredSpinner /></Overlay>) }
+          { showSpinner && (<Overlay><CenteredSpinner size={24} /></Overlay>) }
           <form onSubmit={handleSubmit} onReset={onReset}>
             { hasError && errorComponent }
             { !hasError && submitSucceeded && successComponent
