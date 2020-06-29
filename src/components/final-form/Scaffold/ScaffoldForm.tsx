@@ -27,6 +27,7 @@ const Overlay = styled.div`
   
   background-color: ${ themeColor("tint", "level1") };
   opacity: .8;
+  z-index: 100;
 `
 
 const CenteredSpinner = styled(Spinner)`
