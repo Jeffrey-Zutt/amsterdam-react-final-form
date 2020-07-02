@@ -6,9 +6,6 @@ import { FormApi, SubmissionErrors } from "final-form"
 
 type Props<FormValues> = Omit<FormProps<FormValues>, "onSubmit"> & {
   showSpinner?: boolean
-  successComponent?: JSX.Element
-  errorComponent?: JSX.Element
-  hasError?: boolean
   onSubmit?: (values:FormValues) => ReturnType<FormProps<FormValues>["onSubmit"]>
   onOriginalSubmit?: FormProps<FormValues>["onSubmit"]
   onReset?: () => void
@@ -37,7 +34,7 @@ const CenteredSpinner = styled(Spinner)`
   transform: translate(-50%, -50%);
 `
 
-function ScaffoldForm<T>({ onReset, onSubmit, onOriginalSubmit, children, successComponent, errorComponent, hasError, showSpinner, ...restProps }:PropsWithChildren<Props<T>>) {
+function ScaffoldForm<T>({ onReset, onSubmit, onOriginalSubmit, children, showSpinner, ...restProps }:PropsWithChildren<Props<T>>) {
   const handleSubmit = useCallback(
     (values:T, form: FormApi<T>, callback?: (errors?: SubmissionErrors) => void) => {
       if (onOriginalSubmit !== undefined) {
@@ -54,15 +51,11 @@ function ScaffoldForm<T>({ onReset, onSubmit, onOriginalSubmit, children, succes
   return (<Form<T>
       {...restProps}
       onSubmit={handleSubmit}
-      render={({ handleSubmit, submitSucceeded }) => (
+      render={({ handleSubmit }) => (
         <Wrap>
           { showSpinner && (<Overlay><CenteredSpinner size={44} /></Overlay>) }
           <form onSubmit={handleSubmit} onReset={onReset}>
-            { hasError && errorComponent }
-            { !hasError && submitSucceeded && successComponent
-                ? successComponent
-                : children
-            }
+            { children }
           </form>
         </Wrap>
       )}
