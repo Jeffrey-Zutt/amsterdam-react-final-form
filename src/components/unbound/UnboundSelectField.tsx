@@ -24,6 +24,7 @@ const UnboundSelectField:React.FC<Props> = ({
 }) => (
     <ComposedField
       id={restProps.id ?? restProps.name}
+      data-e2e-id={restProps.id ?? restProps.name}
       label={label}
       hint={hint}
       error={error}

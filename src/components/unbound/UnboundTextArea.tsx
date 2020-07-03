@@ -18,6 +18,7 @@ const UnboundTextArea:React.FC<Props> = ({ label, hint, error, position, align, 
   <ComposedField id={otherProps.id ?? otherProps.name} label={label} hint={hint} error={error} position={position} align={align}>
       <StyledTextArea
         id={otherProps.id ?? otherProps.name}
+        data-e2e-id={otherProps.id ?? otherProps.name}
         error={!!error}
         {...otherProps}
       />

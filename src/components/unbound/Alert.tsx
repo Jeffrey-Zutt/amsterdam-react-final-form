@@ -22,7 +22,7 @@ const Title = styled.strong`
 `
 
 const Alert:React.FC<Props> = ({ title, variant, children }) => (
-  <StyledDiv variant={variant}>
+  <StyledDiv variant={variant} data-e2e-id='alert' data-e2e-variant={variant}>
     { title && <Title>{ title }</Title> }
     { children }
   </StyledDiv>

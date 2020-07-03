@@ -13,6 +13,7 @@ const UnboundTextField:React.FC<Props> = ({ label, hint, error, position, align,
     <Input
       error={!!error}
       id={otherProps.id ?? otherProps.name}
+      data-e2e-id={otherProps.id ?? otherProps.name}
       {...otherProps}
     />
   </ComposedField>

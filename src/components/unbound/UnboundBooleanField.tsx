@@ -18,6 +18,7 @@ const UnboundBooleanField:React.FC<Props> = ({ label, hint, error, position, ali
     id={otherProps.id ?? otherProps.name} label={label} hint={hint} error={error} position={position} align={align}>
     <StyledCheckbox
       id={otherProps.id ?? otherProps.name}
+      data-e2e-id={otherProps.id ?? otherProps.name}
       error={!!error}
       {...otherProps}
     />
