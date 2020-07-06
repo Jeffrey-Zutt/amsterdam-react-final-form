@@ -3,6 +3,7 @@ import { themeColor, Spinner } from "@datapunt/asc-ui"
 import styled from "styled-components"
 import { Form, FormProps } from "react-final-form"
 import { FormApi, SubmissionErrors } from "final-form"
+import arrayMutators from "final-form-arrays"
 
 type Props<FormValues> = Omit<FormProps<FormValues>, "onSubmit"> & {
   showSpinner?: boolean
@@ -50,6 +51,9 @@ function ScaffoldForm<T>({ onReset, onSubmit, onOriginalSubmit, children, showSp
 
   return (<Form<T>
       {...restProps}
+      mutators={{
+        ...arrayMutators
+      }}
       onSubmit={handleSubmit}
       render={({ handleSubmit }) => (
         <Wrap>
