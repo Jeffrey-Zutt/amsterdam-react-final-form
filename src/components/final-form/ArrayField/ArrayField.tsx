@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useMemo } from "react"
 import { FieldArray } from "react-final-form-arrays"
-import { TrashBin, Enlarge } from "@datapunt/asc-assets"
-import Scaffold, { RenderEach, ScaffoldFields } from "../Scaffold/Scaffold"
 import { useForm } from "react-final-form"
+import { TrashBin, Enlarge } from "@datapunt/asc-assets"
+
+import Scaffold, { RenderEach, ScaffoldFields } from "../Scaffold/Scaffold"
 import { prefixNames } from "./utils/prefixNames"
 import { AddButtonWrap, RowButtonWrap, StyledButton } from "./layout"
 import ComposedField, { ComposedFieldProps } from "../../unbound/ComposedField"
@@ -10,6 +11,7 @@ import ComposedField, { ComposedFieldProps } from "../../unbound/ComposedField"
 export type Props = {
   columns?: string,
   name: string,
+  autoPosition: boolean,
   allowAdd?: boolean,
   allowRemove?: boolean,
   scaffoldFields: ScaffoldFields,
@@ -18,8 +20,15 @@ export type Props = {
 
 const defaultRenderEach:RenderEach = (props, renderer) => renderer(props)
 
-const ArrayField:React.FC<Props> = ({ label, columns, hint, position, align, name, scaffoldFields, renderEach, allowAdd, allowRemove }) => {
+const ArrayField:React.FC<Props> = ({ label, columns, hint, position, align, name, scaffoldFields, renderEach, allowAdd, allowRemove, autoPosition = true }) => {
   const { mutators: { push } } =  useForm()
+
+  const positionedFields = useMemo(() =>
+    Object
+      .entries(scaffoldFields)
+      .reduce((acc, [key, val], index) => ({ ...acc, [key]: { ...val, props: { ...val.props, position: { row: 0, column: index } } }  }), {}),
+    [ scaffoldFields ]
+  )
 
   return <ComposedField label={label} hint={hint} position={position} align={align}>
     <FieldArray name={name}>
@@ -27,7 +36,7 @@ const ArrayField:React.FC<Props> = ({ label, columns, hint, position, align, nam
           <Scaffold
             columns={columns}
             key={name}
-            fields={prefixNames(name, scaffoldFields)}
+            fields={prefixNames(name, autoPosition ? positionedFields : scaffoldFields)}
             renderEach={renderEach ?? defaultRenderEach}
           >
             { allowRemove && (

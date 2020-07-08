@@ -12,16 +12,16 @@ const fields:ScaffoldFields = {
     props: {
       name: "description",
       label: "Description",
-      validate: () => "Error",
-      position: { row: 0, column: 0 }
+      validate: () => "Error"
+      // position: { row: 0, column: 0 }
     }
   },
   amount: {
     type: "NumberField",
     props: {
       name: "amount",
-      label: "Amount",
-      position: { row: 0, column: 1 }
+      label: "Amount"
+      // position: { row: 0, column: 1 }
     }
   },
   price: {
@@ -29,8 +29,8 @@ const fields:ScaffoldFields = {
     props: {
       name: "price",
       label: "Price",
-      hint: "",
-      position: { row: 0, column: 2 }
+      hint: ""
+      // position: { row: 0, column: 2 }
     }
   }
 }
