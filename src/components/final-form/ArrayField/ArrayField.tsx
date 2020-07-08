@@ -1,15 +1,16 @@
 import React, { useEffect, useMemo } from "react"
 import { FieldArray, useFieldArray } from "react-final-form-arrays"
-import { useField, useForm } from "react-final-form"
+import { useForm } from "react-final-form"
 import { TrashBin, Enlarge } from "@datapunt/asc-assets"
 
 import Scaffold, { RenderEach, ScaffoldFields } from "../Scaffold/Scaffold"
 import { prefixNames } from "./utils/prefixNames"
 import { AddButtonWrap, RowButtonWrap, StyledButton } from "./layout"
 import ComposedField, { ComposedFieldProps } from "../../unbound/ComposedField"
+import { Responsive } from "../../layout/responsiveProps"
 
 export type Props = {
-  columns?: string,
+  columns?: Responsive<string>,
   name: string,
   autoPosition?: boolean,
   allowAdd?: boolean,
