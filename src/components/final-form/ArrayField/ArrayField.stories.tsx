@@ -1,7 +1,9 @@
 import React from "react"
+import { themeColor, themeSpacing } from "@datapunt/asc-ui"
+import styled from "styled-components"
+
 import ArrayField from "./ArrayField"
 import { ScaffoldFields } from "../Scaffold/Scaffold"
-import SubmitButton from "../SubmitButton/SubmitButton"
 
 export default {
   title: "ArrayField"
@@ -12,9 +14,8 @@ const fields:ScaffoldFields = {
     type: "TextField",
     props: {
       name: "description",
-      label: "Description"
-      // validate: () => "Error"
-      // position: { row: 0, column: 0 }
+      label: "Description",
+      validate: () => "Error"
     }
   },
   amount: {
@@ -22,7 +23,6 @@ const fields:ScaffoldFields = {
     props: {
       name: "amount",
       label: "Amount"
-      // position: { row: 0, column: 1 }
     }
   },
   price: {
@@ -31,22 +31,37 @@ const fields:ScaffoldFields = {
       name: "price",
       label: "Price",
       hint: ""
-      // position: { row: 0, column: 2 }
     }
   }
 }
 
+const Pre = styled.pre`
+  background-color: ${ themeColor("tint", "level2") };
+  padding: ${ themeSpacing(3) };
+`
+
 export const Array = () =>
-  <>
-    <ArrayField
-      columns='1fr 1fr 1fr auto'
-      name='myArray'
-      allowAdd={true}
-      allowRemove={true}
-      scaffoldFields={fields}
-    />
-    <SubmitButton label="SUBMIT" />
-  </>
+<>
+  <Pre>// Voorbeeld van het scaffoldFields object </Pre>
+  <Pre>{ JSON.stringify(fields, null, 2) }</Pre>
+  <ArrayField
+    columns='1fr 1fr 1fr auto'
+    name='myArray'
+    allowAdd={true}
+    allowRemove={true}
+    scaffoldFields={fields}
+  />
+</>
+
+export const WithMinItems = () =>
+  <ArrayField
+    columns='1fr 1fr 1fr auto'
+    name='myArray'
+    allowAdd={true}
+    allowRemove={true}
+    scaffoldFields={fields}
+    minItems={3}
+  />
 
 export const WithLabel = () => <ArrayField
   columns='1fr 1fr 1fr auto'

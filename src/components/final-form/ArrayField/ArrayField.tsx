@@ -1,6 +1,6 @@
-import React, { useMemo } from "react"
-import { FieldArray } from "react-final-form-arrays"
-import { useForm, useField } from "react-final-form"
+import React, { useEffect, useMemo } from "react"
+import { FieldArray, useFieldArray } from "react-final-form-arrays"
+import { useField, useForm } from "react-final-form"
 import { TrashBin, Enlarge } from "@datapunt/asc-assets"
 
 import Scaffold, { RenderEach, ScaffoldFields } from "../Scaffold/Scaffold"
@@ -14,14 +14,16 @@ export type Props = {
   autoPosition?: boolean,
   allowAdd?: boolean,
   allowRemove?: boolean,
+  minItems?: number,
   scaffoldFields: ScaffoldFields,
   renderEach?: RenderEach
 } & ComposedFieldProps
 
 const defaultRenderEach:RenderEach = (props, renderer) => renderer(props)
 
-const ArrayField:React.FC<Props> = ({ label, columns, hint, position, align, name, scaffoldFields, renderEach, allowAdd, allowRemove, autoPosition = true }) => {
+const ArrayField:React.FC<Props> = ({ label, columns, hint, position, align, name, scaffoldFields, renderEach, allowAdd, allowRemove, autoPosition = true, minItems = 0 }) => {
   const { mutators: { push } } = useForm()
+  const { fields: { value } } = useFieldArray(name)
 
   const positionedFields = useMemo(() =>
     Object
@@ -29,6 +31,13 @@ const ArrayField:React.FC<Props> = ({ label, columns, hint, position, align, nam
       .reduce((acc, [key, val], index) => ({ ...acc, [key]: { ...val, props: { ...val.props, position: { row: 0, column: index } } }  }), {}),
     [ scaffoldFields ]
   )
+
+  useEffect(() => {
+    const numExtraFields = minItems - (value?.length ?? 0)
+    for (let i = 0; i < numExtraFields; i++) {
+      push(name, undefined)
+    }
+  }, [minItems, name, push, value])
 
   return <ComposedField label={label} hint={hint} position={position} align={align}>
     <FieldArray name={name}>
@@ -42,6 +51,7 @@ const ArrayField:React.FC<Props> = ({ label, columns, hint, position, align, nam
             { allowRemove && (
               <RowButtonWrap>
                 <StyledButton
+                  disabled={index < minItems}
                   variant='tertiary'
                   icon={<TrashBin />}
                   onClick={(e:React.MouseEvent) => { e.preventDefault(); fields.remove(index) }}
