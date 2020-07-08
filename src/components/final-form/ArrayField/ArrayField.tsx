@@ -1,6 +1,6 @@
 import React, { useMemo } from "react"
 import { FieldArray } from "react-final-form-arrays"
-import { useForm } from "react-final-form"
+import { useForm, useField } from "react-final-form"
 import { TrashBin, Enlarge } from "@datapunt/asc-assets"
 
 import Scaffold, { RenderEach, ScaffoldFields } from "../Scaffold/Scaffold"
@@ -11,7 +11,7 @@ import ComposedField, { ComposedFieldProps } from "../../unbound/ComposedField"
 export type Props = {
   columns?: string,
   name: string,
-  autoPosition: boolean,
+  autoPosition?: boolean,
   allowAdd?: boolean,
   allowRemove?: boolean,
   scaffoldFields: ScaffoldFields,
@@ -21,7 +21,7 @@ export type Props = {
 const defaultRenderEach:RenderEach = (props, renderer) => renderer(props)
 
 const ArrayField:React.FC<Props> = ({ label, columns, hint, position, align, name, scaffoldFields, renderEach, allowAdd, allowRemove, autoPosition = true }) => {
-  const { mutators: { push } } =  useForm()
+  const { mutators: { push } } = useForm()
 
   const positionedFields = useMemo(() =>
     Object

@@ -1,6 +1,7 @@
 import React from "react"
 import ArrayField from "./ArrayField"
 import { ScaffoldFields } from "../Scaffold/Scaffold"
+import SubmitButton from "../SubmitButton/SubmitButton"
 
 export default {
   title: "ArrayField"
@@ -11,8 +12,8 @@ const fields:ScaffoldFields = {
     type: "TextField",
     props: {
       name: "description",
-      label: "Description",
-      validate: () => "Error"
+      label: "Description"
+      // validate: () => "Error"
       // position: { row: 0, column: 0 }
     }
   },
@@ -35,13 +36,17 @@ const fields:ScaffoldFields = {
   }
 }
 
-export const Array = () => <ArrayField
-  columns='1fr 1fr 1fr auto'
-  name='myArray'
-  allowAdd={true}
-  allowRemove={true}
-  scaffoldFields={fields}
-/>
+export const Array = () =>
+  <>
+    <ArrayField
+      columns='1fr 1fr 1fr auto'
+      name='myArray'
+      allowAdd={true}
+      allowRemove={true}
+      scaffoldFields={fields}
+    />
+    <SubmitButton label="SUBMIT" />
+  </>
 
 export const WithLabel = () => <ArrayField
   columns='1fr 1fr 1fr auto'
