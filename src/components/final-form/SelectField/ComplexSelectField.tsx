@@ -66,6 +66,7 @@ function ComplexSelectField<TYPE>({
   )
 
   return <UnboundSelectField
+    name={name}
     error={meta.modified && meta.error}
     options={mappedOptions}
     onChange={handleChange}
