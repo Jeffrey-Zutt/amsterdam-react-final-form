@@ -11,9 +11,10 @@ import SelectField, { Props as SelectFieldProps } from "../SelectField/SelectFie
 import ComplexSelectField, { Props as ComplexSelectFieldProps } from "../SelectField/ComplexSelectField"
 import TextAreaField, { Props as TextAreaFieldProps } from "../TextAreaField/TextAreaField"
 import TextField, { Props as TextFieldProps } from "../TextField/TextField"
-import UnboundButton , { Props as ButtonProps } from "../../unbound/UnboundButton"
+import Button, { Props as ButtonProps } from "../Button/Button"
 import ResetButton from "../ResetButton/ResetButton"
 import SubmitButton from "../SubmitButton/SubmitButton"
+
 
 export type ScaffoldArrayFieldProps = {
   type: "ArrayField"
@@ -128,7 +129,7 @@ const ScaffoldField:React.FC<Props> = ({ field }) => {
     case "TextAreaField":
       return <TextAreaField {...field.props} />
     case "Button":
-      return <UnboundButton {...field.props} />
+      return <Button {...field.props} />
     case "ResetButton":
       return <ResetButton {...field.props} />
     case "SubmitButton":

@@ -3,6 +3,8 @@ import { useFormState } from "react-final-form"
 
 import UnboundButton, { Props as UnboundButtonProps } from "../../unbound/UnboundButton"
 
+export type Props = UnboundButtonProps
+
 const Button:React.FC<UnboundButtonProps> = ({ onClick, label, ...otherProps }) => {
   const { submitting } = useFormState()
 
