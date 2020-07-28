@@ -35,4 +35,3 @@ export const WithError = () => <RadioFields
   options={{ foo: "Foo", bar: "Bar" }}
   validate={() => "Some error occurred"}
 />
-
