@@ -9,8 +9,7 @@ const ResetButton:React.FC<UnboundButtonProps> = ({ onClick, label, ...otherProp
 
   const handleClick = useCallback((e) => {
     e.preventDefault()
-
-    reset()
+    setTimeout(reset, 1)
 
     if (onClick !== undefined) {
       onClick(e)
