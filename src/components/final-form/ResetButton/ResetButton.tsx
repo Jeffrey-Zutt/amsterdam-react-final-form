@@ -8,7 +8,7 @@ const ResetButton:React.FC<UnboundButtonProps> = ({ onClick, label, ...otherProp
   } = useForm()
 
   const handleClick = useCallback((e) => {
-    setTimeout(reset)
+    setTimeout(reset, 1)
     if (onClick !== undefined) {
       onClick(e)
     }
