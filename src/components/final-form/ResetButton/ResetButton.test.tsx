@@ -15,7 +15,7 @@ describe("ResetButton", () => {
     </>
   ))
   
-  xit("should reset the form when clicked upon", () => {
+  it("should reset the form when clicked upon", () => {
       component
         .find("input")
         .simulate("change", { target: { value: "Changed value" } })
