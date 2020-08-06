@@ -8,7 +8,7 @@ import { Dimensions } from "../../layout/FormGridCell"
 
 export type Props<TYPE> = {
   position?: Responsive<Dimensions>
-  label?: string
+  label?: string | JSX.Element
   hint?: string|JSX.Element,
   name: string
   validate?: FieldValidator<TYPE>,

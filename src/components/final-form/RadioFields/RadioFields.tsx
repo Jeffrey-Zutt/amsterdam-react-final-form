@@ -9,7 +9,7 @@ import { composeValidation } from "../../../validators/composeValidation"
 
 export type Props = {
   position?: Responsive<Dimensions>
-  label?: string
+  label?: string | JSX.Element
   hint?: string|JSX.Element,
   name: string
   options: Record<string, string>

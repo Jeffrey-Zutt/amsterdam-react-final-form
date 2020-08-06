@@ -3,7 +3,7 @@ import styled, { css } from "styled-components"
 import React from "react"
 
 type Props = {
-  label?: string
+  label?: string | JSX.Element
   htmlFor?:string
 }
 
@@ -25,5 +25,12 @@ StyledLabel.displayName = "StyledLabel"
 
 export const Label:React.FC<Props> = ({ label, htmlFor, children }) =>
   label !== undefined
-    ? <StyledLabel label={label} htmlFor={htmlFor} position='top' align='flex-start'>{ children }</StyledLabel>
+    ? <StyledLabel
+        // @ts-ignore     - label should also support elements
+        label={label}
+        htmlFor={htmlFor}
+        position='top'
+        align='flex-start'>
+        { children }
+      </StyledLabel>
     : <>{ children }</>

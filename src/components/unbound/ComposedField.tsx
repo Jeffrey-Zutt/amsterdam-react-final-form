@@ -6,7 +6,7 @@ import FormGridCell, { FormGridCellProps } from "../layout/FormGridCell"
 
 export type ComposedFieldProps = {
   id?:string
-  label?: string
+  label?: string | JSX.Element
   hint?: string|JSX.Element
   error?: string
 } & Omit<FormGridCellProps, "rowOffset">

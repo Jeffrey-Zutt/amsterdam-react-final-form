@@ -10,7 +10,7 @@ import { isNotFalsy } from "../../../validators/isNotFalsy"
 
 export type Props = {
   position?: Responsive<Dimensions>
-  label?: string
+  label?: string | JSX.Element
   hint?: string|JSX.Element,
   validate?: FieldValidator<boolean>
   isRequired?: boolean
