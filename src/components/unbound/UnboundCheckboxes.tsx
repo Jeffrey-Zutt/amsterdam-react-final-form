@@ -20,11 +20,11 @@ const Wrapper = styled.div<WrapperProps>`
   }) } 
 `
 
-export const UnboundCheckboxes:React.FC<Props> = ({ values: initialValues, label, hint, align, columnCount, error, position, options, onChange, ...restProps }) => {
+export const UnboundCheckboxes:React.FC<Props> = ({ values: initialValues, label, extraLabel, hint, align, columnCount, error, position, options, onChange, ...restProps }) => {
   const { values, handleChange } = useManageCheckboxes(initialValues, onChange)
 
   return (
-    <ComposedField label={label} hint={hint} error={error} position={position} align={align}>
+    <ComposedField label={label} extraLabel={extraLabel} hint={hint} error={error} position={position} align={align}>
       <Wrapper columnCount={columnCount}>
         { Object
           .entries(options)

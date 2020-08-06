@@ -3,7 +3,8 @@ import styled, { css } from "styled-components"
 import React from "react"
 
 type Props = {
-  label?: string | JSX.Element
+  label?: string
+  extraLabel?: string | JSX.Element
   htmlFor?:string
 }
 
@@ -18,19 +19,43 @@ const style = css`
   }
 `
 
+const FlexWrap = styled.div`
+  display: flex;
+`
+
+const Left = styled.div`
+  flex: 1;
+`
+
+
+const Right = styled.div`
+  margin: ${ themeSpacing(1) } 0;
+`
+
+
 const StyledLabel = styled(AscLabel)`
   ${ style }  
 `
 StyledLabel.displayName = "StyledLabel"
 
-export const Label:React.FC<Props> = ({ label, htmlFor, children }) =>
+export const Label:React.FC<Props> = ({ label, extraLabel, htmlFor, children }) =>
   label !== undefined
-    ? <StyledLabel
-        // @ts-ignore     - label should also support elements
-        label={label}
-        htmlFor={htmlFor}
-        position='top'
-        align='flex-start'>
-        { children }
-      </StyledLabel>
+    ? extraLabel
+        ? (
+          <FlexWrap>
+            <Left>
+              <StyledLabel label={label} htmlFor={htmlFor} position='top' align='flex-start'>
+                { children }
+              </StyledLabel>
+            </Left>
+            <Right>
+              { extraLabel }
+            </Right>
+          </FlexWrap>
+        )
+        : (
+        <StyledLabel label={label} htmlFor={htmlFor} position='top' align='flex-start'>
+          { children }
+        </StyledLabel>
+      )
     : <>{ children }</>

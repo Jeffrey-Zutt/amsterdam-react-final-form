@@ -6,12 +6,13 @@ import FormGridCell, { FormGridCellProps } from "../layout/FormGridCell"
 
 export type ComposedFieldProps = {
   id?:string
-  label?: string | JSX.Element
+  label?: string
+  extraLabel?: string | JSX.Element
   hint?: string|JSX.Element
   error?: string
 } & Omit<FormGridCellProps, "rowOffset">
 
-const ComposedField:React.FC<ComposedFieldProps> = ({ children, id, label, hint, error, position, align }) => (
+const ComposedField:React.FC<ComposedFieldProps> = ({ children, id, label, extraLabel, hint, error, position, align }) => (
   <>
     {/*
       We position labels and hints in the same cell.
@@ -19,7 +20,7 @@ const ComposedField:React.FC<ComposedFieldProps> = ({ children, id, label, hint,
     */}
     { (hint || label) && (
       <FormGridCell position={position} align={align}>
-        <Label label={label} htmlFor={id} />
+        <Label label={label} extraLabel={extraLabel} htmlFor={id} />
         { hint && <Hint>{ hint }</Hint> }
       </FormGridCell>
     ) }

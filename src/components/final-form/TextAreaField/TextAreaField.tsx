@@ -9,7 +9,8 @@ import { isRequired as isRequiredValidator } from "../../../validators/isRequire
 
 export type Props = {
   position?: Responsive<Dimensions>
-  label?: string | JSX.Element
+  label?: string
+  extraLabel?: string | JSX.Element
   hint?: string|JSX.Element,
   name: string
   validate?: FieldValidator<number>
