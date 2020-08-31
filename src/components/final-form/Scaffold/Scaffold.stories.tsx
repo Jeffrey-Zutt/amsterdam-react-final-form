@@ -92,7 +92,6 @@ const scaffoldTextField:ScaffoldAvailableFields = {
   props: { name: "myTextField", label: "Text Field", position: { column: 0, row: 7 } }
 }
 
-
 const fields:ScaffoldFields = {
   "boolean": scaffoldBooleanProps,
   "checkbox": scaffoldCheckboxFieldsProps,
