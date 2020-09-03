@@ -18,7 +18,7 @@ export type Props = Omit<React.HTMLAttributes<HTMLInputElement>, "onChange"> & C
   onChange?: (string:string) => void
 }
 
-const UnboundRadioFields:React.FC<Props> = ({ name, horizontal, label, extraLabel, hint, error, position, align, options, value, onChange, variant = "primary", ...restProps }) => {
+const UnboundRadioFields:React.FC<Props> = ({ name, horizontal, label, extraLabel, hint, error, position, align, options, value, onChange, variant, ...restProps }) => {
   const handleChange = useCallback((e) => {
     if (onChange) {
       onChange(e.target.value)
