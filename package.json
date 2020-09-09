@@ -32,19 +32,11 @@
     ]
   },
   "dependencies": {
-    "@datapunt/asc-assets": "^0.20.0",
-    "@datapunt/asc-ui": "^0.20.0",
-    "final-form": "^4.20.1",
-    "final-form-arrays": "^3.0.2",
-    "lodash.isequal": "^4.5.0",
-    "objectFitPolyfill": "^2.3.0",
-    "react-app-polyfill": "^1.0.6",
-    "react-final-form": "^6.5.1",
-    "react-final-form-arrays": "^3.1.1",
-    "react-scripts": "3.4.1",
-    "styled-components": "^5.1.0"
+    "lodash.isequal": "^4.5.0"
   },
   "devDependencies": {
+    "@datapunt/asc-assets": "^0.20.0",
+    "@datapunt/asc-ui": "^0.20.0",
     "@storybook/addon-actions": "^5.3.18",
     "@storybook/addon-docs": "^5.3.18",
     "@storybook/addon-links": "^5.3.18",
@@ -65,18 +57,25 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
+    "final-form": "^4.20.1",
+    "final-form-arrays": "^3.0.2",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.0",
+    "react-app-polyfill": "^1.0.6",
+    "react-final-form": "^6.5.1",
+    "react-final-form-arrays": "^3.1.2",
+    "react-scripts": "^3.4.1",
+    "styled-components": "^5.2.0",
     "typescript": "^3.8.3"
   },
   "peerDependencies": {
     "@datapunt/asc-assets": "^0.20.0",
     "@datapunt/asc-ui": "^0.20.0",
-    "final-form": "^4.19.1",
+    "final-form": "^4.20.1",
     "final-form-arrays": "^3.0.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-final-form": "^6.4.0",
+    "react-final-form": "^6.5.1",
     "react-final-form-arrays": "^3.1.1",
     "styled-components": "^5.1.0"
   },
