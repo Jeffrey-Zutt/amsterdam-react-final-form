@@ -12,4 +12,5 @@ export const WithoutLabel = () => <TextField name='myFieldName' />
 export const WithError = () => <TextField name='myFieldName' label='foo' validate={() => "some error occurred"} />
 export const WithRequired = () => <TextField name='myFieldName' label='foo' isRequired={true} />
 export const WithDisabled = () => <TextField name='myFieldName' label='foo' disabled={true} />
+export const WithTypeIsTime = () => <TextField name='myFieldName' label='foo' type="time" />
 
