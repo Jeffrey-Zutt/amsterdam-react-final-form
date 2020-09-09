@@ -40,7 +40,7 @@
     "react-final-form-arrays": "^3.1.2"
   },
   "devDependencies": {
-    "@datapunt/asc-assets": "^0.23.0-alpha.0",
+    "@datapunt/asc-assets": "^0.23.1-alpha.45",
     "@datapunt/asc-ui": "^0.23.0-alpha.0",
     "@storybook/addon-actions": "^5.3.18",
     "@storybook/addon-docs": "^5.3.18",
@@ -71,8 +71,8 @@
     "typescript": "^3.8.3"
   },
   "peerDependencies": {
-    "@datapunt/asc-assets": "^0.23.0-alpha",
-    "@datapunt/asc-ui": "^0.23.0-alpha",
+    "@datapunt/asc-assets": "^0.23.1-alpha || ^0.23.1-beta || ^0.23.1 || ^0.23.0-alpha || ^0.23.0-beta || ^0.23.0",
+    "@datapunt/asc-ui": "^0.23.0-alpha || ^0.23.0-beta || ^0.23.0",
     "react": "^16.13.1",
     "styled-components": "^5.1.0"
   },
