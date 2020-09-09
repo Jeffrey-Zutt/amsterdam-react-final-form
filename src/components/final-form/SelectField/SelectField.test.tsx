@@ -23,8 +23,8 @@ describe("SelectField", () => {
 
   it("should propagate its changes to the wrapping form", () => {
     component
-      .find("select")
-      .simulate("change", { target: { value: "foo" } })
+      .find("select option[value='foo']")
+      .simulate("change")
 
     component
       .find("form")
@@ -54,7 +54,13 @@ describe("SelectField", () => {
         component
           .find("select")
           .simulate("focus")
-          .simulate("change", { target: { value: "foo" } })
+
+        component
+          .find("select option[value='foo']")
+          .simulate("change")
+
+        component
+          .find("select")
           .simulate("blur")
       })
 
@@ -80,7 +86,13 @@ describe("SelectField", () => {
         component
           .find("select")
           .simulate("focus")
-          .simulate("change", { target: { value: "" } })
+
+        component
+          .find("select option[value='']")
+          .simulate("change")
+
+        component
+          .find("select")
           .simulate("blur")
       })
 

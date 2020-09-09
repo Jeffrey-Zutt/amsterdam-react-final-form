@@ -38,8 +38,8 @@ describe("ComplexSelectField", () => {
 
   it("should propagate its changes to the wrapping form", () => {
     component
-      .find("select")
-      .simulate("change", { target: { value: "1" } })
+      .find("select option[value='1']")
+      .simulate("change")
 
     component
       .find("form")
@@ -78,7 +78,12 @@ describe("ComplexSelectField", () => {
         component
           .find("select")
           .simulate("focus")
-          .simulate("change", { target: { value: "1" } })
+
+        component
+          .find("select option[value='1']")
+          .simulate("change")
+
+        component.find("select")
           .simulate("blur")
       })
 
@@ -114,7 +119,13 @@ describe("ComplexSelectField", () => {
         component
           .find("select")
           .simulate("focus")
-          .simulate("change", { target: { value: "" } })
+
+        component
+          .find("select option:not([value])")
+          .simulate("change")
+
+        component
+          .find("select")
           .simulate("blur")
       })
 
