@@ -1,5 +1,5 @@
 {
-  "name": "amsterdam-react-final-form",
+  "name": "@amsterdam/amsterdam-react-final-form",
   "version": "0.1.99",
   "private": false,
   "repository": "https://github.com/amsterdam/amsterdam-react-final-form.git",
@@ -94,5 +94,8 @@
       "!src/**/index.{ts,tsx}"
     ]
   },
-  "main": "index.js"
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  }
 }
