@@ -3,7 +3,7 @@ import "react-app-polyfill/stable"
 
 import React, { useCallback } from 'react'
 import { addDecorator, configure } from '@storybook/react'
-import { GlobalStyle, ThemeProvider, themeColor } from '@datapunt/asc-ui'
+import { GlobalStyle, ThemeProvider, themeColor } from '@amsterdam/asc-ui'
 import { action } from '@storybook/addon-actions'
 import { Form } from 'react-final-form'
 import arrayMutators from 'final-form-arrays'
@@ -17,7 +17,7 @@ const extendedTheme = {
 }
 
 const Wrapper = styled.div`
-  margin: 20px; 
+  margin: 20px;
 `
 
 const Pre = styled.pre`
