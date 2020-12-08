@@ -1,5 +1,5 @@
 import React from "react"
-import { themeColor, themeSpacing } from "@datapunt/asc-ui"
+import { themeColor, themeSpacing } from "@amsterdam/asc-ui"
 import styled from "styled-components"
 
 import ArrayField from "./ArrayField"

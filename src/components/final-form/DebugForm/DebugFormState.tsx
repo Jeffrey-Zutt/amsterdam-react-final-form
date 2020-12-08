@@ -1,7 +1,7 @@
 import React from "react"
 import { useFormState } from "react-final-form"
 import styled from "styled-components"
-import { themeColor } from "@datapunt/asc-ui"
+import { themeColor } from "@amsterdam/asc-ui"
 
 const Pre = styled.pre`
   margin: 0;

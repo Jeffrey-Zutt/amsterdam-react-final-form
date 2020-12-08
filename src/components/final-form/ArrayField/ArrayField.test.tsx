@@ -2,7 +2,7 @@ import React from "react"
 import { mount } from "enzyme"
 import { wrapInForm } from "../__test__/wrapInForm"
 import ArrayField from "./ArrayField"
-import { Button } from "@datapunt/asc-ui"
+import { Button } from "@amsterdam/asc-ui"
 import TextField from "../TextField/TextField"
 
 describe("ArrayField", () => {

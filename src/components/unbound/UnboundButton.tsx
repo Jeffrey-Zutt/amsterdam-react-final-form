@@ -1,5 +1,5 @@
 import React from "react"
-import { Button, themeSpacing } from "@datapunt/asc-ui"
+import { Button, themeSpacing } from "@amsterdam/asc-ui"
 import styled, { css } from "styled-components"
 import ComposedField, { ComposedFieldProps } from "./ComposedField"
 import { Responsive, responsiveProps } from "../layout/responsiveProps"

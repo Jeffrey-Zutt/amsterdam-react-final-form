@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, useCallback } from "react"
-import { themeColor, Spinner } from "@datapunt/asc-ui"
+import { themeColor, Spinner } from "@amsterdam/asc-ui"
 import styled from "styled-components"
 import { Form, FormProps } from "react-final-form"
 import { FormApi, SubmissionErrors } from "final-form"

@@ -1,5 +1,5 @@
 import React from "react"
-import { Select } from "@datapunt/asc-ui"
+import { Select } from "@amsterdam/asc-ui"
 import ComposedField, { ComposedFieldProps } from "./ComposedField"
 
 export type Props = {

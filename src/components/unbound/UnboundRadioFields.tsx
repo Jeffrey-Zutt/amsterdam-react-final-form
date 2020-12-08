@@ -1,6 +1,6 @@
 import React, { useCallback } from "react"
 import styled from "styled-components"
-import { Label as AscLabel, RadioGroup, Radio } from "@datapunt/asc-ui"
+import { Label as AscLabel, RadioGroup, Radio } from "@amsterdam/asc-ui"
 import ComposedField, { ComposedFieldProps } from "./ComposedField"
 
 const StyledRadio = styled(Radio)`

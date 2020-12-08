@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo } from "react"
 import { FieldArray, useFieldArray } from "react-final-form-arrays"
 import { useForm } from "react-final-form"
-import { TrashBin, Enlarge } from "@datapunt/asc-assets"
+import { TrashBin, Enlarge } from "@amsterdam/asc-assets"
 
 import Scaffold, { RenderEach, ScaffoldFields } from "../Scaffold/Scaffold"
 import { prefixNames } from "./utils/prefixNames"

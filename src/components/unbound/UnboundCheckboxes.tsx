@@ -1,5 +1,5 @@
 import React from "react"
-import { Label as AscLabel } from "@datapunt/asc-ui"
+import { Label as AscLabel } from "@amsterdam/asc-ui"
 import styled, { css } from "styled-components"
 import UnboundCheckbox from "./UnboundCheckbox"
 import ComposedField, { ComposedFieldProps } from "./ComposedField"

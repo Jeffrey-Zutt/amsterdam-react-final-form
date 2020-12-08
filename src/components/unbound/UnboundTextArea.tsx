@@ -1,5 +1,5 @@
 import React from "react"
-import { TextArea } from "@datapunt/asc-ui"
+import { TextArea } from "@amsterdam/asc-ui"
 import styled from "styled-components"
 import ComposedField, { ComposedFieldProps } from "./ComposedField"
 

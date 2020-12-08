@@ -1,6 +1,6 @@
 import styled, { css, SimpleInterpolation } from "styled-components"
 import { Responsive, responsiveProps }  from "./responsiveProps"
-import { themeSpacing } from "@datapunt/asc-ui"
+import { themeSpacing } from "@amsterdam/asc-ui"
 
 export type Dimensions = {
   row?: number,

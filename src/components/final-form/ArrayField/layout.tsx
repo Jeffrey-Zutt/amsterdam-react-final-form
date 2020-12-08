@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Button, themeSpacing } from "@datapunt/asc-ui"
+import { Button, themeSpacing } from "@amsterdam/asc-ui"
 
 export const RowButtonWrap = styled.div`
   position: relative;

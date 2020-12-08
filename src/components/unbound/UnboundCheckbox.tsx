@@ -1,4 +1,4 @@
-import { Checkbox } from "@datapunt/asc-ui"
+import { Checkbox } from "@amsterdam/asc-ui"
 import styled from "styled-components"
 import React, { useCallback } from "react"
 

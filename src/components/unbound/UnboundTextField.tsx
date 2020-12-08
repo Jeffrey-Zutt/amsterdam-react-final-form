@@ -1,5 +1,5 @@
 import React from "react"
-import { Input } from "@datapunt/asc-ui"
+import { Input } from "@amsterdam/asc-ui"
 import styled from "styled-components"
 
 import ComposedField, { ComposedFieldProps } from "./ComposedField"

@@ -1,7 +1,7 @@
 import { Form } from "react-final-form"
 import arrayMutators from "final-form-arrays"
 import React from "react"
-import { ThemeProvider } from "@datapunt/asc-ui"
+import { ThemeProvider } from "@amsterdam/asc-ui"
 
 export const wrapInForm = (
   onSubmit:jest.Mock,

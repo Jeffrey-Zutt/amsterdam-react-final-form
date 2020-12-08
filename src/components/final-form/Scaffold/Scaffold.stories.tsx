@@ -1,5 +1,5 @@
 import React from "react"
-import { Search, Close } from "@datapunt/asc-assets"
+import { Search, Close } from "@amsterdam/asc-assets"
 
 import Scaffold, { ScaffoldFields } from "./Scaffold"
 import ScaffoldField, { ScaffoldAvailableFields } from "./ScaffoldField"

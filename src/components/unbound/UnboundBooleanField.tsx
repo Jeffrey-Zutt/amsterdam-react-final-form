@@ -1,4 +1,4 @@
-import { Checkbox } from "@datapunt/asc-ui"
+import { Checkbox } from "@amsterdam/asc-ui"
 import React from "react"
 import styled from "styled-components"
 import ComposedField, { ComposedFieldProps } from "./ComposedField"

@@ -1,4 +1,4 @@
-import { Label as AscLabel, themeSpacing } from "@datapunt/asc-ui"
+import { Label as AscLabel, themeSpacing } from "@amsterdam/asc-ui"
 import styled, { css } from "styled-components"
 import React from "react"
 

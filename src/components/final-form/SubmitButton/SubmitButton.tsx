@@ -1,6 +1,6 @@
 import React from "react"
 import { useFormState } from "react-final-form"
-import { Spinner } from "@datapunt/asc-ui"
+import { Spinner } from "@amsterdam/asc-ui"
 
 import UnboundButton, { Props as UnboundButtonProps } from "../../unbound/UnboundButton"
 
