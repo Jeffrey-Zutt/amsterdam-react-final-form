@@ -14,7 +14,7 @@ const DebugFormState:React.FC = () => {
   return (
     <>
       <Pre>
-        // debug form state:
+        \/\/ debug form state:
       </Pre>
       <Pre>
         { JSON.stringify(form, null, 2) }

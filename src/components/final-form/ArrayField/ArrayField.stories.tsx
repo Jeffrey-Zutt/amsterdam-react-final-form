@@ -42,7 +42,7 @@ const Pre = styled.pre`
 
 export const Array = () =>
 <>
-  <Pre>// Voorbeeld van het scaffoldFields object </Pre>
+  <Pre>\/\/ Voorbeeld van het scaffoldFields object </Pre>
   <Pre>{ JSON.stringify(fields, null, 2) }</Pre>
   <ArrayField
     columns='1fr 1fr 1fr auto'
