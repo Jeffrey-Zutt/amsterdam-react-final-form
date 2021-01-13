@@ -188,3 +188,21 @@ Install dependencies:
 npm i amsterdam-react-final-form
 ```
 
+## Pulish the package to npm
+
+Merge any changes into master and pull master to your local machine.
+In the root folder do:
+```
+npm install
+```
+Then
+```
+./publish.sh
+```
+The package-versionnumber will automatically update.
+
+To use the latest package in your project, go to the root folder of your project and do 
+```
+npm install @amsterdam/amsterdam-react-final-form@latest
+```
+
