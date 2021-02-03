@@ -82,7 +82,6 @@ export const WithLabel = () => <ArrayField
   allowAdd={true}
   allowRemove={true}
   scaffoldFields={fields}
-  maxItems={5}
 />
 
 export const WithHint = () => <ArrayField
