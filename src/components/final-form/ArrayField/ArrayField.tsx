@@ -22,9 +22,10 @@ export type Props = {
 } & ComposedFieldProps
 
 const defaultRenderEach:RenderEach = (props, renderer) => renderer(props)
-let numField = 0
+const MIN_VALUE = 0
+const MAX_VALUE = 9999
 
-const ArrayField:React.FC<Props> = ({ label, columns, hint, position, align, name, scaffoldFields, renderEach, allowAdd = false, allowRemove, autoPosition = true, minItems = 0, maxItems }) => {
+const ArrayField:React.FC<Props> = ({ label, columns, hint, position, align, name, scaffoldFields, renderEach, allowAdd = false, allowRemove, autoPosition = true, minItems = MIN_VALUE, maxItems = MAX_VALUE }) => {
   const { mutators: { push } } = useForm()
   const { fields: { value } } = useFieldArray(name)
   
@@ -39,12 +40,11 @@ const ArrayField:React.FC<Props> = ({ label, columns, hint, position, align, nam
 
   useEffect(() => {
     const numExtraFields = minItems - (value?.length ?? 0)
-    numField = minItems - numExtraFields
+    const numField = minItems - numExtraFields
     for (let i = 0; i < numExtraFields; i++) {
       push(name, undefined)
     }
-    // setAllowAddToMax (true)
-    setAllowAddToMax (allowAdd && ( maxItems === undefined || (maxItems !== undefined && numField < maxItems)))
+    setAllowAddToMax (allowAdd && numField < maxItems)
   }, [minItems, name, push, value, allowAdd, maxItems])
 
   return <ComposedField label={label} hint={hint} position={position} align={align}>
@@ -71,7 +71,6 @@ const ArrayField:React.FC<Props> = ({ label, columns, hint, position, align, nam
     </FieldArray>
     { allowAddToMax && (
       <AddButtonWrap>
-        
         <StyledButton
           variant='tertiary'
           icon={<Enlarge />}
