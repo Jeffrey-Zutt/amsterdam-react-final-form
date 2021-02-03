@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react"
+import React, { useEffect, useMemo, useState } from "react"
 import { FieldArray, useFieldArray } from "react-final-form-arrays"
 import { useForm } from "react-final-form"
 import { TrashBin, Enlarge } from "@amsterdam/asc-assets"
@@ -16,15 +16,19 @@ export type Props = {
   allowAdd?: boolean,
   allowRemove?: boolean,
   minItems?: number,
+  maxItems?: number,
   scaffoldFields: ScaffoldFields,
   renderEach?: RenderEach
 } & ComposedFieldProps
 
 const defaultRenderEach:RenderEach = (props, renderer) => renderer(props)
+let numField = 0
 
-const ArrayField:React.FC<Props> = ({ label, columns, hint, position, align, name, scaffoldFields, renderEach, allowAdd, allowRemove, autoPosition = true, minItems = 0 }) => {
+const ArrayField:React.FC<Props> = ({ label, columns, hint, position, align, name, scaffoldFields, renderEach, allowAdd = false, allowRemove, autoPosition = true, minItems = 0, maxItems }) => {
   const { mutators: { push } } = useForm()
   const { fields: { value } } = useFieldArray(name)
+  
+  const [allowAddToMax, setAllowAddToMax] = useState(false)
 
   const positionedFields = useMemo(() =>
     Object
@@ -35,10 +39,13 @@ const ArrayField:React.FC<Props> = ({ label, columns, hint, position, align, nam
 
   useEffect(() => {
     const numExtraFields = minItems - (value?.length ?? 0)
+    numField = minItems - numExtraFields
     for (let i = 0; i < numExtraFields; i++) {
       push(name, undefined)
     }
-  }, [minItems, name, push, value])
+    // setAllowAddToMax (true)
+    setAllowAddToMax (allowAdd && ( maxItems === undefined || (maxItems !== undefined && numField < maxItems)))
+  }, [minItems, name, push, value, allowAdd, maxItems])
 
   return <ComposedField label={label} hint={hint} position={position} align={align}>
     <FieldArray name={name}>
@@ -62,8 +69,9 @@ const ArrayField:React.FC<Props> = ({ label, columns, hint, position, align, nam
           </Scaffold>
       ))}
     </FieldArray>
-    { allowAdd && (
+    { allowAddToMax && (
       <AddButtonWrap>
+        
         <StyledButton
           variant='tertiary'
           icon={<Enlarge />}

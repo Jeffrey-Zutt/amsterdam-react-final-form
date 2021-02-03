@@ -63,6 +63,18 @@ export const WithMinItems = () =>
     minItems={3}
   />
 
+  export const WithMaxItems = () =>
+  <ArrayField
+    columns='1fr 1fr 1fr auto'
+    label='Max 3 items'
+    name='myArray'
+    allowAdd={true}
+    allowRemove={true}
+    scaffoldFields={fields}
+    maxItems={3}
+
+  />
+
 export const WithLabel = () => <ArrayField
   columns='1fr 1fr 1fr auto'
   label='My label'
@@ -70,6 +82,7 @@ export const WithLabel = () => <ArrayField
   allowAdd={true}
   allowRemove={true}
   scaffoldFields={fields}
+  maxItems={5}
 />
 
 export const WithHint = () => <ArrayField
