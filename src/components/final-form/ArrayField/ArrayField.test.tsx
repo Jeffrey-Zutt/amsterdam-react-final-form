@@ -10,6 +10,7 @@ describe("ArrayField", () => {
     name="myArray"
     allowAdd={true}
     allowRemove={true}
+    maxItems={5}
     scaffoldFields={{
       foo: { type: "TextField", props: { name: "foo" } },
       bar: { type: "TextField", props: { name: "bar" } }
@@ -61,5 +62,51 @@ describe("ArrayField", () => {
         expect.anything()
       )
     })
+  })
+})
+
+describe("ArrayField", () => {
+  const component = <ArrayField
+    name="myArray"
+    allowAdd={true}
+    maxItems={3}
+    scaffoldFields={{
+      foo: { type: "TextField", props: { name: "foo" } },
+      bar: { type: "TextField", props: { name: "bar" } }
+    }}
+  />
+  it("should hide the add button when maxItems is reached", () => {
+    const mounted = mount(wrapInForm(jest.fn(), {}, component))
+    
+    mounted.find(Button).last().simulate("click")
+    mounted.find(Button).last().simulate("click")
+    mounted.find(Button).last().simulate("click")
+
+    expect(mounted.find(Button).length).toEqual(0)
+  })
+})
+
+describe("ArrayField", () => {
+  const component = <ArrayField
+    name="myArray"
+    allowAdd={true}
+    allowRemove={true}
+    maxItems={3}
+    scaffoldFields={{
+      foo: { type: "TextField", props: { name: "foo" } },
+      bar: { type: "TextField", props: { name: "bar" } }
+    }}
+  />
+  it("should hide the add button when maxItems is reached", () => {
+    const mounted = mount(wrapInForm(jest.fn(), {}, component))
+    
+    mounted.find(Button).last().simulate("click")
+    mounted.find(Button).last().simulate("click")
+    mounted.find(Button).last().simulate("click")
+
+    expect(mounted.find(Button).length).toEqual(3) //3 remove-buttons
+
+    mounted.find(Button).first().simulate("click")
+    expect(mounted.find(Button).length).toEqual(3) //2 remove-buttons and 1 add-button
   })
 })
