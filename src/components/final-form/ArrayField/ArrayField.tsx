@@ -23,7 +23,7 @@ export type Props = {
 
 const defaultRenderEach:RenderEach = (props, renderer) => renderer(props)
 
-const ArrayField:React.FC<Props> = ({ label, columns, hint, position, align, name, scaffoldFields, renderEach, allowAdd = false, allowRemove, autoPosition = true, minItems = Number.MIN_VALUE, maxItems = Number.MAX_VALUE }) => {
+const ArrayField:React.FC<Props> = ({ label, columns, hint, position, align, name, scaffoldFields, renderEach, allowAdd = false, allowRemove, autoPosition = true, minItems = 0, maxItems = Number.MAX_VALUE }) => {
   const { mutators: { push } } = useForm()
   const { fields: { value } } = useFieldArray(name)
 
