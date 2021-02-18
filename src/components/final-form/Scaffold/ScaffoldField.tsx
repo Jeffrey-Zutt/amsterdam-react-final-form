@@ -4,6 +4,7 @@ import ArrayField, { Props as ArrayFieldProps } from "../ArrayField/ArrayField"
 import BooleanField, { Props as BooleanProps } from "../BooleanField/BooleanField"
 import CheckboxFields, { Props as CheckboxProps } from "../CheckboxFields/CheckboxFields"
 import ComplexCheckboxFields, { Props as ComplexCheckboxProps } from "../CheckboxFields/ComplexCheckboxFields"
+import DateField, { Props as DateFieldProps } from "../DateField/DateField"
 import NumberField, { Props as NumberFieldProps } from "../NumberField/NumberField"
 import RadioFields, { Props as RadioFieldsProps } from "../RadioFields/RadioFields"
 import ComplexRadioFields, { Props as ComplexRadioFieldsProps } from "../RadioFields/ComplexRadioFields"
@@ -39,6 +40,11 @@ export type ScaffoldComplexCheckboxFieldsProps = {
 export type ScaffoldNumberFieldProps = {
   type: "NumberField"
   props: NumberFieldProps
+}
+
+export type ScaffoldDateFieldProps = {
+  type: "DateField"
+  props: DateFieldProps
 }
 
 export type ScaffoldRadioFieldsProps = {
@@ -91,6 +97,7 @@ export type ScaffoldAvailableFields =
   | ScaffoldBooleanProps
   | ScaffoldCheckboxFieldsProps
   | ScaffoldComplexCheckboxFieldsProps
+  | ScaffoldDateFieldProps
   | ScaffoldNumberFieldProps
   | ScaffoldRadioFieldsProps
   | ScaffoldComplexRadioFieldsProps
@@ -116,6 +123,8 @@ const ScaffoldField:React.FC<Props> = ({ field }) => {
       return <CheckboxFields {...field.props} />
     case "ComplexCheckboxFields":
       return <ComplexCheckboxFields {...field.props} />
+    case "DateField":
+      return <DateField {...field.props} />
     case "NumberField":
       return <NumberField {...field.props} />
     case "RadioFields":
