@@ -3,6 +3,7 @@
 import BooleanField from "./components/final-form/BooleanField/BooleanField"
 import CheckboxFields from "./components/final-form/CheckboxFields/CheckboxFields"
 import ComplexCheckboxFields from "./components/final-form/CheckboxFields/ComplexCheckboxFields"
+import DateField from "./components/final-form/DateField/DateField"
 import NumberField from "./components/final-form/NumberField/NumberField"
 import RadioFields from "./components/final-form/RadioFields/RadioFields"
 import ComplexRadioFields from "./components/final-form/RadioFields/ComplexRadioFields"
@@ -26,6 +27,7 @@ import Alert from "./components/unbound/Alert"
 import UnboundBooleanField from "./components/unbound/UnboundBooleanField"
 import UnboundCheckbox from "./components/unbound/UnboundCheckbox"
 import UnboundCheckboxes from "./components/unbound/UnboundCheckboxes"
+import UnboundDateField from "./components/unbound/UnboundDateField"
 import UnboundTextField from "./components/unbound/UnboundTextField"
 import UnboundRadioFields from "./components/unbound/UnboundRadioFields"
 import UnboundSelectField from "./components/unbound/UnboundSelectField"
@@ -54,6 +56,7 @@ export {
   BooleanField,
   CheckboxFields,
   ComplexCheckboxFields,
+  DateField,
   NumberField,
   RadioFields,
   ComplexRadioFields,
@@ -76,6 +79,7 @@ export {
   UnboundBooleanField,
   UnboundCheckbox,
   UnboundCheckboxes,
+  UnboundDateField,
   UnboundTextField,
   UnboundRadioFields,
   UnboundSelectField,
