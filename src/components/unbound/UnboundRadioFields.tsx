@@ -26,8 +26,8 @@ const UnboundRadioFields:React.FC<Props> = ({ name, horizontal, label, extraLabe
         { Object
           .entries(options)
           .map(([key, label]) => (
-            <AscLabel key={key} htmlFor={key} label={label}>
-              <Radio {...restProps} variant={variant} onChange={handleChange} error={!!error} id={key} data-e2e-id={key} name={name} value={key} checked={ value === key } />
+            <AscLabel key={key} htmlFor={`${ name }_${ key }`} label={label}>
+              <Radio {...restProps} variant={variant} onChange={handleChange} error={!!error} id={`${ name }_${ key }`} data-e2e-id={key} name={name} value={key} checked={ value === key } />
             </AscLabel>
           )) }
       </RadioGroup>
