@@ -1,4 +1,5 @@
 import React from "react"
+import Scaffold from "../Scaffold/Scaffold"
 import ComplexRadioFields from "./ComplexRadioFields"
 
 export default {
@@ -58,3 +59,8 @@ export const WithMultipleFields = () => <>
     ]}
   />
 </>
+
+export const SingleRadio = () => <Scaffold fields={{
+  field4: { type: "ComplexRadioFields", props: { label: "Single Radio", name: "field4", optionLabelField:"mySingleRadio", isRequired: true, options: [{ myLabel: "My Label 1", myValue: 1 }]} },
+  submit: { type: "SubmitButton", props: { label: "Submit" } }
+}} />

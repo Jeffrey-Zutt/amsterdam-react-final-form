@@ -32,7 +32,7 @@ function ComplexRadioFields<TYPE>({
   isRequired,
   ...restProps
 }:PropsWithChildren<Props<TYPE>>) {
-  const { input: { onChange, value }, meta } = useField<TYPE>(name, {
+  const { input: { onChange, value }, meta } = useField(name, {
     validate: composeValidation([
       isRequired && isRequiredValidator(),
       validate
