@@ -5,6 +5,8 @@ import UnboundRadioFields from "../../unbound/UnboundRadioFields"
 import { findIndex } from "../../../utils/findIndex"
 import { Responsive } from "../../layout/responsiveProps"
 import { Dimensions } from "../../layout/FormGridCell"
+import { composeValidation } from "../../../validators/composeValidation"
+import { isRequired as isRequiredValidator } from "../../../validators/isRequired"
 
 export type Props<TYPE> = {
   position?: Responsive<Dimensions>
@@ -15,6 +17,7 @@ export type Props<TYPE> = {
   validate?: FieldValidator<TYPE>,
   options: TYPE[]
   optionLabelField: keyof TYPE
+  isRequired?: boolean
 } & Omit<React.HTMLAttributes<HTMLInputElement>, "onChange">
 
 /**
@@ -26,10 +29,14 @@ function ComplexRadioFields<TYPE>({
   options,
   optionLabelField,
   validate,
+  isRequired,
   ...restProps
 }:PropsWithChildren<Props<TYPE>>) {
-  const { input: { onChange, value }, meta } = useField(name, {
-    validate
+  const { input: { onChange, value }, meta } = useField<TYPE>(name, {
+    validate: composeValidation([
+      isRequired && isRequiredValidator(),
+      validate
+    ])
   })
 
   const [mappedOptions, setMappedOptions] = useState({})
