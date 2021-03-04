@@ -6,7 +6,7 @@ export type Props = {
   options: Record<string, string>,
   value?: string,
   withEmptyOption?:boolean,
-  emptyOptionTitle?: string
+  emptyOptionLabel?: string
 } & ComposedFieldProps & React.InputHTMLAttributes<HTMLSelectElement>
 
 /**
@@ -22,7 +22,7 @@ const UnboundSelectField:React.FC<Props> = ({
   position,
   align,
   withEmptyOption,
-  emptyOptionTitle,
+  emptyOptionLabel,
   ...restProps
 }) => (
     <ComposedField
@@ -40,7 +40,7 @@ const UnboundSelectField:React.FC<Props> = ({
         data-e2e-id={restProps.id ?? restProps.name}
         {...restProps}
       >
-        { withEmptyOption && <option>{ emptyOptionTitle ?? "-" }</option> }
+        { withEmptyOption && <option>{ emptyOptionLabel ?? "-" }</option> }
         { Object.entries(options)
           .map(([key, label]) => (
             <option key={key} value={key}>

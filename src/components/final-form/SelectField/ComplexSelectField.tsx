@@ -19,7 +19,7 @@ export type Props<TYPE> = {
   optionLabelField: keyof TYPE
   optionKeyField?: keyof TYPE
   withEmptyOption?: boolean
-  emptyOptionTitle?: string
+  emptyOptionLabel?: string
   isRequired?: boolean
 } & React.HTMLAttributes<HTMLSelectElement>
 
