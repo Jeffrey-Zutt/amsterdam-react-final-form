@@ -6,7 +6,7 @@ export type Props = {
   options: Record<string, string>,
   value?: string,
   withEmptyOption?:boolean,
-  emptyOptionTitle: string
+  emptyOptionTitle?: string
 } & ComposedFieldProps & React.InputHTMLAttributes<HTMLSelectElement>
 
 /**
