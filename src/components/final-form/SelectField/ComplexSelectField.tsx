@@ -60,12 +60,14 @@ function ComplexSelectField<TYPE>({
     [onChange, options]
   )
 
+  const index = findIndex(options, value)
+
   return <UnboundSelectField
     name={name}
     error={meta.modified && meta.error}
     options={mappedOptions}
     onChange={handleChange}
-    value={findIndex(options, value).toString()}
+    value={ index > -1 ? index.toString() : undefined }
     {...restProps}
   />
 }
