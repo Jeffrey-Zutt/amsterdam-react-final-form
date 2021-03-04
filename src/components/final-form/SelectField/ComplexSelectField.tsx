@@ -56,7 +56,7 @@ function ComplexSelectField<TYPE>({
 
   // On change, map back to original object:
   const handleChange = useCallback(
-    (e) => { onChange(options[e.target.value]) },
+    (e) => onChange(options[e.target.value]),
     [onChange, options]
   )
 
