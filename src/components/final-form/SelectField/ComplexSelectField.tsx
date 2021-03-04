@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useCallback, useEffect, useState } from "react"
+import React, { PropsWithChildren, useCallback } from "react"
 import { useField } from "react-final-form"
 import { FieldValidator } from "final-form"
 import UnboundSelectField from "../../unbound/UnboundSelectField"
@@ -43,8 +43,6 @@ function ComplexSelectField<TYPE>({
     ])
   })
 
-  const [mappedOptions, setMappedOptions] = useState<Record<string, string>>()
-
   // We map complex objects in a 'simple' structure `UnboundSelectField` understands.
   //
   // E.g.
@@ -54,11 +52,7 @@ function ComplexSelectField<TYPE>({
   // { '0': 'foo', '1': 'bar' }
   //
   // Whenever a change happens, we map back to the original object and call onChange with it.
-
-  useEffect(
-    () => { setMappedOptions(options.reduce((acc, option, index) => ({ [index]: option[optionLabelField], ...acc }), {})) },
-    [ options, optionLabelField, setMappedOptions ]
-  )
+  const mappedOptions = options.reduce((acc, option, index) => ({ [index]: option[optionLabelField], ...acc }), {})
 
   // On change, map back to original object:
   const handleChange = useCallback(
@@ -66,14 +60,14 @@ function ComplexSelectField<TYPE>({
     [onChange, options]
   )
 
-  return mappedOptions ? <UnboundSelectField
+  return <UnboundSelectField
     name={name}
     error={meta.modified && meta.error}
     options={mappedOptions}
     onChange={handleChange}
     value={findIndex(options, value).toString()}
     {...restProps}
-  /> : null
+  />
 }
 
 export default ComplexSelectField
