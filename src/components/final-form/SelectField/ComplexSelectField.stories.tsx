@@ -44,6 +44,7 @@ export const WithEmptyOption = () => <ComplexSelectField<MyComplexDataStructure>
   name='myFieldName'
   optionLabelField='myLabel'
   withEmptyOption={true}
+  emptyOptionTitle="Empty first option"
   options={[
     { myLabel: "My Label 1", myValue: 1, something: { nested: { foo: true } }  },
     { myLabel: "My Label 2", myValue: 2, something: { nested: { foo: false } }  }
