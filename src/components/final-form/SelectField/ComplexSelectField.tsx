@@ -43,7 +43,7 @@ function ComplexSelectField<TYPE>({
     ])
   })
 
-  const [mappedOptions, setMappedOptions] = useState({})
+  const [mappedOptions, setMappedOptions] = useState<Record<string, string>>()
 
   // We map complex objects in a 'simple' structure `UnboundSelectField` understands.
   //
@@ -66,14 +66,14 @@ function ComplexSelectField<TYPE>({
     [onChange, options]
   )
 
-  return <UnboundSelectField
+  return mappedOptions ? <UnboundSelectField
     name={name}
     error={meta.modified && meta.error}
     options={mappedOptions}
     onChange={handleChange}
     value={findIndex(options, value).toString()}
     {...restProps}
-  />
+  /> : null
 }
 
 export default ComplexSelectField
