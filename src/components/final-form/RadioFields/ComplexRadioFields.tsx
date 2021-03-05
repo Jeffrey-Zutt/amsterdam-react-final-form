@@ -1,5 +1,5 @@
 import { FieldValidator } from "final-form"
-import React, { PropsWithChildren, useCallback, useEffect, useState } from "react"
+import React, { PropsWithChildren, useCallback } from "react"
 import { useField } from "react-final-form"
 import UnboundRadioFields from "../../unbound/UnboundRadioFields"
 import { findIndex } from "../../../utils/findIndex"
@@ -39,8 +39,6 @@ function ComplexRadioFields<TYPE>({
     ])
   })
 
-  const [mappedOptions, setMappedOptions] = useState({})
-
   // We map complex objects in a 'simple' structure `UnboundRadioFields` understands.
   //
   // E.g.
@@ -50,11 +48,7 @@ function ComplexRadioFields<TYPE>({
   // { '0': 'foo', '1': 'bar' }
   //
   // Whenever a change happens, we map back to the original object and call onChange with it.
-
-  useEffect(
-    () => { setMappedOptions(options.reduce((acc, option, index) => ({ ...acc, [index]: option[optionLabelField] }), {})) },
-    [ options, optionLabelField, setMappedOptions ]
-  )
+  const mappedOptions =  options.reduce((acc, option, index) => ({ ...acc, [index]: option[optionLabelField] }), {})
 
   // On change, map back to original object:
   const handleChange = useCallback(
