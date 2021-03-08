@@ -1,5 +1,5 @@
 import { FieldValidator } from "final-form"
-import React, { PropsWithChildren, useCallback, useEffect, useState } from "react"
+import React, { PropsWithChildren, useCallback } from "react"
 import { useField } from "react-final-form"
 import { findIndexes } from "../../../utils/findIndex"
 import { UnboundCheckboxes } from "../../unbound/UnboundCheckboxes"
@@ -49,13 +49,7 @@ function ComplexCheckboxFields<TYPE>({
   // { '0': 'foo', '1': 'bar' }
   //
   // Whenever a change happens, we map back to the original objects and call onChange with them.
-
-  const [mappedOptions, setMappedOptions] = useState({})
-
-  useEffect(
-    () => { setMappedOptions(options.reduce((acc, option, index) => ({ ...acc, [index]: option[optionLabelField] }), {})) },
-    [ options, optionLabelField, setMappedOptions ]
-  )
+  const mappedOptions = options.reduce((acc, option, index) => ({ ...acc, [index]: option[optionLabelField] }), {})
 
   // On change, map back to original objects:
   const handleChange = useCallback(
