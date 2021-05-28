@@ -11,6 +11,7 @@ import SelectField from "./components/final-form/SelectField/SelectField"
 import ComplexSelectField from "./components/final-form/SelectField/ComplexSelectField"
 import TextAreaField from "./components/final-form/TextAreaField/TextAreaField"
 import TextField from "./components/final-form/TextField/TextField"
+import TelField from "./components/final-form/TelField/TelField"
 import Scaffold from "./components/final-form/Scaffold/Scaffold"
 import ScaffoldField from "./components/final-form/Scaffold/ScaffoldField"
 import ScaffoldForm from "./components/final-form/Scaffold/ScaffoldForm"
@@ -62,6 +63,7 @@ export {
   ComplexRadioFields,
   SelectField,
   ComplexSelectField,
+  TelField,
   TextAreaField,
   TextField,
 

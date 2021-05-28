@@ -12,6 +12,7 @@ import SelectField, { Props as SelectFieldProps } from "../SelectField/SelectFie
 import ComplexSelectField, { Props as ComplexSelectFieldProps } from "../SelectField/ComplexSelectField"
 import TextAreaField, { Props as TextAreaFieldProps } from "../TextAreaField/TextAreaField"
 import TextField, { Props as TextFieldProps } from "../TextField/TextField"
+import TelField, { Props as TelFieldProps } from "../TelField/TelField"
 import Button, { Props as ButtonProps } from "../Button/Button"
 import ResetButton from "../ResetButton/ResetButton"
 import SubmitButton from "../SubmitButton/SubmitButton"
@@ -77,6 +78,11 @@ export type ScaffoldTextFieldProps = {
   props: TextFieldProps
 }
 
+export type ScaffoldTelFieldProps = {
+  type: "TelField"
+  props: TelFieldProps
+}
+
 export type ScaffoldButtonProps = {
   type: "Button"
   props: ButtonProps
@@ -105,6 +111,7 @@ export type ScaffoldAvailableFields =
   | ScaffoldComplexSelectFieldProps
   | ScaffoldTextAreaFieldProps
   | ScaffoldTextFieldProps
+  | ScaffoldTelFieldProps
   | ScaffoldButtonProps
   | ScaffoldResetButtonProps
   | ScaffoldSubmitButtonProps
@@ -143,6 +150,8 @@ const ScaffoldField:React.FC<Props> = ({ field }) => {
       return <ResetButton {...field.props} />
     case "SubmitButton":
       return <SubmitButton {...field.props} />
+    case "TelField":
+      return <TelField {...field.props} />
     case "TextField":
     default:
       return <TextField {...field.props} />
