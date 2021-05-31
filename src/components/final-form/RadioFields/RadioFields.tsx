@@ -7,10 +7,7 @@ import { Dimensions } from "../../layout/FormGridCell"
 import { isRequired as isRequiredValidator } from "../../../validators/isRequired"
 import { composeValidation } from "../../../validators/composeValidation"
 
-type RadioProps =  React.ComponentProps<typeof UnboundRadioFields>
-
 export type Props = {
-  variant?: RadioProps["variant"]
   position?: Responsive<Dimensions>
   label?: string
   extraLabel?: string | JSX.Element
