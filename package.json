@@ -12,9 +12,8 @@
     "storybook:build": "build-storybook -s public -o docs",
     "lint": "eslint --cache --ext .ts,.tsx src",
     "lint:fix": "npm run lint -- --fix",
-    "build": "rm -Rf ./dist && tsc ./src/index.ts --strict --esModuleInterop --declaration --skipLibCheck --jsx react --outDir dist && cp ./package.json ./dist/package.json",
-    "postinstall": "rm -Rf ./node_modules/@datapunt/asc-assets/es; rm -Rf ./node_modules/@datapunt/asc-ui/es; rm -Rf node_modules/@datapunt/asc-ui/node_modules/@datapunt/asc-assets/es;",
-    "prepare": "husky install"
+    "build": "rm -Rf ./dist && tsc ./src/index.ts --strict --esModuleInterop --declaration --skipLibCheck --jsx react --outDir dist && cp ./package.json ./dist/",
+    "postinstall": "husky install"
   },
   "eslintConfig": {
     "extends": "react-app"
