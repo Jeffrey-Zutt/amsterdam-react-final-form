@@ -64,22 +64,21 @@ const generateDimensionsCss = (position:Dimensions, rowOffset:number) => {
 }
 
 const FormGridCell = styled.div<FormGridCellProps>`
-  
 
   margin: ${ themeSpacing(1) } ${ themeSpacing(2) };
-  ${ props => props.rowOffset !== undefined && css`
+  ${ ({ rowOffset }) => rowOffset !== undefined && css`
     display: flex;
     flex-direction: column;
-    margin-bottom: ${ themeSpacing(3) };`  
+    margin-bottom: ${ themeSpacing(5) };`
   }
-       
-  align-self: ${ props => props.rowOffset === undefined ? "end" : "initial" };
-  -ms-grid-row-align: ${ props => props.rowOffset === undefined ? "end" : "initial" };
-  
-  ${ (props:FormGridCellProps) => responsiveProps(props, { 
+
+  align-self: ${ ({ rowOffset }) => rowOffset === undefined ? "end" : "initial" };
+  -ms-grid-row-align: ${ ({ rowOffset }) => rowOffset === undefined ? "end" : "initial" };
+
+  ${ (props: FormGridCellProps) => responsiveProps(props, {
     "align": unit => css`text-align: ${ unit };`,
-    "position": unit => generateDimensionsCss(unit, props.rowOffset ?? 0) 
-  } ) } 
+    "position": unit => generateDimensionsCss(unit, props.rowOffset ?? 0)
+  } ) }
 `
 FormGridCell.displayName = "FormGridCell"
 
