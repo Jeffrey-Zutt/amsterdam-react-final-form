@@ -14,8 +14,8 @@ const StyledTextArea = styled(TextArea)`
  * Renders a TEXTAREA field that is not bound to final-form.
  */
 
-const UnboundTextArea:React.FC<Props> = ({ label, extraLabel, hint, error, position, align, ...otherProps }) =>
-  <ComposedField id={otherProps.id ?? otherProps.name} extraLabel={extraLabel} label={label} hint={hint} error={error} position={position} align={align}>
+const UnboundTextArea:React.FC<Props> = ({ label, extraLabel, extraLabelAlign, hint, error, position, align, ...otherProps }) =>
+  <ComposedField id={otherProps.id ?? otherProps.name} extraLabel={extraLabel} extraLabelAlign={extraLabelAlign} label={label} hint={hint} error={error} position={position} align={align}>
       <StyledTextArea
         id={otherProps.id ?? otherProps.name}
         data-e2e-id={otherProps.id ?? otherProps.name}

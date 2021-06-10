@@ -91,6 +91,14 @@ const scaffoldTextField:ScaffoldAvailableFields = {
   type: "TextField",
   props: { name: "myTextField", label: "Text Field", position: { column: 0, row: 7 } }
 }
+const scaffoldTextFieldExtraLabelLeft:ScaffoldAvailableFields = {
+  type: "TextField",
+  props: { name: "myTextField", label: "Text Field", extraLabel: "extra label left", position: { column: 0, row: 7 } }
+}
+const scaffoldTextFieldExtraLabelRight:ScaffoldAvailableFields = {
+  type: "TextField",
+  props: { name: "myTextField", label: "Text Field", extraLabel: "extra label right", extraLabelAlign: "right", position: { column: 0, row: 7 } }
+}
 
 const fields:ScaffoldFields = {
   "boolean": scaffoldBooleanProps,
@@ -110,6 +118,8 @@ export const SingleRadioFields = () => <ScaffoldField field={scaffoldRadioFields
 export const SingleSelectField = () => <ScaffoldField field={scaffoldSelectField} />
 export const SingleTextAreaField = () => <ScaffoldField field={scaffoldTextAreaField} />
 export const SingleTextField = () => <ScaffoldField field={scaffoldTextField} />
+export const SingleTextFieldExtraLabelLeft = () => <ScaffoldField field={scaffoldTextFieldExtraLabelLeft} />
+export const SingleTextFieldExtraLabelRight = () => <ScaffoldField field={scaffoldTextFieldExtraLabelRight} />
 
 export const MultipleFields = () => <Scaffold fields={fields} />
 

@@ -12,6 +12,7 @@ export type Props = {
   position?: Responsive<Dimensions>
   label?: string
   extraLabel?: string | JSX.Element
+  extraLabelAlign?: "left" | "right"
   hint?: string|JSX.Element,
   validate?: FieldValidator<boolean>
   isRequired?: boolean
