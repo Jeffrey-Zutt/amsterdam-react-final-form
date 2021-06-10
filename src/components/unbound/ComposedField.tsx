@@ -8,7 +8,7 @@ export type ComposedFieldProps = {
   id?:string
   label?: string
   extraLabel?: string | JSX.Element
-  extraLabelAlign?: string
+  extraLabelAlign?: "left" | "right"
   hint?: string|JSX.Element
   error?: string
 } & Omit<FormGridCellProps, "rowOffset">

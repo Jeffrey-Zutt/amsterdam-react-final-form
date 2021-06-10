@@ -13,7 +13,7 @@ export type Props<TYPE> = {
   position?: Responsive<Dimensions>
   label?: string
   extraLabel?: string | JSX.Element
-  extraLabelAlign?: string
+  extraLabelAlign?: "left" | "right"
   hint?: string|JSX.Element,
   name: string
   validate?: FieldValidator<TYPE[]>,

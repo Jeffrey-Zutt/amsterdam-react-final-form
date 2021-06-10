@@ -5,7 +5,7 @@ import React from "react"
 type Props = {
   label?: string
   extraLabel?: string | JSX.Element
-  extraLabelAlign?: string
+  extraLabelAlign?: "left" | "right"
   htmlFor?:string
 }
 

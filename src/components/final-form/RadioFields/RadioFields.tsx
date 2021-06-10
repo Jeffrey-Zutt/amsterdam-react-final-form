@@ -11,7 +11,7 @@ export type Props = {
   position?: Responsive<Dimensions>
   label?: string
   extraLabel?: string | JSX.Element
-  extraLabelAlign?: string
+  extraLabelAlign?: "left" | "right"
   hint?: string|JSX.Element,
   name: string
   options: Record<string, string>
