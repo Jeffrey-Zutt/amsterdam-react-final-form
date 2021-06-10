@@ -16,6 +16,7 @@ export type Props = {
 const UnboundSelectField:React.FC<Props> = ({
   label,
   extraLabel,
+  extraLabelAlign,
   hint,
   options,
   error,
@@ -29,6 +30,7 @@ const UnboundSelectField:React.FC<Props> = ({
       id={restProps.id ?? restProps.name}
       label={label}
       extraLabel={extraLabel}
+      extraLabelAlign={extraLabelAlign}
       hint={hint}
       error={error}
       position={position}

@@ -12,6 +12,7 @@ export type Props = {
   name: string
   label?: string
   extraLabel?: string | JSX.Element
+  extraLabelAlign?: string
   hint?: string|JSX.Element,
   validate?: FieldValidator<string>,
   options: Record<string, string>,
